@@ -1,0 +1,19 @@
+/* Separator */
+.spacer,
+.spacer:empty,
+.separator,
+.separator:empty {
+    display: block;
+    clear: both;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 10px;
+
+    background-image: url("#{$img-dir}/components/separator.png");
+    background-repeat: repeat-x;
+}
+
+.spacer,
+.spacer:empty {
+    background-image: none;
+}

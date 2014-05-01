@@ -1,0 +1,95 @@
+{% load i18n %}
+{% load i18n_pages %}
+
+<div class="container">
+    <div class="row">
+        <div class="span3">
+            <h4>{% trans "Navigation" %}</h4>
+            <ul class="unstyled">
+                <li><a href="{% url 'blog' %}">{% trans "Blog" %}</a></li>
+
+                {% i18npage /calendar/ %}
+                {% if found_page %}
+                    <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
+                {% endif %}
+                {% endi18npage %}
+
+                {% i18npage /about/ %}
+                {% if found_page %}
+                    <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
+                {% endif %}
+                {% endi18npage %}
+
+                {% i18npage /sponsorship/ %}
+                {% if found_page %}
+                    <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
+                {% endif %}
+                {% endi18npage %}
+
+                {% i18npage /credits/ %}
+                {% if found_page %}
+                    <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
+                {% endif %}
+                {% endi18npage %}
+
+                <li><a href="{% url 'contact' %}">{% trans "Contact us" %}</a></li>
+                <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
+            </ul>
+        </div>
+
+        <div class="span4">
+            <h4>{% trans "Our social presence" %}</h4>
+            <ul class="unstyled">
+                <li><a target="_blank" rel="external" href="//facebook.com/montrealpython">{% trans "Facebook" %}</a></li>
+                <li><a target="_blank" rel="external" href="//twitter.com/mtlpy">{% trans "Twitter" %}</a></li>
+                <li><a target="_blank" rel="external" href="//plus.google.com/101800773149455075847/">{% trans "Google +" %}</a></li>
+                <li><a target="_blank" rel="external" href="//instagram.com/mtlpy">{% trans "Instagram" %}</a></li>
+                <li><a target="_blank" rel="external" href="//www.eventbrite.ca/org/3398883799">{% trans "Eventbrite" %}</a></li>
+                <li><a target="_blank" rel="external" href="//www.youtube.com/user/MontrealPython">{% trans "Youtube" %}</a></li>
+            </ul>
+        </div>
+
+        <div class="span5">
+            <h4>{% trans "Join our mailing list" %}</h4>
+            <p><i>{% trans "Get updates the old fashion way" %}</i></p>
+            <a class="btn btn-success btn-large" href="https://groups.google.com/forum/#!forum/montrealpython/join">{% trans "Join our mailing list" %}</a>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="row">
+        <div class="span12 text-center muted">
+          <p>
+            <small>
+              <a href="{% url 'feed' %}">
+                <img src="{{ STATIC_URL }}/img/rss_blog.gif" />
+              </a>
+            </small>
+            <small>
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />This work by <a xmlns:cc="http://creativecommons.org/ns#" href="www.montrealpython.org" property="cc:attributionName" rel="cc:attributionURL">www.montrealpython.org</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="www.montrealpython.org" rel="dct:source">www.montrealpython.org</a>.
+            </small>
+          </p>
+          <p>
+            <small>{% trans "&copy; Montréal-Python 2013" %}</small>
+          </p>
+        </div>
+    </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=401069396588004";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    {% if GOOGLE_ANALYTICS %}
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      _uacct = "{{ GOOGLE_ANALYTICS }}";
+      urchinTracker();
+    </script>
+    {% endif %}
+</div>

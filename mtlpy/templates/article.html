@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main_title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+
+{% block title %}{{ article.title|striptags }}{% endblock %}
+
+{% block content %}
+<section id="content" class="body">
+    <article>
+        <div class="row">
+            <div class="span8">
+                {{ article.html_content|safe }}
+            </div>
+
+            {% include 'article_infos.html' %}
+        </div>
+
+        {% if DISQUS_SITENAME %}
+            <div class="comments">
+                <h2>{% trans 'Comments !' %}</h2>
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_identifier = "{{ article.url }}";
+                    (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+            </div>
+        {% endif %}
+
+    </article>
+</section>
+{% endblock %}

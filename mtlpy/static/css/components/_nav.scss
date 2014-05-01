@@ -1,0 +1,53 @@
+
+
+.nav {
+
+    a {
+        background-color: #dddbd9;
+        color: #4b4b4b;
+    }
+
+    // Disabled
+    // ++++++++++++++
+    > &.disabled {
+        opacity: .7;
+        > a:hover { background-color: #dddbd9; }
+    }
+
+    // Active
+    // ++++++++++++++
+    &.active {
+
+    }
+
+}
+
+// Adds the btn close in the right side
+// ++++++++++++++
+.nav-pills--add:after,
+.nav-pills--close:after {
+    background-color: #eb756d;
+    color: white;
+
+    content: '\00D7';
+    display: inline-block;
+    width: 28px;
+    line-height: 27px;
+    border-radius: 50%;
+    margin-left: 5px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+// Adds the btn add in the right side
+// ++++++++++++++
+.nav-pills--add:after {
+    background-color: #eeedea;
+    content: '\002B';
+    color: #4b4b4b;
+
+    &:hover {
+        background-color: #dddbd9;
+    }
+}

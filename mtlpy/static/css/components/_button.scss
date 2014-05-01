@@ -1,0 +1,16 @@
+// Buttons
+// ==========================
+.btn {
+    border-radius: 0px;
+    background-image: none;
+    box-shadow: none;
+    color: white !important;
+
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.btn-large {
+    border: 0;
+    font-size: 12px; // I hate not using REM
+}

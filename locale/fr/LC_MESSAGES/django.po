@@ -1,0 +1,491 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mtlpy-django 0.1.dev0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-10 21:16-0500\n"
+"PO-Revision-Date: 2013-05-06 10:00-0400\n"
+"Last-Translator: Éric Araujo <aeric@mtlpy.org>\n"
+"Language-Team: MP team <mtlpyteam@googlegroups.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: mtlpy/models.py:11 mtlpy/templates/sponsorship.html:102
+msgid "Gold"
+msgstr "Or"
+
+#: mtlpy/models.py:12 mtlpy/templates/sponsorship.html:101
+msgid "Silver"
+msgstr "Argent"
+
+#: mtlpy/models.py:13
+msgid "Bronze"
+msgstr "Bronze"
+
+#: mtlpy/views.py:45
+#, fuzzy, python-format
+msgid ""
+"From: %(name)s\n"
+"\n"
+"Message: %(message)s"
+msgstr ""
+"De: %s\n"
+"\n"
+"Message: %s"
+
+#: mtlpy/views.py:49
+msgid "Message from MontrealPython.org contact form"
+msgstr "Message du formualire de contact de MontrealPython.org"
+
+#: mtlpy/blog/models.py:59
+msgid "Draft"
+msgstr "Brouillon"
+
+#: mtlpy/blog/models.py:60
+msgid "Published"
+msgstr "Publié"
+
+#: mtlpy/blog/models.py:111
+msgid "Need a valid publish date before publishing"
+msgstr "Une date valide est nécessaire avant la publication"
+
+#: mtlpy/blog/models.py:125
+msgid "Categories"
+msgstr "Catégorie"
+
+#: mtlpy/pages/admin.py:20
+msgid "Advanced options"
+msgstr "Options avancées"
+
+#: mtlpy/templates/article.html:19
+msgid "Comments !"
+msgstr "Commentaires !"
+
+#: mtlpy/templates/article_infos.html:11
+#: mtlpy/templates/inc/article_list.html:74
+msgid "Author"
+msgstr "Auteur"
+
+#: mtlpy/templates/article_infos.html:16
+msgid "Category :"
+msgstr "Catégorie :"
+
+#: mtlpy/templates/article_infos.html:31
+msgid "Sponsors :"
+msgstr "Nos commanditaires"
+
+#: mtlpy/templates/base.html:46 mtlpy/templates/inc/footer.html:9
+#: mtlpy/templates/inc/menu.html:15
+msgid "Blog"
+msgstr "Blog"
+
+#: mtlpy/templates/base.html:72 mtlpy/templates/index.html:44
+#: mtlpy/templates/videos.html:4 mtlpy/templates/inc/footer.html:30
+msgid "Videos"
+msgstr "Vidéos"
+
+#: mtlpy/templates/calendar.html:5
+msgid "Montreal Python Calendar"
+msgstr "Calendrier Montréal-Python"
+
+#: mtlpy/templates/category.html:6
+msgid "Category"
+msgstr "Catégorie"
+
+#: mtlpy/templates/category.html:8
+msgid "Montreal Python Blog"
+msgstr "Blogue de Montréal Python"
+
+#: mtlpy/templates/category.html:16 mtlpy/templates/category.html.py:34
+msgid "previous"
+msgstr "précédent"
+
+#: mtlpy/templates/category.html:20 mtlpy/templates/category.html.py:38
+#, python-format
+msgid "Page %(number)s of %(num_pages)s."
+msgstr "Page %(number)s de %(num_pages)s."
+
+#: mtlpy/templates/category.html:24 mtlpy/templates/category.html.py:42
+msgid "next"
+msgstr "suivant"
+
+#: mtlpy/templates/contact.html:8
+msgid "Contacts"
+msgstr "Contacts"
+
+#: mtlpy/templates/contact.html:12
+msgid "Your message has been sent."
+msgstr "Votre messsage a été envoyé"
+
+#: mtlpy/templates/contact.html:17
+msgid "Contact us with the form below or by emailing "
+msgstr ""
+"Contactez-nous en utilisant le formulaire suivant ou en nous écrivant un "
+"courriel"
+
+#: mtlpy/templates/contact.html:23
+msgid "Votre nom"
+msgstr "Votre nom"
+
+#: mtlpy/templates/contact.html:26
+msgid "Votre email"
+msgstr "Votre courriel"
+
+#: mtlpy/templates/contact.html:31
+msgid "Votre projet"
+msgstr "Votre projet"
+
+#: mtlpy/templates/contact.html:35
+msgid "Envoyez"
+msgstr "Envoyez"
+
+#: mtlpy/templates/index.html:13
+msgid "Snakes"
+msgstr "Serpents"
+
+#: mtlpy/templates/index.html:22 mtlpy/templates/index.html.py:25
+msgid "Events"
+msgstr "Événements"
+
+#: mtlpy/templates/index.html:26
+msgid "Details on all our events"
+msgstr "Information sur tous nos événements"
+
+#: mtlpy/templates/index.html:31
+msgid "Workshop"
+msgstr "Ateliers"
+
+#: mtlpy/templates/index.html:34
+msgid "Workshops"
+msgstr "Ateliers"
+
+#: mtlpy/templates/index.html:35
+msgid "Come share our passion for Python"
+msgstr "Venez partager notre passion pour Python"
+
+#: mtlpy/templates/index.html:41
+msgid "Video"
+msgstr "Vidéo"
+
+#: mtlpy/templates/index.html:46
+msgid "Watch presentations on Python"
+msgstr "Regardez des présentations sur Python"
+
+#: mtlpy/templates/index.html:63
+msgid "Learn more."
+msgstr "En savoir plus"
+
+#: mtlpy/templates/index.html:74
+msgid "Our Sponsors"
+msgstr "Nos commanditaires"
+
+#: mtlpy/templates/mtlpy.html:5 mtlpy/templates/inc/menu.html:17
+msgid "About Montreal Python"
+msgstr "À propos de Montréal-Python"
+
+#: mtlpy/templates/sponsorship.html:5
+msgid "Montreal Python Sponsorship"
+msgstr "Commanditer Montréal-Python"
+
+#: mtlpy/templates/sponsorship.html:14
+msgid ""
+"<em>Montréal-Python</em>\n"
+"  <a href=\"http://montrealpython.org/\" target=\"_blank\">(montrealpython."
+"org)</a>\n"
+"  is a group for the users of the Python programing language in Montréal "
+"area.\n"
+"  Our goal is to build a strong local community by putting\n"
+"  together programmers, project leaders, artists and service\n"
+"  providers."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:22
+msgid ""
+"Our main event is the <em>Montréal-Python</em> mini-conference that occurs "
+"every 4 to\n"
+"  6 weeks.  Every mini-conference last 2 to 3 hours in the evening; it\n"
+"  features a number of quick 5- minute \"flash presentations\" and a main\n"
+"  presentation that lasts from 45 to 60 minutes."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:28
+msgid ""
+"All presentations are technical in nature and at least loosely\n"
+"  related to the Python programming language <a href=\"http://python.org\" "
+"target=\"_blank\">(http://python.org)</a>.\n"
+"  They include tutorials, demonstrations, success stories and general "
+"commentaries on the tools and aspects of the language."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:33
+msgid "PyCon 2014 and 2015"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:36
+msgid ""
+"In 2011 members of Montréal Python flew to Atlanta, Georia to\n"
+"  attend PyCon — the premiere Python conference attended by over\n"
+"  1,400 of the best Python programmers from companies around the\n"
+"  world.  We placed a bid to bring PyCon to Montréal for 2014 and\n"
+"  2015 and won with enthusiastic support from the Python Software\n"
+"  Foundation."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:44
+msgid ""
+"So from now up through then, the activities Montréal Python\n"
+"  will enter into an international Python spotlight; both our own\n"
+"  exposure and that of our sponsors will be tremendously\n"
+"  amplified."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:50
+msgid "Who goes there?"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:53
+msgid ""
+"The audience is certainly technical; many top Montréal programmers will see\n"
+"  each other at the events. Others are newcomers to the language or just\n"
+"  generally geeky people who are interested in technology. The crowd "
+"contains\n"
+"  several CTOs, lead developers and other strategic decision takers from "
+"both\n"
+"  startups as well as other established IT organisations from the Montréal\n"
+"  area."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:61
+msgid ""
+"The number of people attending the <em>Montréal-Python</em> presentations is "
+"usually\n"
+"  between 40 and 60 — with more people showing up at every event. "
+"Consistently,\n"
+"  most of the attendees enjoy their time and come back event after event."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:66
+msgid "Why sponsor <em>Montréal-Python</em>?"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:69
+msgid ""
+"We have a strong commitment to the exposure of our sponsors. Sponsorships\n"
+"  helps us to keep the events free of charge which is a key point of our\n"
+"  succes."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:74
+msgid "By sponsoring <em>Montréal-Python</em>, you will:"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:78
+msgid "Foster the growth of a healthy local community;"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:81
+msgid ""
+"Make yourself known to top programmers, lead developers and very smart\n"
+"    people who might be interested in working for you — now\n"
+"    or later;"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:86
+msgid ""
+"Gain visibility for both recruiting and promotion of your product and\n"
+"    services: banners, quick introduction, etc.;"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:90
+msgid ""
+"Increase your profile in this very smart community of leaders in their\n"
+"    fields."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:95
+#, fuzzy
+msgid "Sponsorship Levels"
+msgstr "Commandites"
+
+#: mtlpy/templates/sponsorship.html:100
+msgid "Benefits"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:103
+msgid "Platinum"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:108
+msgid "Mention in all blog posts and mailings"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:114
+msgid "Blog post describing your company (500 words)"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:121
+msgid "Banner displayed at the meetup"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:123
+msgid "2x4 banner"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:124 mtlpy/templates/sponsorship.html:125
+msgid "4x8 banner + table"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:129
+msgid "Banner on"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:132
+msgid "month"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:133 mtlpy/templates/sponsorship.html:134
+msgid "months"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:137
+msgid "Price"
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:145
+#, fuzzy
+msgid "Faceted Sponsorship"
+msgstr "Commanditer Montréal-Python"
+
+#: mtlpy/templates/sponsorship.html:148
+msgid ""
+"In addition to the \"packaged\" sponsorships listed below, we encourage\n"
+"  sponsoring aspects of the meetups. For example, at each event we provide\n"
+"  beverages and snacks for attendees, and, standard <em>Montréal-Python</em> "
+"tradition\n"
+"  we all gather at a nearby pub for beers after the formal presentations."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:154
+#, python-format
+msgid ""
+"The standard process for faceted sponsorship is as follows: you propose the\n"
+"  aspect you wish to sponsor as well as the amount you are willing to "
+"provide.\n"
+"  The amount you sponsor will be adjusted by 30%% to cover any additional\n"
+"  costs; if you propose $100 for a round of drinks, you will be paying for "
+"$70\n"
+"  of beers."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:161
+msgid ""
+"Depending on the number of sponsors, we may set a minimum amount to ensure\n"
+"  full supplies."
+msgstr ""
+
+#: mtlpy/templates/sponsorship.html:165
+msgid "Custom Sponsorships"
+msgstr "Nos commanditaires"
+
+#: mtlpy/templates/inc/article_list.html:58
+#, python-format
+msgid "Permalink to %(article.title)s"
+msgstr "Lien permanent vers %(article.title)s"
+
+#: mtlpy/templates/inc/article_list.html:65
+msgid "Category:"
+msgstr "Catégorie:"
+
+#: mtlpy/templates/inc/footer.html:7
+msgid "Navigation"
+msgstr "Navigation"
+
+#: mtlpy/templates/inc/footer.html:29
+msgid "Contact us"
+msgstr "Nous contacter"
+
+#: mtlpy/templates/inc/footer.html:35
+msgid "Our social presence"
+msgstr "Réseaux sociaux"
+
+#: mtlpy/templates/inc/footer.html:37
+msgid "Facebook"
+msgstr "Facebook"
+
+#: mtlpy/templates/inc/footer.html:38
+msgid "Twitter"
+msgstr "Twitter"
+
+#: mtlpy/templates/inc/footer.html:39
+msgid "Google +"
+msgstr "Google +"
+
+#: mtlpy/templates/inc/footer.html:40
+msgid "Instagram"
+msgstr "Instagram"
+
+#: mtlpy/templates/inc/footer.html:41
+msgid "Eventbrite"
+msgstr "Événements"
+
+#: mtlpy/templates/inc/footer.html:42
+msgid "Youtube"
+msgstr "Youtube"
+
+#: mtlpy/templates/inc/footer.html:47 mtlpy/templates/inc/footer.html.py:49
+msgid "Join our mailing list"
+msgstr "Rejoignez la liste de discussion"
+
+#: mtlpy/templates/inc/footer.html:48
+msgid "Get updates the old fashion way"
+msgstr "Recevez de nos nouvelles de la bonne vielle façon"
+
+#: mtlpy/templates/inc/footer.html:58
+msgid "This work by"
+msgstr "Ce travail par"
+
+#: mtlpy/templates/inc/footer.html:58
+msgid "is licensed under a"
+msgstr "est sous license"
+
+#: mtlpy/templates/inc/footer.html:58
+msgid "Based on a work at"
+msgstr "Basé sur le travail de"
+
+#: mtlpy/templates/inc/footer.html:59
+msgid "&copy; Montréal-Python 2013"
+msgstr "&copy; Montréal-Python 2013"
+
+#: mtlpy/templates/inc/menu.html:16
+msgid "Calendar"
+msgstr "Calendrier"
+
+#: mtlpy/templates/inc/menu.html:18
+msgid "Sponsorship Program"
+msgstr "Commandites"
+
+#~ msgid "English"
+#~ msgstr "Anglais"
+
+#~ msgid "British English"
+#~ msgstr "Anglais"
+
+#~ msgid "French"
+#~ msgstr "Français"
+
+#~ msgid "Polish"
+#~ msgstr "Polonais"
+
+#~ msgid "iterations"
+#~ msgstr "itérations"
+
+#~ msgid "Clear image"
+#~ msgstr "Effacer l'image"

@@ -1,0 +1,110 @@
+$sidebar-socialbutton-width: $articlebox-object-avatar-size - 12px;
+$sidebar-socialbutton-height: $articlebox-object-avatar-size - 12px;
+
+.sidebar {
+    background-color: #f3f2ee;
+
+    position: relative;
+    padding: 50px;
+
+    @media (min-width: 768px) and (max-width: 979px) {
+        padding: 50px 10px 10px 10px;
+    }
+}
+
+
+.sidebar-date {
+    @extend .articlebox-date;
+    top: calc(72px / -2);
+    left: 50%;
+    
+    margin-left: calc(62px / -2);
+}
+
+.sidebar-date-inner {
+    @extend .articlebox-date-inner;
+}
+
+.sidebar-avagar {
+    width: $articlebox-object-avatar-size;
+    height: $articlebox-object-avatar-size;
+
+    background-color: #dddbd9;
+    border: solid 3px white;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+.sidebar-author {
+    margin-top: 25px;
+    text-align: left;
+    right: 0;
+
+    a { color: #83c171; }
+}
+
+.sidebar-social {
+    margin: 25px 0;
+}
+
+.sidebar-socialbutton {
+    width: $sidebar-socialbutton-width;
+    line-height: $sidebar-socialbutton-height;
+
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    
+    background-color: #1d1d1d;
+    margin-right: 10px;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+
+    &:hover {
+        background-color: #83c171;
+        text-decoration: none;
+    }
+}
+
+.sidebar-body {
+    text-align: center;
+}
+
+.sidebar-body-title {
+    text-align: left;
+    font-style: italic;
+}
+
+.sidebar-sponsor {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        margin-top: 50px;
+        padding-top: 125px;
+    }
+
+    .sidebar-date {
+        top: 15px;
+        left: 15px;
+        margin-left: 0;
+    }
+
+    .sidebar-avagar {
+        position: absolute;
+        top: 15px;
+        left: $articlebox-object-avatar-size + 25px;
+    }
+
+    .sidebar-author {
+        position: absolute;
+        top: 15px;
+        left: $articlebox-object-avatar-size + $articlebox-object-avatar-size + 50px;
+        margin-top: 0;
+    }
+}

@@ -1,0 +1,131 @@
+body {
+    background-color: #fffefb;
+    padding: 0px;
+    font-family: "Open Sans", Sans-serif;
+}
+
+#content {
+    display: block;
+}
+
+.homepage #content {
+    overflow-x: hidden;
+}
+
+.homepage #header {
+    display: none;
+}
+
+.homepage-snakes {
+    $homepage-snakes-bg-color: #f3f2ee;
+
+    background-color: $homepage-snakes-bg-color;
+    text-align: center;
+    padding-top: 25px;
+    position: relative;
+    margin-bottom: -35px;
+    z-index: -2;
+
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 100%;
+        bottom: 0;
+        background-color: $homepage-snakes-bg-color;
+
+        width: 200px;
+    }
+
+    &:after {
+        right: auto;
+        left: 100%;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    #header {
+        padding: 5px;
+
+        .pull-right { float: right; }
+    }
+
+    #content {
+        margin-top: 0px;
+        padding: 10px;
+    }
+}
+
+.page-title {
+    font-size: 21px;
+}
+
+.media-heading {
+    margin-top: 5px;
+    font-style: italic;
+}
+
+// ==================
+// Header
+// ==================
+#header {
+    //border-bottom: solid 10px #e6e5e3;
+    background: url("#{$img-dir}/components/separator.png") bottom center repeat-x;
+    margin: { top: 30px; bottom: 30px; }
+}
+
+
+// ==================
+// Footer
+// ==================
+#footer {
+    background-color: #f3f2ee;
+    padding: 10px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+}
+
+// Footer Links
+// ==================
+#footer a {
+    @extend .link-muted;
+    margin-bottom: 10px;
+}
+
+// Footer List item (li)
+// ==================
+#footer li {
+    margin-bottom: 5px;
+}
+
+// Footer text
+// ==================
+#footer .muted {
+    color: #b3b3b0;
+}
+
+
+
+.beer {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAA3NCSVQICAjb4U/gAAAAMFBMVEX///////////////////////////////////////////////////////////////9Or7hAAAAAEHRSTlMAESIzRFVmd4iZqrvM3e7/dpUBFQAAAAlwSFlzAAALEgAACxIB0t1+/AAAABV0RVh0Q3JlYXRpb24gVGltZQAzLzE0LzEzGpfmywAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAACDSURBVBiVY2DABzj+OvddhbJZ5v////9fE5jNfP8/CPxTACv6DwENIA4rlLMArG49hJMA5kj/n///z/wXENPY2ji6WzQ6OsAmcP/m3/LD////CwjOd58PCM4Xbgo5P3s/INuzAckeF7BzuP/23/w9/wvEbVxgR3+GcJj2A9l/C9BDBgDkUHDxtxuP4QAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+
+.pagination {
+    max-width: $articlebox-width;
+    margin: 20px auto;
+    text-align: right;
+    
+    > ul {
+        @include box-shadow(1px 1px 1px gray);
+    }
+}

@@ -1,0 +1,16 @@
+h1, h2, h3 {
+    color: #4b4b4b;
+    font-family: "Arvo", sans-serif;
+    font-weight: 400;
+}
+
+h2,
+h5 {
+    a {
+        color: #333333;
+        text-decoration: none !important;
+        &:hover {
+            color: #83c171;
+        }
+    }
+}

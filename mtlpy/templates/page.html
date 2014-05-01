@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block main_title %}{{ page.title|striptags }} - {{ SITENAME }}{% endblock %}
+
+{% block title %}{{ page.title|striptags }}{% endblock %}
+
+{% block content %}
+  {{ page.html_content }}
+{% endblock %}

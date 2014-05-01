@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% load gray_thumbs %}
+
+{% block body_class %}homepage{% endblock %}
+
+{% block main_title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div>
+    <div class="homepage-snakes">
+        <div class="container">
+            <img src="{% static 'img/home/snakes.png' %}" alt="{% trans 'Snakes' %}" class="full-width">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row homepage-menu">
+            <div class="hexagon-wrapper span4 text-center">
+                <a href="{% url 'blog_category' 'event' %}" class="hexagon blue">
+                    <span class="hexagon-bar"></span>
+                    <img src="{% static 'img/home/icon_events.png' %}" alt="{% trans 'Events' %}" width="40" height="25" />
+                </a>
+
+                <h4>{% trans "Events" %}</h4>
+                <p>{% trans "Details on all our events" %}</p>
+            </div>
+            <div class="hexagon-wrapper span4 text-center">
+                <a href="{% url 'blog_category' 'workshop' %}" class="hexagon yellow">
+                    <span class="hexagon-bar"></span>
+                    <img src="{% static 'img/home/icon_community.png' %}" alt="{% trans 'Workshop' %}" width="40" height="35" />
+                </a>
+
+                <h4>{% trans "Workshops" %}</h4>
+                <p>{% trans "Come share our passion for Python" %}</p>
+            </div>
+
+            <div class="hexagon-wrapper span4 text-center">
+                <a href="{% url 'videos' %}" class="hexagon red">
+                    <span class="hexagon-bar"></span>
+                    <img src="{% static 'img/home/icon_blog.png' %}" alt="{% trans 'Video' %}" width="29" height="21" />
+                </a>
+
+                <h4>{% trans "Videos" %}</h4>
+
+                <p>{% trans "Watch presentations on Python" %}</p>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <ul class="thumbnails">
+            {% for article in blog_posts %}
+                 <li class="span4">
+                     <div class="thumbnail">
+                        {% thumbnail article.logo "279x156" as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ article.slug }}">
+                        {% endthumbnail %}
+                        <div class="caption">
+                            <abbr class="published" title="{{ article.published }}">{{ article.published }}</abbr>
+                            <h5>{{ article.title|title }}</h5>
+                            <p class="muted">{{ article.striped_content|striptags|safe|truncatewords:30 }}</p>
+                            <p><a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{{ article.title|title }}">{% trans "Learn more." %}</a></p>
+                         </div>
+                     </div>
+                 </li>
+            {% endfor %}
+        </ul>
+
+        <div class="separator"></div>
+
+        <div class="row">
+            <div class="span12 text-center muted">
+                <i>- {% trans "Our Sponsors" %} -</i>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="friends">
+            {% for sponsor in sponsors %}
+              <div class="friend">
+                {% gray_thumbnail sponsor.logo "200x100" as im %}
+
+                {% if sponsor.url %}
+                  <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+                  </a>
+                {% else %}
+                  <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+                {% endif %}
+                {% endthumbnail %}
+              </div>
+              {% if forloop.counter|divisibleby:3 %}
+                </div><div class="friends">
+              {% endif %}
+            {% endfor %}
+
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="row">
+            <div class="span12 text-center muted">
+                <i>- {% trans "Our Partners" %} -</i>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="friends">
+        {% for partner in partners %}
+          <div class="friend">
+            {% gray_thumbnail partner.logo "200x100" as im %}
+
+            {% if partner.url %}
+              <a href="{{ partner.url }}" class="friendLink" target="_blank">
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" />
+              </a>
+            {% else %}
+              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" />
+            {% endif %}
+            {% endthumbnail %}
+          </div>
+          {% if forloop.counter|divisibleby:3 %}
+            </div><div class="friends">
+          {% endif %}
+        {% endfor %}
+        </div>
+
+        <div class="spacer"></div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+/**
+ * Base mixin for hexagon
+ */
+@mixin hexagon( $width: 100px, $color: red ){
+    $half-width: $width / 2;
+
+    -webkit-transition: margin-top 0.4s, margin-bottom 0.4s;
+    -moz-transition: margin-top 0.4s, margin-bottom 0.4s;
+    transition: margin-top 0.4s, margin-bottom 0.4s;
+
+    position: relative;
+    text-align: center;
+    background: $color;
+
+    display: block;
+    width: $width;
+    line-height: $half-width;
+
+    margin: 17px auto $half-width auto;
+
+    @media (min-width: 768px) {
+        .hexagon-wrapper:hover & {
+            margin-top: 2px;
+            margin-bottom: $half-width + 17px;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: ceil($half-width / -2 + 1);
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: $half-width solid transparent;
+        border-right: $half-width solid transparent;
+        border-bottom: ($half-width / 2) solid $color;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: ceil($half-width / -2 + 1);
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: $half-width solid transparent;
+        border-right: $half-width solid transparent;
+        border-top: ($half-width / 2) solid $color;
+    }
+}
+
+
+/**
+ * Creates modifier to change the hexagon color
+ */
+@mixin hexagon-color( $color ){
+    &.hexagon, &.hexagon-small  { background-color: $color; }
+    &.hexagon:before, &.hexagon-small:before { border-bottom-color: $color; }
+    &.hexagon:after, &.hexagon-small:after { border-top-color: $color; }
+    .hexagon-bar { background-color: $color; }
+}
+
+.hexagon { @include hexagon(); }
+.hexagon-small { @include hexagon(50px); }
+
+.hexagon-bar {
+    $hexagon-bar-width: 200px;
+    $hexagon-bar-height: 15px;
+
+    display: block;
+    width: $hexagon-bar-width;
+    height: $hexagon-bar-height;
+    position: absolute;
+    top: 50%;
+    margin-top: $hexagon-bar-height / -2;
+    left: $hexagon-bar-width / -4;
+    z-index: -1;
+}
+
+.red { @include hexagon-color(#ea756c); }
+.blue { @include hexagon-color(#73cfdd); }
+.yellow { @include hexagon-color(#f5cf51); }
+.green { @include hexagon-color(#83C171); }
+
+
+@media (max-width: 767px) {
+    .hexagon-wrapper {
+        margin-bottom: 100px;
+    }
+}

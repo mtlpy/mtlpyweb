@@ -1,0 +1,54 @@
+{% load i18n %}
+{% load gray_thumbs %}
+{% load thumbnail %}
+
+<div class="span4">
+
+    <div class="spacer"></div>
+
+    <div class="sidebar">
+        <time class="sidebar-date" datetime="{{ article.publish }}">
+            <span class="sidebar-date-inner">
+              <span>{{ article.publish|date:"d" }}</span>
+              <small>{{ article.publish|date:"N" }}</small>
+              <small>{{ article.publish|date:"Y" }}</small>
+            </span>
+        </time>
+
+        <img src="//www.gravatar.com/avatar/{{ article.author.email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="sidebar-avagar" />
+
+        <div class="sidebar-author">
+            <p><strong><a href="{% url 'user_posts' userid=article.author.pk %}">{{ article.author.full_name }}</a></strong></p>
+            {% if article.category %}
+              <p>{% trans "Category :" %}</p>
+              <p><a href="{% url 'blog_category' article.category.slug %}">{{ article.category }}</a></p>
+            {% endif %}
+        </div>
+
+	{% if article.event_sponsors.count %}
+        <div class="sidebar-body">
+            <div class="sidebar-body-title">{% trans "Sponsors :" %}</div>
+	    {% for e_sponsor in article.event_sponsors.all %}
+            {% thumbnail e_sponsor.sponsor.logo "160x140" as im %}
+            <a class="sidebar-sponsor" target="_blank" href="{{ e_sponsor.sponsor.url }}">
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ e_sponsor.sponsor.name }}" />
+            </a>
+	    {% endthumbnail %}
+	    {% endfor %}
+        </div>
+	{% endif %}
+
+        <div class="sidebar-social">
+          <div class="sidebar-body-title">{% trans "Share :" %}</div><br />
+
+	  <!-- Facebook like -->
+	  <div class="fb-like" data-href="http://montrealpython.org{{ request.path }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
+	  <!-- Tweet button -->
+	  <a href="https://twitter.com/share" class="twitter-share-button" data-via="mtlpy" data-lang="{% if LANGUAGE_CODE == 'fr' %}fr{% else %}en{% endif %}">Tweeter</a>
+
+	  <!-- Tweet button -->
+	  <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="265"></div>
+        </div>
+    </div>
+</div>

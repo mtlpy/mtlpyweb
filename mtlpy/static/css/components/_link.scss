@@ -1,0 +1,21 @@
+.link {
+    color: $color-green;
+
+    &:hover {
+        color: #a3a2a0;
+        text-decoration: none;
+    }
+
+}
+
+// muted link
+// ==================
+.link-muted {
+    color: #a3a2a0;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+        color: $color-green;
+    }
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'transfer_tool' %}">
+{% csrf_token %}
+{% if form.is_valid %}
+<div class="alert alert-success">
+  Great success!
+</div>
+{% elif form.errors %}
+<div class="alert alert-error">
+  Fail!
+</div>
+{% endif %}
+
+{{ form }}
+<br />
+<input type="submit" value="Transfer!" />
+</form>
+{% endblock %}

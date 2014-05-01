@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Videos" %}{% endblock %}
+
+{% block content %}
+<div id="contact" class="container text-center">
+
+  <ul class="thumbnails">
+    {% for video in videos %}
+      <li class="span4">
+        <div class="thumbnail">
+          <a href="{{ video.link.0.href }}" target="_blank">
+            <img src="http://img.youtube.com/vi/{{ video.id }}/0.jpg" />
+          </a>
+
+          <h5><a class="link" href="{{ video.link.0.href }}" >{{ video.title|truncatechars:45 }}</a></h5>
+          
+          <time datetime="{{ video.published }}" title="{{ video.published }}">
+            {{ video.published.year }}-{{ video.published.month }}-{{ video.published.day }}
+          </time>
+        </div>
+      </li>
+      {% if forloop.counter|divisibleby:3 %}</ul><ul class="thumbnails">{% endif %}
+    {% endfor %}
+  </ul>
+
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}  
+  {% trans "Montreal Python Sponsorship" %}
+{% endblock %}
+
+
+{% block content %}
+<h1 class="about">
+  About Montréal-Python
+</h1>
+<p>
+  {% blocktrans %}<em>Montréal-Python</em>
+  <a href="http://montrealpython.org/" target="_blank">(montrealpython.org)</a>
+  is a group for the users of the Python programing language in Montréal area.
+  Our goal is to build a strong local community by putting
+  together programmers, project leaders, artists and service
+  providers.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}Our main event is the <em>Montréal-Python</em> mini-conference that occurs every 4 to
+  6 weeks.  Every mini-conference last 2 to 3 hours in the evening; it
+  features a number of quick 5- minute "flash presentations" and a main
+  presentation that lasts from 45 to 60 minutes.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}All presentations are technical in nature and at least loosely
+  related to the Python programming language <a href="http://python.org" target="_blank">(http://python.org)</a>.
+  They include tutorials, demonstrations, success stories and general commentaries on the tools and aspects of the language.{% endblocktrans %}
+</p>
+<h1 class="pycon">
+  {% trans 'PyCon 2014 and 2015' %}
+</h1>
+<p>
+  {% blocktrans %}In 2011 members of Montréal Python flew to Atlanta, Georia to
+  attend PyCon — the premiere Python conference attended by over
+  1,400 of the best Python programmers from companies around the
+  world.  We placed a bid to bring PyCon to Montréal for 2014 and
+  2015 and won with enthusiastic support from the Python Software
+  Foundation.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}So from now up through then, the activities Montréal Python
+  will enter into an international Python spotlight; both our own
+  exposure and that of our sponsors will be tremendously
+  amplified.{% endblocktrans %}
+</p>
+<h1 class="who">
+  {% trans 'Who goes there?' %}
+</h1>
+<p>
+  {% blocktrans %}The audience is certainly technical; many top Montréal programmers will see
+  each other at the events. Others are newcomers to the language or just
+  generally geeky people who are interested in technology. The crowd contains
+  several CTOs, lead developers and other strategic decision takers from both
+  startups as well as other established IT organisations from the Montréal
+  area.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}The number of people attending the <em>Montréal-Python</em> presentations is usually
+  between 40 and 60 — with more people showing up at every event. Consistently,
+  most of the attendees enjoy their time and come back event after event.{% endblocktrans %}
+</p>
+<h1 class="why">
+  {% blocktrans %}Why sponsor <em>Montréal-Python</em>?{% endblocktrans %}
+</h1>
+<p>
+  {% blocktrans %}We have a strong commitment to the exposure of our sponsors. Sponsorships
+  helps us to keep the events free of charge which is a key point of our
+  succes.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}By sponsoring <em>Montréal-Python</em>, you will:{% endblocktrans %}
+</p>
+<ul>
+  <li>
+    {% trans 'Foster the growth of a healthy local community;' %}
+  </li>
+  <li>
+    {% blocktrans %}Make yourself known to top programmers, lead developers and very smart
+    people who might be interested in working for you — now
+    or later;{% endblocktrans %}
+  </li>
+  <li>
+    {% blocktrans %}Gain visibility for both recruiting and promotion of your product and
+    services: banners, quick introduction, etc.;{% endblocktrans %}
+  </li>
+  <li>
+    {% blocktrans %}Increase your profile in this very smart community of leaders in their
+    fields.{% endblocktrans %}
+  </li>
+</ul>
+<h1 class="sponsor" id="levels">
+  {% trans 'Sponsorship Levels' %}
+</h1>
+<table>
+  <thead>
+    <tr>
+      <th class="benefits">{% trans 'Benefits' %}</th>
+      <th class="silver">{% trans 'Silver' %}</th>
+      <th class="gold">{% trans 'Gold' %}</th>
+      <th class="platinum">{% trans 'Platinum' %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="blogposts">
+      <td>{% trans 'Mention in all blog posts and mailings' %}</td>
+      <td><span class="yup"></span></td>
+      <td><span class="yup"></span></td>
+      <td><span class="yup"></span></td>
+    </tr>
+    <tr class="blogposts">
+      <td>{% trans 'Blog post describing your company (500 words)' %}</td>
+      <td><span class="nope"></span></td>
+      <td><span class="nope"></span></td>
+      <td><span class="yup"></span></td>
+    </tr>
+    <tr class="banner-real">
+      <td>
+        {% trans 'Banner displayed at the meetup' %}
+      </td>
+      <td><strong>{% trans '2x4 banner' %}</strong></td>
+      <td><strong>{% trans '4x8 banner + table' %}</strong></td>
+      <td><strong>{% trans '4x8 banner + table' %}</strong></td>
+    </tr>
+    <tr class="banner-web">
+      <td>
+        {% trans 'Banner on' %}
+        <a href="http://montrealpython.org" target="_blank">montrealpython.org</a>
+      </td>
+      <td><strong>1 {% trans 'month' %}</strong></td>
+      <td><strong>3 {% trans 'months' %}</strong></td>
+      <td><strong>6 {% trans 'months' %}</strong></td>
+    </tr>
+    <tr class="price">
+      <td>{% trans 'Price' %}</td>
+      <td>$300</td>
+      <td>$750</td>
+      <td>$2000</td>
+    </tr>
+  </tbody>
+</table>
+<h2>
+  {% trans 'Faceted Sponsorship' %}
+</h2>
+<p>
+  {% blocktrans %}In addition to the "packaged" sponsorships listed below, we encourage
+  sponsoring aspects of the meetups. For example, at each event we provide
+  beverages and snacks for attendees, and, standard <em>Montréal-Python</em> tradition
+  we all gather at a nearby pub for beers after the formal presentations.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}The standard process for faceted sponsorship is as follows: you propose the
+  aspect you wish to sponsor as well as the amount you are willing to provide.
+  The amount you sponsor will be adjusted by 30% to cover any additional
+  costs; if you propose $100 for a round of drinks, you will be paying for $70
+  of beers.{% endblocktrans %}
+</p>
+<p>
+  {% blocktrans %}Depending on the number of sponsors, we may set a minimum amount to ensure
+  full supplies.{% endblocktrans %}
+</p>
+<h2>
+  {% trans 'Custom Sponsorships' %}
+</h2>
+<p>
+  We're eager to work with you on ideas for "less conventional" sponsorships.  We
+  are always happy to work with innovators and local leaders.
+</p>
+<p>
+  If have a service or a product that can provide for the even, we'll evaluate
+  you contribution and you will by entitled to the full privileges of the
+  corresponding sponsorship level.  Interesting contributions could include
+  gift certificates for your products, refreshments, technical books,
+  consulting time, or audio-video equipment rental.
+</p>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% load i18n %}
+{% load localeurl_tags %}
+
+<div id="mainmenu">
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container" aria-role="navigation">
+                <a id="logo" href="{% url 'home_page' %}" class="brand">
+                    <img src="{{ STATIC_URL }}/img/header/logo.png" />
+                </a>
+
+                <nav class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="{% url 'blog' %}">{% trans "Blog" %}</a></li>
+                        <li><a href="{% url 'calendar' %}">{% trans "Calendar" %}</a></li>
+                        <li><a href="{% url 'mtlpy' %}">{% trans "About Montreal Python" %}</a></li>
+                        <li><a href="{% url 'sponsorship' %}">{% trans "Sponsorship Program" %}</a></li>
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li class="dropdown mainmenu-search-dropdown">
+                            <a href="#" id="mainmenu-search-link"></a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="mainmenu-settings-link"></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			      {% block language_links %}
+                                {% for lang in LANGUAGES %}
+                                    <li><a tabindex="-1" href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a></li>
+                                {% endfor %}
+		              {% endblock %}
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %}
+    <a href="#" id="mainmenu-search-link"></a>
+    <script>
+        (function() {
+        var cx = '016592786919513132070:vtvvrkqqt5w';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+    '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    <gcse:search></gcse:search>
+{% endcomment %}

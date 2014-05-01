@@ -1,0 +1,172 @@
+[
+{
+  "pk": 1, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.qnx.com/", 
+    "logo": "sponsors/qnx-logos.png", 
+    "name": "QNX", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 2, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://iweb.com/", 
+    "logo": "sponsors/iweb.png", 
+    "name": "iWeb", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 3, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.jobs.ludia.com/", 
+    "logo": "sponsors/ludia-white.png", 
+    "name": "Ludia", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 4, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.brasseriebenelux.com/", 
+    "logo": "sponsors/BENELUX_black.png", 
+    "name": "Brasserie Benelux", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 5, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.savoirfairelinux.com/?utm_source=montrealpython&utm_medium=banner&utm_campaign=banner", 
+    "logo": "sponsors/Savoir_faire_Linux3.png", 
+    "name": "Savoir-faire Linux", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 6, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://uqam.ca", 
+    "logo": "sponsors/uqam-2.png", 
+    "name": "UQ\u00c0M", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 7, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://ecometrica.ca", 
+    "logo": "sponsors/ecometrica-logo.png", 
+    "name": "Ecometrica", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 8, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.outboxtechnology.com/", 
+    "logo": "sponsors/Outbox_coul.png", 
+    "name": "Outbox", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 9, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://lesite.ca/", 
+    "logo": "sponsors/lesite.png", 
+    "name": "Le Site", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 10, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://caravan.coop/", 
+    "logo": "sponsors/CaravanLogo.png", 
+    "name": "Caravan", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 11, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.informit.com/topics/topic.aspx?st=61456", 
+    "logo": "sponsors/addison_wesley_logo.jpg", 
+    "name": "Addison-Wesley", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 12, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://shwowp.com", 
+    "logo": "sponsors/shwowp_bagneutral.png", 
+    "name": "Shwowp", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 13, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://apress.com", 
+    "logo": "sponsors/apress.png", 
+    "name": "Apress", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 14, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://radialpoint.com", 
+    "logo": "sponsors/radialpoint.png", 
+    "name": "Radialpoint", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 15, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://notman.org/en/", 
+    "logo": "sponsors/notman.png", 
+    "name": "Notman House", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 16, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://matchfwd.com/", 
+    "logo": "sponsors/matchfwd_550px_wide.png", 
+    "name": "matchFWD", 
+    "ordering": 0
+  }
+},
+{
+  "pk": 17, 
+  "model": "mtlpy.sponsor", 
+  "fields": {
+    "url": "http://www.ecaconcordia.ca/", 
+    "logo": "sponsors/bee.jpg", 
+    "name": "Concordia", 
+    "ordering": 0
+  }
+}
+]

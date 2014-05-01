@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block main_title %}
+  {% if category %}
+    {% trans "Category" %} {{ category }} - {{ SITENAME }}
+  {% else %}
+    {% trans "Blog" %} - {{ SITENAME }}
+  {% endif %}
+{% endblock %}
+
+{% block title %}
+  {% if category %}
+    {% trans "Category" %} {{ category }}
+  {% else %}
+    {% trans "Blog" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  {% autopaginate posts %}
+
+  {% include "inc/article_list.html" %}
+  {% paginate %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+// ======
+.friends {
+    display: table;
+    width: 100%;
+}
+
+
+.friend {
+    @include box-sizing( border-box );
+    display: table-cell;
+    vertical-align: middle;
+    height: 150px;
+    text-align: center;
+    width: 33%;
+
+
+
+    @media (max-width: 767px){
+        display: block;
+        width: auto;
+    }
+}

@@ -1,0 +1,87 @@
+{% load humanize_date %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+<script>
+    {# I am really sorry for doing this direct on the html page =/ #}
+    (function(){
+        'use strict';
+
+        var placeholder = "{% static 'img/components/articlebox/avatar_background_placeholder.png' %}";
+
+        window.mtlpyAddbackgroundToArticle = function(hash, src){
+            var selector = '[data-gravatarid="'+hash+'"]',
+                div = document.querySelector(selector),
+                img = document.createElement('img');
+
+            if( ! div ){
+                return; 
+            }
+
+            img.src = src;
+
+            img.onerror = function(){
+                this.src = placeholder;
+            };
+
+            div.appendChild(img);
+            div.removeAttribute('data-gravatarid');
+        };
+
+        window.mtlpyFillArticleFromGravatar = function(json){
+            var entry = json.entry[0],
+                src = placeholder;
+
+            if( entry.profileBackground ){
+                src = entry.profileBackground.url;
+            }
+
+            mtlpyAddbackgroundToArticle(entry.hash, src);
+        };
+
+
+        window.mtlpyFillArticleFromGravatarError = function(hash){
+            mtlpyAddbackgroundToArticle(hash, placeholder);
+        };
+
+    })();
+</script>
+
+{% for article in posts %}
+  
+  <article class="articlebox">
+    <div class="articlebox-body">
+      <time class="articlebox-date" datetime="{{ article.publish }}">
+        <span class="articlebox-date-inner">
+          <span>{{ article.publish|date:"j" }}</span>
+          <small>{{ article.publish|date:"b" }}</small>
+          <small>{{ article.publish|date:"Y" }}</small>
+        </span>
+      </time>
+      <h2 class="articlebox-body-title">
+        <a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{% blocktrans %}Permalink to {{ article.title }}{% endblocktrans %}">{{ article.title }}</a>
+      </h2>
+      <p>{{ article.striped_content|truncatewords_html:50 }}</p>
+      
+      <p>
+        {% if article.category.title %}
+          {% trans "Category:" %}
+          <a class="link" href="{% url 'blog_category' article.category.slug %}">{{ article.category.title }}</a><br />
+        {% endif %}
+        <span class="muted">{{ article.publish|humanize_date }}</span>
+      </p>
+      
+    </div>
+    <div class="articlebox-object">
+      <div class="articlebox-object-img" data-gravatarid="{{ article.author.email_hash }}"></div>
+
+      <div class="articlebox-object-author">
+        <img src="http://www.gravatar.com/avatar/{{ article.author.email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="articlebox-object-avatar" />
+        <span>{{ article.author.get_full_name }}</span>
+      </div>
+    </div>
+  </article>
+  <script type="text/javascript" src="//en.gravatar.com/{{ article.author.email_hash }}.json?s=128&amp;d=identicon&amp;r=PG&amp;callback=mtlpyFillArticleFromGravatar" onerror="mtlpyFillArticleFromGravatarError('{{ article.author.email_hash }}')"></script>
+
+{% endfor %}
