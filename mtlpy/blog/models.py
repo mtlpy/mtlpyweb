@@ -49,8 +49,8 @@ def i18n_field(name, default=settings.LANGUAGE_CODE[:2], fallback=True):
 
 
 class PublishedManager(models.Manager):
-    def published(self):
-        return self.get_query_set().filter(
+    def get_query_set(self):
+        return super(PublishedManager, self).get_query_set().filter(
             status__gte=2, publish__lte=datetime.date.today())
 
 
