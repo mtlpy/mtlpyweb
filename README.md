@@ -5,8 +5,8 @@ mtlpy-django
 # How to setup the environment:
 
 - Install the packages `pip install -r requirements.txt`
-- Setup the database by first editing `mtlpy.settings` and running `./manage.py syncdb --migrate`
-- Import a base list of posts, categories and users `./manage.py loaddata db.json`
+- Setup the database  running `./manage.py syncdb --migrate`
+- Import a base list of posts, categories and users `./manage.py loaddata fixtures/*`
 - Setup yourself as a superuser
     - Log in to the admin site as admin (password 'admin')
     - Set a password for yourself, or create your user account if it does not exist.

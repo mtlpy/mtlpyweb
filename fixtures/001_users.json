@@ -1,0 +1,32 @@
+[
+    {
+        "fields": {
+            "username": "bob",
+            "email": "bob@mtlpy.org",
+            "first_name": "Bob",
+            "last_name": "Smith"
+        }, 
+        "model": "users.mtlpyuser", 
+        "pk": 1
+    },
+    {
+        "fields": {
+            "username": "pierre",
+            "email": "pierre@mtlpy.org",
+            "first_name": "Pierre",
+            "last_name": "Poutine"
+        }, 
+        "model": "users.mtlpyuser", 
+        "pk": 2
+    },
+    {
+        "fields": {
+            "username": "john",
+            "email": "john@mtlpy.org",
+            "first_name": "John",
+            "last_name": "Doe"
+        }, 
+        "model": "users.mtlpyuser", 
+        "pk": 3
+    }
+]
