@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
+
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse_lazy
 
@@ -15,7 +17,7 @@ class BlogEntriesFeed(Feed):
         return Post.objects.order_by('-publish')[:5]
 
     def item_pubdate(self, item):
-        return item.publish
+        return datetime.combine(item.publish, datetime.min.time())
 
     def item_title(self, item):
         return item.title
