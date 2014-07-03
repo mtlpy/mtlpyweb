@@ -40,7 +40,7 @@ if DEBUG:
     }
 
 ADMINS = (
-    ('Mtlpy Admin', 'mtlpyteam+website@montrealpython.org'),
+    ('Mtlpy Admin', 'mtlpyteam+website@googlegroups.com'),
 )
 CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
 
