@@ -14,6 +14,9 @@ class BlogEntriesFeed(Feed):
     def items(self):
         return Post.objects.order_by('-publish')[:5]
 
+    def item_pubdate(self, item):
+        return item.publish
+
     def item_title(self, item):
         return item.title
 
