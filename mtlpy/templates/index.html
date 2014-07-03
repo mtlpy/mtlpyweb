@@ -61,9 +61,14 @@
                         {% endthumbnail %}
                         <div class="caption">
                             <abbr class="published" title="{{ article.published }}">{{ article.published }}</abbr>
-                            <h5>{{ article.title|title }}</h5>
+                            <h5>
+                              <a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{{ article.title|title }}">{{ article.title|title }}
+                              </a>
+                            </h5>
                             <p class="muted">{{ article.striped_content|striptags|safe|truncatewords:30 }}</p>
-                            <p><a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{{ article.title|title }}">{% trans "Learn more." %}</a></p>
+                            <p>
+                              <a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{{ article.title|title }}">{% trans "Learn more." %}</a>
+                            </p>
                          </div>
                      </div>
                  </li>
