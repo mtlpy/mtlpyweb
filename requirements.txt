@@ -10,6 +10,7 @@ django-extensions==1.1.1
 django-localeurl==1.5
 django-mptt==0.5.2
 django-xmlrpc==0.1.4
+fabric==1.9.0
 html5lib==0.95
 pyparsing==1.5.7
 pytz==2013b
