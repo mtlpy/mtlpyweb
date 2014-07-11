@@ -4,8 +4,13 @@
 {% block title %}{% trans "Videos" %}{% endblock %}
 
 {% block content %}
+  <h4>{% trans "Videos of our latest events." %}</h4>
+  <p>
+    {% trans "To get a complete list of the videos of the presentation made during our events, please head your browser the following url: " %}
+    <a href="http://www.youtube.com/user/MontrealPython">http://www.youtube.com/user/MontrealPython</a>
+    {% trans "Thanks to Christian Paradis and Savoir-Faire Linux for their support and the hard work of making those videos available" %}
+  </p>
 <div id="contact" class="container text-center">
-
   <ul class="thumbnails">
     {% for video in videos %}
       <li class="span4">
@@ -15,7 +20,7 @@
           </a>
 
           <h5><a class="link" href="{{ video.link.0.href }}" >{{ video.title|truncatechars:45 }}</a></h5>
-          
+
           <time datetime="{{ video.published }}" title="{{ video.published }}">
             {{ video.published.year }}-{{ video.published.month }}-{{ video.published.day }}
           </time>

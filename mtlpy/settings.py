@@ -216,7 +216,8 @@ LOGGING = {
     }
 }
 
-YOUTUBE_URL = "http://gdata.youtube.com/feeds/api/videos?author=MontrealPython&v=2&alt=json"
+#YOUTUBE_URL = "http://gdata.youtube.com/feeds/api/videos?author=MontrealPython&v=2&alt=json"
+YOUTUBE_URL = "http://gdata.youtube.com/feeds/base/users/MontrealPython/uploads?alt=json&&orderby=published&max-result=100"
 
 DISQUS_SITENAME = "mtlpy"
 
