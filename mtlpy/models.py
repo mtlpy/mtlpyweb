@@ -3,8 +3,8 @@ from __future__ import unicode_literals, absolute_import
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from sorl.thumbnail import ImageField
 
+from mtlpy.lib.models import i18n_field
 from mtlpy.blog.models import Post
 
 
@@ -15,6 +15,7 @@ MEDAL_CHOICES = (('GOLD', _('Gold')),
 
 class Sponsor(models.Model):
     name = models.CharField(max_length=32)
+    slug = models.SlugField(max_length=256)
     url = models.URLField(
         blank=True,
         null=True,
@@ -30,8 +31,16 @@ class Sponsor(models.Model):
         help_text='Display as a partner',
     )
 
+    description_en = models.TextField(blank=True)
+    description_fr = models.TextField(blank=True)
+    description = i18n_field('description')
+
     def __unicode__(self):
         return self.name
+
+    @property
+    def has_description(self):
+        return self.description_en and self.description_fr
 
 
 class EventSponsor(models.Model):

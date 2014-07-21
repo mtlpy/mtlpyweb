@@ -20,6 +20,8 @@ urlpatterns = patterns(
     url(r'^blog/$', 'mtlpy.blog.views.category', name='blog'),
     url(r'^user/(?P<userid>\d+)/$', 'mtlpy.blog.views.user_posts',
         name='user_posts'),
+    url(r'^sponsor/(?P<slug>[-\w|\W]+)/$', 'mtlpy.views.sponsor_details',
+        name='sponsor_details'),
     url(r'^admin/?', include(admin.site.urls)),
     url(r'^styleguide', 'mtlpy.views.styleguide'),
     url(r'^tinymce/', include('tinymce.urls')),

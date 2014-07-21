@@ -90,7 +90,11 @@
               <div class="friend">
                 {% gray_thumbnail sponsor.logo "200x100" as im %}
 
-                {% if sponsor.url %}
+                {% if sponsor.has_description %}
+                  <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+                  </a>
+                {% elif sponsor.url %}
                   <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
                     <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
                   </a>

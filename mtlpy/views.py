@@ -3,7 +3,8 @@ from __future__ import unicode_literals, absolute_import
 
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from django.shortcuts import render, render_to_response
+from django.shortcuts import (render, render_to_response,
+                              get_object_or_404, redirect)
 from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
@@ -71,4 +72,10 @@ def styleguide(request):
 def videos(request):
     videos = get_all_videos(settings.YOUTUBE_URL)
     return render_to_response('videos.html', {"videos": videos},
+                              context_instance=RequestContext(request))
+
+
+def sponsor_details(request, slug):
+    sponsor = get_object_or_404(Sponsor, slug=slug)
+    return render_to_response('sponsor_details.html', {"sponsor": sponsor},
                               context_instance=RequestContext(request))
