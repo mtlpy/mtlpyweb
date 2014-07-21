@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load thumbnail %}
+{% load markup %}
+
+{% block main_title %}
+  {{ sponsor.name }}
+{% endblock %}
+
+{% block title %}
+  {{ sponsor.name }}
+{% endblock %}
+
+{% block content %}
+  {% thumbnail sponsor.logo "200x100" as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+  {% endthumbnail %}
+
+  {{ sponsor.description|markdown }}
+
+  <p>
+    <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
+      {{ sponsor.url }}
+    </a>
+  </p>
+{% endblock %}
