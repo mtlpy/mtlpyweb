@@ -15,4 +15,4 @@ accesslog = 'log/access.log'
 tmp_upload_dir = 'tmp'
 
 user = 'mtlpyweb'
-group = 'www-data'
+group = 'mtlpyweb'
