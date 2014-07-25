@@ -13,9 +13,9 @@
         <div class="span8">
           {{ article.html_content|safe }}
           {% for video in article.videos.all %}
-            <a class="video" href="https://www.youtube.com/watch?v={{ video.code }}&feature=youtube_gdata" target="_blank">
-              <img src="http://img.youtube.com/vi/{{ video.code }}/0.jpg" />
-            </a>
+            <iframe class="youtube-player" type="text/html" width="540" height="285" src="http://www.youtube.com/embed/{{ video.code }}"
+                    allowfullscreen frameborder="0">
+            </iframe>
             <br/><br/>
           {% endfor %}
         </div>
