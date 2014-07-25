@@ -54,6 +54,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('DATABASE_PASSWORD', ''),
         'HOST': os.environ.get('DATABASE_HOST', ''),
         'PORT': os.environ.get('DATABASE_PORT', ''),
+        'STORAGE_ENGINE': os.environ.get('DATABASE_STORAGE_ENGINE', '')
     }
 }
 

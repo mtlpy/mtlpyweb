@@ -1,15 +1,37 @@
 import datetime
 
 from django.contrib import admin
-from mce_filebrowser.admin import MCEFilebrowserAdmin
+from django import forms
+
 from sorl.thumbnail.admin import AdminImageMixin
 
 from mtlpy.models import EventSponsor
-from .models import Post, Category
+from .models import Post, Category, Video
+
+
+class VideoAdminForm(forms.ModelForm):
+    class Meta:
+        model = Video
+
+    def __init__(self, *args, **kwds):
+        super(VideoAdminForm, self).__init__(*args, **kwds)
+        self.fields['post'].queryset = Post.objects.order_by("slug")
 
 
 class EventSponsorshipInline(admin.StackedInline):
     model = EventSponsor
+    extra = 1
+
+
+class VideoInline(admin.StackedInline):
+    prepopulated_fields = {"slug": ("title_en", "title_fr")}
+    fields = (
+        'title_en',
+        'title_fr',
+        'slug',
+        'code',
+        )
+    model = Video
     extra = 1
 
 
@@ -27,13 +49,26 @@ class CatAdmin(admin.ModelAdmin, AdminImageMixin):
         return obj.posts.all().count()
 
 
+class VideoAdmin(admin.ModelAdmin, AdminImageMixin):
+    form = VideoAdminForm
+    list_display = ('slug', 'title_en', 'title_fr', 'code', 'post')
+    prepopulated_fields = {"slug": ("title_en", "title_fr")}
+    fields = (
+        'title_en',
+        'title_fr',
+        'slug',
+        'code',
+        'post',
+        )
+
+
 class PostAdmin(admin.ModelAdmin, AdminImageMixin):
     class Media:
         js = ("js/markdown-0.5.0.js", "js/post_admin.js")
     list_display = ('slug', 'title', 'status', 'category')
     list_filter = ('category', 'status')
     actions = ('make_published', 'make_draft')
-    inlines = [EventSponsorshipInline]
+    inlines = [EventSponsorshipInline, VideoInline]
     prepopulated_fields = {"slug": ("title_en", "title_fr")}
 
     def make_published(self, request, queryset):
@@ -62,3 +97,4 @@ class PostAdmin(admin.ModelAdmin, AdminImageMixin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CatAdmin)
+admin.site.register(Video, VideoAdmin)

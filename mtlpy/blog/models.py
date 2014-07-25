@@ -96,3 +96,26 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy('blog_category', kwargs={'slug': self.slug})
+
+
+class Video(models.Model):
+    slug = models.SlugField(max_length=256)
+
+    code = models.CharField(max_length=15)
+
+    post = models.ForeignKey(Post, related_name="videos")
+
+    title_en = models.CharField(max_length=64)
+    title_fr = models.CharField(max_length=64)
+    title = i18n_field('title')
+
+    class Meta:
+        db_table = 'blog_video'
+        ordering = ('post', )
+        verbose_name_plural = _('Videos')
+
+    def __unicode__(self):
+        return u"{0}".format(self.title)
+
+    def get_absolute_url(self):
+        return reverse_lazy('video', kwargs={"slug": self.slug})
