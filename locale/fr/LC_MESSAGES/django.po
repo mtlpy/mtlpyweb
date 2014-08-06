@@ -31,19 +31,19 @@ msgid "Bronze"
 msgstr "Bronze"
 
 #: mtlpy/views.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "From: %(name)s\n"
 "\n"
 "Message: %(message)s"
 msgstr ""
-"De: %s\n"
+"De: %(name)s\n"
 "\n"
-"Message: %s"
+"Message: %(message)s"
 
 #: mtlpy/views.py:49
 msgid "Message from MontrealPython.org contact form"
-msgstr "Message du formualire de contact de MontrealPython.org"
+msgstr "Message du formulaire de contact de MontrealPython.org"
 
 #: mtlpy/blog/models.py:59
 msgid "Draft"
@@ -59,7 +59,7 @@ msgstr "Une date valide est nécessaire avant la publication"
 
 #: mtlpy/blog/models.py:125
 msgid "Categories"
-msgstr "Catégorie"
+msgstr "Catégories"
 
 #: mtlpy/pages/admin.py:20
 msgid "Advanced options"
@@ -80,7 +80,7 @@ msgstr "Catégorie :"
 
 #: mtlpy/templates/article_infos.html:31
 msgid "Sponsors :"
-msgstr "Nos commanditaires"
+msgstr "Nos commanditaires :"
 
 #: mtlpy/templates/base.html:46 mtlpy/templates/inc/footer.html:9
 #: mtlpy/templates/inc/menu.html:15
@@ -393,7 +393,7 @@ msgstr ""
 
 #: mtlpy/templates/sponsorship.html:165
 msgid "Custom Sponsorships"
-msgstr "Nos commanditaires"
+msgstr ""
 
 #: mtlpy/templates/inc/article_list.html:58
 #, python-format
@@ -434,7 +434,7 @@ msgstr "Instagram"
 
 #: mtlpy/templates/inc/footer.html:41
 msgid "Eventbrite"
-msgstr "Événements"
+msgstr "Eventbrite"
 
 #: mtlpy/templates/inc/footer.html:42
 msgid "Youtube"
@@ -446,7 +446,7 @@ msgstr "Rejoignez la liste de discussion"
 
 #: mtlpy/templates/inc/footer.html:48
 msgid "Get updates the old fashion way"
-msgstr "Recevez de nos nouvelles de la bonne vielle façon"
+msgstr "Recevez de nos nouvelles de la bonne vieille façon"
 
 #: mtlpy/templates/inc/footer.html:58
 msgid "This work by"
