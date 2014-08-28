@@ -8,7 +8,7 @@ def _sort_video(a, b):
 
 def get_all_videos(url):
     content = requests.get(url=url).json()
-    elements = sorted(content["feed"]["entry"], _sort_video)
+    elements = content["feed"]["entry"]
     for i, el in enumerate(elements):
         for k in elements[i]:
             if "$t" in  elements[i][k]:
