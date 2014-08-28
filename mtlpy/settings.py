@@ -219,7 +219,11 @@ LOGGING = {
 }
 
 #YOUTUBE_URL = "http://gdata.youtube.com/feeds/api/videos?author=MontrealPython&v=2&alt=json"
-YOUTUBE_URL = "http://gdata.youtube.com/feeds/base/users/MontrealPython/uploads?alt=json&&orderby=published&max-result=100"
+#YOUTUBE_URL = "http://gdata.youtube.com/feeds/base/users/MontrealPython/uploads?alt=json&&orderby=published&max-result=100"
+
+# Disable the "orderby" parameter until issue https://code.google.com/a/google.com/p/apps-api-issues/issues/detail?id=3613&thanks=3613&ts=1409243662
+# is fixed.
+YOUTUBE_URL = "http://gdata.youtube.com/feeds/base/users/MontrealPython/uploads?alt=json&max-result=100"
 
 DISQUS_SITENAME = "mtlpy"
 
