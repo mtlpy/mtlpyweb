@@ -18,7 +18,9 @@
         <img src="//www.gravatar.com/avatar/{{ article.author.email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="sidebar-avagar" />
 
         <div class="sidebar-author">
-            <p><strong><a href="{% url 'user_posts' userid=article.author.pk %}">{{ article.author.full_name }}</a></strong></p>
+            <p>
+              <strong><a href="{% url 'user_posts' userid=article.author.pk %}">{{ article.author.full_name }}</a></strong>
+            </p>
             {% if article.category %}
               <p>{% trans "Category :" %}</p>
               <p><a href="{% url 'blog_category' article.category.slug %}">{{ article.category }}</a></p>

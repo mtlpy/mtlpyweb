@@ -48,7 +48,7 @@ class Post(models.Model):
     published_objects = PublishedManager()
 
     class Meta:
-        db_table='blog_post'
+        db_table = 'blog_post'
         ordering = ('-publish', )
         get_latest_by = 'publish'
 

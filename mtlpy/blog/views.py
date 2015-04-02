@@ -29,7 +29,7 @@ def post(request, year, month, slug):
 
 def user_posts(request, userid):
     user = get_object_or_404(MtlPyUser, id=userid)
-    all_posts = Post.objects.filter(author=user)
+    all_posts = Post.objects.filter(author=user, publish__isnull=False)
 
     ctx = {'author': user, 'posts': all_posts}
     return render_to_response('category.html', ctx,
@@ -43,8 +43,8 @@ def transfer_posts_tool(request):
         if form.is_valid():
             Post.objects.filter(category__in=form.cleaned_data['from_cats']).update(
                 category=form.cleaned_data['to_cat'])
-                                
-    else: 
+
+    else:
         form = CatTransferForm()
 
     ctx = {
