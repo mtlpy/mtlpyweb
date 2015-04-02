@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load thumbnail %}
+{% load gray_thumbs %}
 
 {% block title %}
   {% trans "Montreal Python Sponsorship" %}
@@ -16,7 +16,7 @@
 <div class="friends">
   {% for sponsor in sponsors %}
     <div class="friend">
-      {% thumbnail sponsor.logo "200x100" as im %}
+      {% gray_thumbnail sponsor.logo "200x100" as im %}
 
       {% if sponsor.has_description %}
         <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
