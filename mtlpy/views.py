@@ -79,3 +79,12 @@ def sponsor_details(request, slug):
     sponsor = get_object_or_404(Sponsor, slug=slug)
     return render_to_response('sponsor_details.html', {"sponsor": sponsor},
                               context_instance=RequestContext(request))
+
+
+def sponsorship(request):
+    sponsors = (Sponsor.objects
+                .filter(frontpage=True)
+                .filter(~Q(partner=True))
+                .order_by('ordering'))
+    return render_to_response('sponsorship.html', {"sponsors": sponsors},
+                              context_instance=RequestContext(request))

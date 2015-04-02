@@ -27,6 +27,7 @@ urlpatterns = patterns(
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^contact/', 'mtlpy.views.contact', name='contact'),
     url(r'^videos/', 'mtlpy.views.videos', name='videos'),
+    url(r'^sponsorship/', 'mtlpy.views.sponsorship', name='sponsorship'),
     url(r'^feed/$', BlogEntriesFeed(), name="feed")
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

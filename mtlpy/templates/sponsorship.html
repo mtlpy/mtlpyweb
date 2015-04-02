@@ -1,7 +1,9 @@
 {% extends "base.html" %}
-{% load i18n %}
 
-{% block title %}  
+{% load i18n %}
+{% load gray_thumbs %}
+
+{% block title %}
   {% trans "Montreal Python Sponsorship" %}
 {% endblock %}
 
@@ -10,6 +12,31 @@
 <h1 class="about">
   About Montréal-Python
 </h1>
+
+<div class="friends">
+  {% for sponsor in sponsors %}
+    <div class="friend">
+      {% gray_thumbnail sponsor.logo "200x100" as im %}
+
+      {% if sponsor.has_description %}
+        <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
+          <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+        </a>
+      {% elif sponsor.url %}
+        <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+        </a>
+      {% else %}
+        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+      {% endif %}
+    {% endthumbnail %}
+    </div>
+    {% if forloop.counter|divisibleby:3 %}
+      </div><div class="friends">
+    {% endif %}
+  {% endfor %}
+</div>
+
 <p>
   {% blocktrans %}<em>Montréal-Python</em>
   <a href="http://montrealpython.org/" target="_blank">(montrealpython.org)</a>
