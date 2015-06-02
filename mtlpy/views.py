@@ -70,7 +70,7 @@ def styleguide(request):
 
 
 def videos(request):
-    videos = get_all_videos(settings.YOUTUBE_URL)
+    videos = get_all_videos(settings.YOUTUBE_API_KEY)
     return render_to_response('videos.html', {"videos": videos},
                               context_instance=RequestContext(request))
 

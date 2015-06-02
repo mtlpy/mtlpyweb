@@ -34,5 +34,6 @@ setup(name='Montreal python',
           'arrow',
           'python-memcached',
           'django-pagination',
+          'google-api-python-client',
         ],
       )

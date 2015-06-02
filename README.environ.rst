@@ -15,4 +15,4 @@ The django settings defaults to development config. To get a production
    DATABASE_PASSWORD="donttellthensa"
    DATABASE_HOST=""
    DATABASE_PORT=""
-
+   YOUTUBE_API_KEY="NVmnFlQvQHusn64TpCDEXG6cpRZQ9rvqc7lGWnj"

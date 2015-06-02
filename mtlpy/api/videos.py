@@ -1,20 +1,28 @@
-import requests
+from apiclient.discovery import build
 import arrow
 
 
-def _sort_video(a, b):
-    return (cmp(arrow.get(a["published"]["$t"]), arrow.get(b["published"]["$t"]))
-            * -1)
+def get_all_videos(api_key):
+    youtube = build('youtube', 'v3', developerKey=api_key)
+    channels_response = (
+        youtube.channels()
+        .list(part='contentDetails', forUsername='MontrealPython')
+        .execute())
+    channel = channels_response['items'][0]
+    uploads_list_id = channel['contentDetails']['relatedPlaylists']['uploads']
 
-def get_all_videos(url):
-    content = requests.get(url=url).json()
-    elements = sorted(content["feed"]["entry"], _sort_video)
-    for i, el in enumerate(elements):
-        for k in elements[i]:
-            if "$t" in  elements[i][k]:
-                elements[i][k] = elements[i][k]["$t"]
-            if k == "published":
-                elements[i][k] = arrow.get(elements[i][k])
-            if k == "id":
-                elements[i][k] = elements[i][k].split("/")[-1]
-    return elements
+    playlist_items_response = (
+        youtube.playlistItems()
+        .list(part='snippet', playlistId=uploads_list_id, maxResults=50)
+        .execute())
+    playlist_items = [
+        item['snippet'] for item in playlist_items_response['items']]
+    for item in playlist_items:
+        video_id = item['resourceId']['videoId']
+        item['video_url'] = 'https://www.youtube.com/watch?v=' + video_id
+        item['thumbnail_url'] = item['thumbnails']['high']['url']
+        item['published'] = arrow.get(item['publishedAt'])
+
+    return sorted(playlist_items,
+                  key=lambda item: item['published'],
+                  reverse=True)

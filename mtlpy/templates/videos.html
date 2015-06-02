@@ -15,11 +15,11 @@
     {% for video in videos %}
       <li class="span4">
         <div class="thumbnail">
-          <a href="{{ video.link.0.href }}" target="_blank">
-            <img src="http://img.youtube.com/vi/{{ video.id }}/0.jpg" />
+          <a href="{{ video.video_url }}" target="_blank">
+            <img src="{{ video.thumbnail_url }}" />
           </a>
 
-          <h5><a class="link" href="{{ video.link.0.href }}" >{{ video.title|truncatechars:45 }}</a></h5>
+          <h5><a class="link" href="{{ video.video_url }}" >{{ video.title|truncatechars:45 }}</a></h5>
 
           <time datetime="{{ video.published }}" title="{{ video.published }}">
             {{ video.published.year }}-{{ video.published.month }}-{{ video.published.day }}
