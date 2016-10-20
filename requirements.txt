@@ -10,6 +10,7 @@ django-localeurl==1.5
 django-mptt==0.5.2
 django-pagination==1.0.7
 django-tinymce==1.5.1
+django-environ==0.4.0
 Django-tinymce-filebrowser==0.1.1
 django-xmlrpc==0.1.4
 enum34==1.1.6

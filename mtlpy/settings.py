@@ -7,7 +7,9 @@
 import os
 from os.path import join, dirname, abspath
 
-def tobool(s): return {'true': True, 'false': False}[s.lower()]
+import environ
+
+env = environ.Env(DEBUG=(bool, False),)
 
 AUTH_USER_MODEL = 'users.MtlPyUser'
 
@@ -23,14 +25,11 @@ TINYMCE_DEFAULT_CONFIG = {
 
 PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
 
-DEBUG = tobool(os.environ.get('DEBUG', 'true'))
+DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
+    'default': env.cache_url(default='dummycache://')
 }
 
 if DEBUG:
@@ -47,15 +46,7 @@ CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': os.environ.get('DATABASE_NAME', 'dev.db'),
-        'USER': os.environ.get('DATABASE_USER', ''),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', ''),
-        'HOST': os.environ.get('DATABASE_HOST', ''),
-        'PORT': os.environ.get('DATABASE_PORT', ''),
-        'STORAGE_ENGINE': os.environ.get('DATABASE_STORAGE_ENGINE', '')
-    }
+    'default': env.db(),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -119,8 +110,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ.get('SECRET_KEY',
-                            'THIS_IS_A_DEVELOPMENT_SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
