@@ -1,1 +1,1 @@
-web: gunicorn -c mtlpy/gunicorn.py mtlpy.wsgi:application --log-file -
+web: gunicorn mtlpy.wsgi:application --log-file -
