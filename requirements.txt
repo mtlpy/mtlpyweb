@@ -40,3 +40,13 @@ six==1.3.0
 sorl-thumbnail==11.12
 South==0.7.6
 uritemplate==3.0.0
+wsgiref==0.1.2
+django-tinymce==1.5.1
+https://pypi.python.org/packages/source/D/Django-tinymce-filebrowser/Django-tinymce-filebrowser.tar.gz#egg=Django-tinymce-filebrowser
+ipython==1.1.0
+requests
+arrow
+python-memcached
+django-pagination
+oauth2client==3.0.0
+google-api-python-client==1.3.2
