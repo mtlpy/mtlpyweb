@@ -9,6 +9,7 @@ django-extensions==1.1.1
 django-localeurl==1.5
 django-mptt==0.5.2
 django-pagination==1.0.7
+dj-static==0.0.6
 Django-tinymce-filebrowser==0.1.1
 django-tinymce==1.5.1
 django-xmlrpc==0.1.4
