@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load gray_thumbs %}
 {% load thumbnail %}
+{% load gravatar_helper %}
 
 <div class="span4">
 
@@ -15,11 +16,11 @@
             </span>
         </time>
 
-        <img src="//www.gravatar.com/avatar/{{ article.author.email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="sidebar-avagar" />
+        <img src="//www.gravatar.com/avatar/{{ article.author|email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="sidebar-avagar" />
 
         <div class="sidebar-author">
             <p>
-              <strong><a href="{% url 'user_posts' userid=article.author.pk %}">{{ article.author.full_name }}</a></strong>
+              <strong><a href="{% url 'user_posts' userid=article.author.pk %}">{{ article.author.first_name }}</a></strong>
             </p>
             {% if article.category %}
               <p>{% trans "Category :" %}</p>

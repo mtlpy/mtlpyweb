@@ -6,12 +6,12 @@ from markdown import Markdown
 
 from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 
 from mtlpy.lib.models import i18n_field
-from mtlpy.users.models import MtlPyUser
 
 from sorl.thumbnail import ImageField
 
@@ -41,7 +41,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=PUBLISH_CHOICES, default=2)
     logo = ImageField(upload_to='post', null=True, blank=True)
 
-    author = models.ForeignKey(MtlPyUser)
+    author = models.ForeignKey(User)
     category = models.ForeignKey('Category', related_name='posts')
 
     objects = models.Manager()

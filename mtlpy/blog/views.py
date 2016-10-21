@@ -2,7 +2,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.contrib.admin.views.decorators import staff_member_required
-from .models import Post, Category, MtlPyUser
+from django.contrib.auth.models import User
+from .models import Post, Category
 from .forms import CatTransferForm
 
 
@@ -28,7 +29,7 @@ def post(request, year, month, slug):
 
 
 def user_posts(request, userid):
-    user = get_object_or_404(MtlPyUser, id=userid)
+    user = get_object_or_404(User, id=userid)
     all_posts = Post.objects.filter(author=user, publish__isnull=False)
 
     ctx = {'author': user, 'posts': all_posts}

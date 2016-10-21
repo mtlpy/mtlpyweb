@@ -11,8 +11,6 @@ import environ
 
 env = environ.Env(DEBUG=(bool, False),)
 
-AUTH_USER_MODEL = 'users.MtlPyUser'
-
 THUMBNAIL_FORMAT = 'PNG'
 
 SITENAME = u"Montréal-Python"
@@ -173,7 +171,6 @@ INSTALLED_APPS = (
     # local apps
     'mtlpy.blog',
     'mtlpy',
-    'mtlpy.users',
     'mtlpy.pages',
     'south',
     'pagination',
