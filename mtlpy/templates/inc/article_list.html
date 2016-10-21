@@ -16,7 +16,7 @@
                 img = document.createElement('img');
 
             if( ! div ){
-                return; 
+                return;
             }
 
             img.src = src;
@@ -49,7 +49,7 @@
 </script>
 
 {% for article in posts %}
-  
+
   <article class="articlebox">
     <div class="articlebox-body">
       <time class="articlebox-date" datetime="{{ article.publish }}">
@@ -63,7 +63,7 @@
         <a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{% blocktrans %}Permalink to {{ article.title }}{% endblocktrans %}">{{ article.title }}</a>
       </h2>
       <p>{{ article.striped_content|truncatewords_html:50 }}</p>
-      
+
       <p>
         {% if article.category.title %}
           {% trans "Category:" %}
@@ -71,17 +71,17 @@
         {% endif %}
         <span class="muted">{{ article.publish|humanize_date }}</span>
       </p>
-      
+
     </div>
     <div class="articlebox-object">
-      <div class="articlebox-object-img" data-gravatarid="{{ article.author.email_hash }}"></div>
+      <div class="articlebox-object-img" data-gravatarid="{{ article.author|email_hash }}"></div>
 
       <div class="articlebox-object-author">
-        <img src="http://www.gravatar.com/avatar/{{ article.author.email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="articlebox-object-avatar" />
-        <span>{{ article.author.get_full_name }}</span>
+        <img src="http://www.gravatar.com/avatar/{{ article.author|email_hash }}?s=128&amp;d=identicon&amp;r=PG" alt="{% trans 'Author' %}" class="articlebox-object-avatar" />
+        <span>{{ article.author.first_name }}</span>
       </div>
     </div>
   </article>
-  <script type="text/javascript" src="//en.gravatar.com/{{ article.author.email_hash }}.json?s=128&amp;d=identicon&amp;r=PG&amp;callback=mtlpyFillArticleFromGravatar" onerror="mtlpyFillArticleFromGravatarError('{{ article.author.email_hash }}')"></script>
+  <script type="text/javascript" src="//en.gravatar.com/{{ article.author|email_hash }}.json?s=128&amp;d=identicon&amp;r=PG&amp;callback=mtlpyFillArticleFromGravatar" onerror="mtlpyFillArticleFromGravatarError('{{ article.author.email_hash }}')"></script>
 
 {% endfor %}
