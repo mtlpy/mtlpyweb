@@ -433,8 +433,8 @@ msgid "Instagram"
 msgstr "Instagram"
 
 #: mtlpy/templates/inc/footer.html:41
-msgid "Eventbrite"
-msgstr "Eventbrite"
+msgid "Meetup"
+msgstr "Meetup"
 
 #: mtlpy/templates/inc/footer.html:42
 msgid "Youtube"
