@@ -98,19 +98,9 @@ msgstr "Partager :"
 msgid "Blog"
 msgstr "Blog"
 
-#: mtlpy/templates/base.html:67
-#, fuzzy
-msgid "Sponsorship"
-msgstr "Nos commanditaires :"
-
 #: mtlpy/templates/base.html:77
 msgid "Admin"
 msgstr ""
-
-#: mtlpy/templates/calendar.html:10
-#, fuzzy, python-format
-msgid "%%s Calendar"
-msgstr "Calendrier"
 
 #: mtlpy/templates/category.html:7 mtlpy/templates/category.html.py:15
 msgid "Category"
@@ -313,11 +303,6 @@ msgid ""
 "    fields."
 msgstr ""
 
-#: mtlpy/templates/sponsorship.html:122
-#, fuzzy
-msgid "Sponsorship Levels"
-msgstr "Commandites"
-
 #: mtlpy/templates/sponsorship.html:127
 msgid "Benefits"
 msgstr ""
@@ -361,11 +346,6 @@ msgstr ""
 #: mtlpy/templates/sponsorship.html:164
 msgid "Price"
 msgstr ""
-
-#: mtlpy/templates/sponsorship.html:172
-#, fuzzy
-msgid "Faceted Sponsorship"
-msgstr "Commanditer Montréal-Python"
 
 #: mtlpy/templates/sponsorship.html:175
 msgid ""
@@ -468,11 +448,6 @@ msgstr "Rejoignez la liste de discussion"
 #: mtlpy/templates/inc/footer.html:55
 msgid "Get updates the old fashion way"
 msgstr "Recevez de nos nouvelles de la bonne vieille façon"
-
-#: mtlpy/templates/inc/footer.html:74
-#, fuzzy, python-format
-msgid "&copy; Montréal-Python %(year)s"
-msgstr "&copy; Montréal-Python 2013"
 
 #: mtlpy/templates/inc/menu.html:16
 msgid "Calendar"
