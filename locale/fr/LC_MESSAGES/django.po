@@ -380,7 +380,7 @@ msgstr ""
 
 #: mtlpy/templates/videos.html:7
 msgid "Videos of our latest events."
-msgstr ""
+msgstr "Vidéos de nos rencontres précédentes"
 
 #: mtlpy/templates/videos.html:9
 msgid ""
@@ -395,6 +395,9 @@ msgid ""
 "com/'>Savoir-Faire Linux</a> for their support and the hard work of making "
 "those videos available"
 msgstr ""
+"Un grand merci à <a href='http://blog.savoirfairelinux.com/p/christian-"
+"aubry/'>Christian Aubry</a> et <a href='https://www.savoirfairelinux."
+"com/'>Savoir-Faire Linux</a> pour leur support afin de rendre ces vidéos possibles."
 
 #: mtlpy/templates/inc/article_list.html:63
 #, python-format
