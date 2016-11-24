@@ -4,7 +4,6 @@
 env/
 *egg-info/
 *.db
-media/
 *.#*
 mtlpy/collected_static/
 import_post
