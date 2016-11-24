@@ -464,39 +464,3 @@ msgstr "précédent"
 #: mtlpy/templates/pagination/pagination.html:19
 msgid "next"
 msgstr "suivant"
-
-#~ msgid "Montreal Python Calendar"
-#~ msgstr "Calendrier Montréal-Python"
-
-#~ msgid "Montreal Python Blog"
-#~ msgstr "Blogue de Montréal Python"
-
-#~ msgid "Page %(number)s of %(num_pages)s."
-#~ msgstr "Page %(number)s de %(num_pages)s."
-
-#~ msgid "This work by"
-#~ msgstr "Ce travail par"
-
-#~ msgid "is licensed under a"
-#~ msgstr "est sous license"
-
-#~ msgid "Based on a work at"
-#~ msgstr "Basé sur le travail de"
-
-#~ msgid "English"
-#~ msgstr "Anglais"
-
-#~ msgid "British English"
-#~ msgstr "Anglais"
-
-#~ msgid "French"
-#~ msgstr "Français"
-
-#~ msgid "Polish"
-#~ msgstr "Polonais"
-
-#~ msgid "iterations"
-#~ msgstr "itérations"
-
-#~ msgid "Clear image"
-#~ msgstr "Effacer l'image"
