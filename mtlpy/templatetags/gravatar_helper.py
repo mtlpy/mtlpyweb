@@ -9,5 +9,5 @@ from django.template import Library
 register = Library()
 
 @register.filter
-def email_hash(email):
-    return md5(email).hexdigest()
+def email_hash(user):
+    return md5(user.email).hexdigest()
