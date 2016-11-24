@@ -117,8 +117,6 @@ msgstr "Votre messsage a été envoyé"
 #: mtlpy/templates/contact.html:17
 msgid "Contact us with the form below or by emailing "
 msgstr "Contactez-nous via le formulaire suivant ou par courriel"
-"Contactez-nous en utilisant le formulaire suivant ou en nous écrivant un "
-"courriel"
 
 #: mtlpy/templates/contact.html:24
 msgid "Votre nom"
