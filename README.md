@@ -1,8 +1,11 @@
-============
-mtlpy-django
-============
+# MontréalPython Website
 
-# How to setup the environment:
+## How to setup the environment:
+
+    $ docker-compose build
+    $ docker-compose run web python manage.py syncdb --migrate
+    $ docker-compose run web python manage.py loaddata fixtures/*
+
 
 - Install the packages `pip install -r requirements.txt`
 - Setup the database  running `./manage.py syncdb --migrate`
