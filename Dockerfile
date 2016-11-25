@@ -2,6 +2,8 @@ FROM python:2.7
 
 ENV PYTHONUNBUFFERED 1
 
+RUN pip install -U 'pip > 9'
+
 RUN mkdir /app
 WORKDIR /app
 
