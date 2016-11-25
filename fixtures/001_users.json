@@ -5,8 +5,8 @@
             "email": "bob@mtlpy.org",
             "first_name": "Bob",
             "last_name": "Smith"
-        }, 
-        "model": "users.mtlpyuser", 
+        },
+        "model": "auth.user",
         "pk": 1
     },
     {
@@ -15,8 +15,8 @@
             "email": "pierre@mtlpy.org",
             "first_name": "Pierre",
             "last_name": "Poutine"
-        }, 
-        "model": "users.mtlpyuser", 
+        },
+        "model": "auth.user",
         "pk": 2
     },
     {
@@ -25,8 +25,8 @@
             "email": "john@mtlpy.org",
             "first_name": "John",
             "last_name": "Doe"
-        }, 
-        "model": "users.mtlpyuser", 
+        },
+        "model": "auth.user",
         "pk": 3
     }
 ]
