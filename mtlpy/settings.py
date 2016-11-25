@@ -9,7 +9,11 @@ from os.path import join, dirname, abspath
 
 import environ
 
-env = environ.Env(DEBUG=(bool, False),)
+env = environ.Env(DEBUG=(bool, False), LOCAL=(bool, False))
+LOCAL = env('LOCAL')
+
+if not LOCAL:
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 THUMBNAIL_FORMAT = 'PNG'
 
@@ -23,18 +27,11 @@ TINYMCE_DEFAULT_CONFIG = {
 
 PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
 
-DEBUG = env('DEBUG')
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = env('DEBUG')
 
 CACHES = {
     'default': env.cache_url(default='dummycache://')
 }
-
-if DEBUG:
-    CACHES['default'] = {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'unique-snowflake'
-    }
 
 ADMINS = (
     ('Mtlpy Admin', 'mtlpyteam+website@googlegroups.com'),
@@ -104,7 +101,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -125,7 +121,6 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -136,8 +131,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pagination.middleware.PaginationMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'mtlpy.urls'
