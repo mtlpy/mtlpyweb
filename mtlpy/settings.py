@@ -9,11 +9,27 @@ from os.path import join, dirname, abspath
 
 import environ
 
-env = environ.Env(DEBUG=(bool, False), LOCAL=(bool, False))
+env = environ.Env(
+    DEBUG=(bool, False),
+    LOCAL=(bool, False),
+
+    GOOGLE_ANALYTICS=(str, ''),
+    YOUTUBE_API_KEY=(str, ''),
+    ALLOWED_HOSTS=(str, ''),
+
+    AWS_ACCESS_KEY_ID=(str, ''),
+    AWS_SECRET_ACCESS_KEY=(str, ''),
+    AWS_STORAGE_BUCKET_NAME=(str, ''),
+)
+
 LOCAL = env('LOCAL')
 
 if not LOCAL:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 
 THUMBNAIL_FORMAT = 'PNG'
 
@@ -46,7 +62,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(",")
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(",")
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -198,12 +214,11 @@ LOGGING = {
     }
 }
 
-YOUTUBE_API_KEY = os.environ.get('YOUTUBE_API_KEY', '')
+YOUTUBE_API_KEY = env('YOUTUBE_API_KEY')
 
 DISQUS_SITENAME = "mtlpy"
 
 
 PAGINATION_INVALID_PAGE_RAISES_404 = True
 PAGINATION_DEFAULT_PAGINATION = 10
-#PAGINATION_DEFAULT_WINDOW = 1
-GOOGLE_ANALYTICS = os.environ.get('GOOGLE_ANALYTICS', '')
+GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS')
