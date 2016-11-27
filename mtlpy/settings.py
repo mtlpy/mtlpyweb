@@ -21,10 +21,14 @@ env = environ.Env(
     AWS_SECRET_ACCESS_KEY=(str, ''),
     AWS_STORAGE_BUCKET_NAME=(str, ''),
 )
+env.read_env('.env')
 
 LOCAL = env('LOCAL')
 
 if not LOCAL:
+    # Python dotted path to the WSGI application used by Django's runserver.
+    WSGI_APPLICATION = 'mtlpy.wsgi.application'
+
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
     AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
@@ -43,7 +47,8 @@ TINYMCE_DEFAULT_CONFIG = {
 
 PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
 
-TEMPLATE_DEBUG = env('DEBUG')
+DEBUG = env('DEBUG')
+TEMPLATE_DEBUG = DEBUG
 
 CACHES = {
     'default': env.cache_url(default='dummycache://')
@@ -150,9 +155,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'mtlpy.urls'
-
-# Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
