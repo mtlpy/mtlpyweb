@@ -18,3 +18,4 @@ bin/*
 include/*
 lib/*
 mtlpy.sublime-*
+.env
