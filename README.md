@@ -10,6 +10,8 @@ Configure your local env file:
 
     $ cp .env.example .env
 
+To get a complete setup you'll also need to obtain a valid YOUTUBE_API_KEY.
+
 Build your dev docker image:
 
     $ docker-compose build
