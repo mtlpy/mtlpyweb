@@ -24,3 +24,13 @@ Run initial DB setup:
 Run server:
 
     $ docker-compose up
+
+### Dependencies
+
+The list of dependencies is maintained in `requirements.source.txt`.
+
+The locked versions for deployment are in `requirements.txt`.
+
+To update the locked versions:
+
+    $ sudo docker-compose run web bash -c 'pip freeze > requirements.txt'
