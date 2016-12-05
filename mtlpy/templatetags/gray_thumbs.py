@@ -15,7 +15,7 @@ register = Library()
 TO_GRAY_INTENSITY = 0.5
 
 class GrayBackend(ThumbnailBackend):
-    
+
     def get_thumbnail(self, file_, geometry_string, **options):
         """
         Returns thumbnail as an ImageFile instance for file with geometry and
@@ -70,13 +70,13 @@ class GrayBackend(ThumbnailBackend):
         new_px.append(px[3])
 
         return tuple(new_px)
-        
+
     def _create_thumbnail(self, source_image, geometry_string, options,
                           thumbnail):
         """
         Creates the thumbnail by using default.engine
         """
-        ratio = default.engine.get_image_ratio(source_image)
+        ratio = default.engine.get_image_ratio(source_image, options)
         geometry = parse_geometry(geometry_string, ratio)
         image = default.engine.create(source_image, geometry, options)
 
