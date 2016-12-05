@@ -155,7 +155,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mtlpy.urls'
 
 TEMPLATE_DIRS = (
-    join(abspath(join(dirname(__file__), '..')), 'templates')
+    join(abspath(join(dirname(__file__), '..')), 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -165,7 +165,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.markup',
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.comments',
