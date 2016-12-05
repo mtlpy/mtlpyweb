@@ -28,7 +28,6 @@ rsa==3.4.2
 s3transfer==0.1.9
 six==1.10.0
 sorl-thumbnail==12.3
-South==0.7.6
 static3==0.7.0
 uritemplate==3.0.0
 virtualenv==15.1.0

@@ -177,7 +177,6 @@ INSTALLED_APPS = (
     'mtlpy.blog',
     'mtlpy',
     'mtlpy.pages',
-    'south',
     'pagination',
 )
 
