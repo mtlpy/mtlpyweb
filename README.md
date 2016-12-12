@@ -4,6 +4,10 @@
 
 Deployments are triggered automatically when pushing to the *master* branch.
 
+## [Code of Conduct](https://github.com/mtlpy/code-of-conduct)
+
+Montréal-Python has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://github.com/mtlpy/code-of-conduct) so that you can understand what actions will and will not be tolerated.
+
 ## Development
 
 Configure your local env file:
