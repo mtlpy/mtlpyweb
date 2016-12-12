@@ -34,3 +34,7 @@ The locked versions for deployment are in `requirements.txt`.
 To update the locked versions:
 
     $ sudo docker-compose run web bash -c 'pip freeze > requirements.txt'
+
+## License
+
+The Montréal-Python is Apache licensed.
