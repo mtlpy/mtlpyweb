@@ -33,6 +33,10 @@ Run server:
 
     $ docker-compose up
 
+Erase your instance:
+
+    $ docker-compose kill
+
 ### Dependencies
 
 The list of dependencies is maintained in `requirements.source.txt`.
@@ -45,4 +49,4 @@ To update the locked versions:
 
 ## License
 
-The Montréal-Python is Apache licensed.
+The The Montréal-Python website is Apache licensed.
