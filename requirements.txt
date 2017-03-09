@@ -31,3 +31,4 @@ sorl-thumbnail==12.3
 static3==0.7.0
 uritemplate==3.0.0
 virtualenv==15.1.0
+MySQL-python==1.2.5
