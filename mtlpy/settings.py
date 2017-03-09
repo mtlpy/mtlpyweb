@@ -60,7 +60,7 @@ CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': env.db(),
+    'default': env.db('CLEARDB_DATABASE_URL'),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
