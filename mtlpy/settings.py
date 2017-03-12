@@ -62,8 +62,11 @@ CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
 
 MANAGERS = ADMINS
 
+if 'CLEARDB_DATABASE_URL' in os.environ:
+    os.environ['DATABASE_URL'] = os.environ['CLEARDB_DATABASE_URL']
+
 DATABASES = {
-    'default': env.db('CLEARDB_DATABASE_URL'),
+    'default': env.db(),
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
