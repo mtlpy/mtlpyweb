@@ -45,7 +45,7 @@ The locked versions for deployment are in `requirements.txt`.
 
 To update the locked versions:
 
-    $ sudo docker-compose run web bash -c 'pip freeze > requirements.txt'
+    $ docker-compose run -T web pip freeze | sort > requirements.txt
 
 ## License
 

@@ -1,3 +1,6 @@
+# Place here the initial requirements
+# The frozen versions will be in requirements.txt
+
 arrow
 boto3
 dj-static==0.0.6
@@ -16,3 +19,4 @@ psycopg2==2.6.2
 requests
 sorl-thumbnail
 oauth2client==3.0.0
+PyMySQL
