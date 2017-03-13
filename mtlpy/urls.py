@@ -9,7 +9,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'^$',  'mtlpy.views.home_page', name='home_page'),
+    url(r'^$', 'mtlpy.views.home_page', name='home_page'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<slug>[-\w]+)/$',
         'mtlpy.blog.views.post', name='blog_detail'),
@@ -28,8 +28,11 @@ urlpatterns = patterns(
     url(r'^contact/', 'mtlpy.views.contact', name='contact'),
     url(r'^videos/', 'mtlpy.views.videos', name='videos'),
     url(r'^sponsorship/', 'mtlpy.views.sponsorship', name='sponsorship'),
-    url(r'^feed/$', BlogEntriesFeed(), name="feed")
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^feed/$', BlogEntriesFeed(), name="feed"),
+    url(r'^debug$', 'mtlpy.views.debug', name='debug'),
+)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += patterns(
     '',
