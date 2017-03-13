@@ -18,7 +18,6 @@ env = environ.Env(
 
     GOOGLE_ANALYTICS=(str, ''),
     YOUTUBE_API_KEY=(str, ''),
-    ALLOWED_HOSTS=(str, ''),
 
     AWS_ACCESS_KEY_ID=(str, ''),
     AWS_SECRET_ACCESS_KEY=(str, ''),
@@ -71,7 +70,14 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(",")
+ALLOWED_HOSTS = [
+    'montrealpython.org',
+    'www.montrealpython.org',
+    'mtlpy.org',
+    'www.mtlpy.org',
+    'montrealpython.com',
+    'www.montrealpython.com',
+]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
