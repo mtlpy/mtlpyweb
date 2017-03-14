@@ -206,16 +206,22 @@ LOGGING = {
         }
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+        'console': {
+            'level': 'INFO',
+            'filters': [],
+            'class': 'logging.StreamHandler',
+            # 'formatter': 'simple'
+        },
     },
     'loggers': {
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['console'],
             'level': 'ERROR',
+            'propagate': True,
+        },
+        'mtlpy': {
+            'handlers': ['console'],
+            'level': 'INFO',
             'propagate': True,
         },
     }
@@ -228,6 +234,7 @@ DISQUS_SITENAME = "mtlpy"
 
 PAGINATION_INVALID_PAGE_RAISES_404 = True
 PAGINATION_DEFAULT_PAGINATION = 10
+
 GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS')
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

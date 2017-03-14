@@ -28,5 +28,3 @@ def i18n_flatpage(request, url):
         else:
             raise
     return render_flatpage(request, f)
-    
-    

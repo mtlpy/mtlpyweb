@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, absolute_import
+import os
+import logging
 
 from django import forms
 from django.utils.translation import gettext_lazy as _
@@ -9,10 +11,13 @@ from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
 from django.db.models import Q
+from django.http import JsonResponse
 
 from mtlpy.blog.models import Post
 from mtlpy.api.videos import get_all_videos
 from .models import Sponsor
+
+log = logging.getLogger(__name__)
 
 
 class ContactForm(forms.Form):
@@ -88,3 +93,8 @@ def sponsorship(request):
                 .order_by('ordering'))
     return render_to_response('sponsorship.html', {"sponsors": sponsors},
                               context_instance=RequestContext(request))
+
+
+def debug(request):
+    log.info("Debug request env=%s headers=%s", os.environ, request.META)
+    return JsonResponse({})
