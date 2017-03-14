@@ -96,5 +96,8 @@ def sponsorship(request):
 
 
 def debug(request):
-    log.info("Debug request env=%s headers=%s", os.environ, request.META)
+    if 'crash' in request.GET:
+        raise Exception("Crash requested by /debug")
+    log.info("Debug request\nscheme=%s\n env\n%s\n headers\n%s",
+        request.scheme, os.environ, request.META)
     return JsonResponse({})

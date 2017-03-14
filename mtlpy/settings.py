@@ -155,6 +155,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'bugsnag.django.middleware.BugsnagMiddleware',
     'localeurl.middleware.LocaleURLMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -240,3 +241,10 @@ GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS')
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Cloudflare is sending X_FORWARDED_PROTO = http even in https -_-
 SECURE_PROXY_SSL_HEADER = ('HTTP_CF_VISITOR', '{"scheme":"https"}')
+
+BUGSNAG = {
+    # Those are almost the default behaviors of the lib. But with better errors.
+    'api_key': env('BUGSNAG_API_KEY', default=None),
+    'release_stage': env('BUGSNAG_RELEASE_STAGE', default='development'),
+    'notify_release_stages': ['production'],
+}
