@@ -204,20 +204,33 @@ LOGGING = {
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
         }
+    },
+    'formatters': {
+        'default': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'filters': [],
             'class': 'logging.StreamHandler',
-            # 'formatter': 'simple'
+            'formatter': 'default',
         },
     },
     'loggers': {
         'django.request': {
             'handlers': ['console'],
             'level': 'ERROR',
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
             'propagate': True,
         },
         'mtlpy': {
