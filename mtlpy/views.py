@@ -96,5 +96,5 @@ def sponsorship(request):
 
 
 def debug(request):
-    log.error("Debug request env=%s headers=%s", os.environ, request.META)
+    log.info("Debug request env=%s headers=%s", os.environ, request.META)
     return JsonResponse({})
