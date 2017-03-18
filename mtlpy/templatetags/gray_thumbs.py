@@ -9,6 +9,8 @@ from sorl.thumbnail.base import ThumbnailBackend, EXTENSIONS
 from PIL.Image import MODES
 from django.template import Library
 
+import logging
+logger = logging.getLogger(__name__)
 
 register = Library()
 
@@ -22,6 +24,7 @@ class GrayBackend(ThumbnailBackend):
         options given. First it will try to get it from the key value store,
         secondly it will create it.
         """
+        logger.debug('GrayBackend.get_thumbnail (%s)', file_)
         source = ImageFile(file_)
         for key, value in self.default_options.iteritems():
             options.setdefault(key, value)
@@ -36,6 +39,7 @@ class GrayBackend(ThumbnailBackend):
         thumbnail = ImageFile(name, default.storage)
         cached = default.kvstore.get(thumbnail)
         if cached:
+            logger.debug('From cache: %s', cached)
             return cached
         if not thumbnail.exists():
             # We have to check exists() because the Storage backend does not
@@ -51,6 +55,7 @@ class GrayBackend(ThumbnailBackend):
         # will just leave that out for now.
         default.kvstore.get_or_set(source)
         default.kvstore.set(thumbnail, source)
+        logger.debug('Generated: %s', cached)
         return thumbnail
 
     @staticmethod
