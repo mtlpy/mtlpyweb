@@ -212,7 +212,7 @@ LOGGING = {
     },
     'formatters': {
         'default': {
-            'format': '%(levelname)s %(module)s:%(funcName)s:%(lineno)s %(message)s'
+            'format': '%(asctime)s %(levelname)s %(name)s:%(funcName)s:%(lineno)s %(message)s'
         },
     },
     'handlers': {
