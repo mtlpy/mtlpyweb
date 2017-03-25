@@ -187,6 +187,7 @@ INSTALLED_APPS = (
     'tinymce',
     'sorl.thumbnail',
     'mce_filebrowser',
+    'storages',
     # local apps
     'mtlpy.blog',
     'mtlpy',
