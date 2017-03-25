@@ -3,7 +3,6 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load thumbnail %}
-{% load gray_thumbs %}
 
 {% block body_class %}homepage{% endblock %}
 
@@ -88,7 +87,7 @@
         <div class="friends">
             {% for sponsor in sponsors %}
               <div class="friend">
-                {% gray_thumbnail sponsor.logo "200x100" as im %}
+                {% thumbnail sponsor.logo "200x100" as im %}
 
                 {% if sponsor.has_description %}
                   <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
@@ -123,7 +122,7 @@
         <div class="friends">
         {% for partner in partners %}
           <div class="friend">
-            {% gray_thumbnail partner.logo "200x100" as im %}
+            {% thumbnail partner.logo "200x100" as im %}
 
             {% if partner.url %}
               <a href="{{ partner.url }}" class="friendLink" target="_blank">
