@@ -34,9 +34,6 @@ SITENAME = u"Montréal-Python"
 DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
-THUMBNAIL_DEBUG = DEBUG
-THUMBNAIL_FORMAT = 'PNG'
-
 CACHES = {
     'default': env.cache_url(default='dummycache://')
 }
@@ -170,8 +167,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.flatpages',
     'django_extensions',
-    'sorl.thumbnail',
     'storages',
+    'imagekit',
     # local apps
     'mtlpy.blog',
     'mtlpy',

@@ -1,6 +1,5 @@
 {% load i18n %}
-{% load gray_thumbs %}
-{% load thumbnail %}
+{% load imagekit %}
 {% load gravatar_helper %}
 
 <div class="span4">
@@ -32,11 +31,9 @@
         <div class="sidebar-body">
             <div class="sidebar-body-title">{% trans "Sponsors :" %}</div>
 	    {% for e_sponsor in article.event_sponsors.all %}
-            {% thumbnail e_sponsor.sponsor.logo "160x140" as im %}
             <a class="sidebar-sponsor" target="_blank" href="{{ e_sponsor.sponsor.url }}">
-                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ e_sponsor.sponsor.name }}" />
+                {% thumbnail '160x140' e_sponsor.sponsor.logo crop=0 -- alt=e_sponsor.sponsor.name %}
             </a>
-	    {% endthumbnail %}
 	    {% endfor %}
         </div>
 	{% endif %}
