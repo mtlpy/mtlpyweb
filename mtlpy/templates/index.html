@@ -55,7 +55,9 @@
             {% for article in blog_posts %}
                  <li class="span4">
                      <div class="thumbnail">
+                        {% if article.logo %}
                         {% thumbnail "279x156" article.logo crop=0 -- alt=article.slug %}
+                        {% endif %}
                         <div class="caption">
                             <abbr class="published" title="{{ article.published }}">{{ article.published }}</abbr>
                             <h5>
