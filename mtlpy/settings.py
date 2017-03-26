@@ -14,23 +14,15 @@ pymysql.install_as_MySQLdb()
 
 env = environ.Env(
     DEBUG=(bool, False),
-    LOCAL=(bool, False),
 
     GOOGLE_ANALYTICS=(str, ''),
     YOUTUBE_API_KEY=(str, ''),
-
-    AWS_ACCESS_KEY_ID=(str, ''),
-    AWS_SECRET_ACCESS_KEY=(str, ''),
-    AWS_STORAGE_BUCKET_NAME=(str, ''),
 )
 env.read_env('.env')
 
-LOCAL = env('LOCAL')
+WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
-if not LOCAL:
-    # Python dotted path to the WSGI application used by Django's runserver.
-    WSGI_APPLICATION = 'mtlpy.wsgi.application'
-
+if env('AWS_STORAGE_BUCKET_NAME', default=None):
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
     AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
