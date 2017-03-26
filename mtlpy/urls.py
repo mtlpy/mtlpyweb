@@ -24,7 +24,6 @@ urlpatterns = patterns(
         name='sponsor_details'),
     url(r'^admin/?', include(admin.site.urls)),
     url(r'^styleguide', 'mtlpy.views.styleguide'),
-    url(r'^tinymce/', include('tinymce.urls')),
     url(r'^contact/', 'mtlpy.views.contact', name='contact'),
     url(r'^videos/', 'mtlpy.views.videos', name='videos'),
     url(r'^sponsorship/', 'mtlpy.views.sponsorship', name='sponsorship'),

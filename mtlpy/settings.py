@@ -31,12 +31,6 @@ if env('AWS_STORAGE_BUCKET_NAME', default=None):
 
 SITENAME = u"Montréal-Python"
 
-TINYMCE_DEFAULT_CONFIG = {
-  'file_browser_callback': 'mce_filebrowser',
-  'height': 600,
-  'width': '100%',
-}
-
 DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
@@ -176,9 +170,7 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.flatpages',
     'django_extensions',
-    'tinymce',
     'sorl.thumbnail',
-    'mce_filebrowser',
     'storages',
     # local apps
     'mtlpy.blog',

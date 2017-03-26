@@ -3,8 +3,6 @@ import datetime
 from django.contrib import admin
 from django import forms
 
-from sorl.thumbnail.admin import AdminImageMixin
-
 from mtlpy.models import EventSponsor
 from .models import Post, Category, Video
 
@@ -35,7 +33,7 @@ class VideoInline(admin.StackedInline):
     extra = 1
 
 
-class CatAdmin(admin.ModelAdmin, AdminImageMixin):
+class CatAdmin(admin.ModelAdmin):
     list_display = ('slug', 'title_en', 'title_fr', 'post_count')
     prepopulated_fields = {"slug": ("title_en", "title_fr")}
     fields = (
@@ -49,7 +47,7 @@ class CatAdmin(admin.ModelAdmin, AdminImageMixin):
         return obj.posts.all().count()
 
 
-class VideoAdmin(admin.ModelAdmin, AdminImageMixin):
+class VideoAdmin(admin.ModelAdmin):
     form = VideoAdminForm
     list_display = ('slug', 'title_en', 'title_fr', 'code', 'post')
     prepopulated_fields = {"slug": ("title_en", "title_fr")}
@@ -62,7 +60,7 @@ class VideoAdmin(admin.ModelAdmin, AdminImageMixin):
         )
 
 
-class PostAdmin(admin.ModelAdmin, AdminImageMixin):
+class PostAdmin(admin.ModelAdmin):
     class Media:
         js = ("js/markdown-0.5.0.js", "js/post_admin.js")
     list_display = ('slug', 'title', 'status', 'category')

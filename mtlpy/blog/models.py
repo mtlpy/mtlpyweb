@@ -13,8 +13,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from mtlpy.lib.models import i18n_field
 
-from sorl.thumbnail import ImageField
-
 
 class PublishedManager(models.Manager):
     def get_query_set(self):
@@ -39,7 +37,7 @@ class Post(models.Model):
     created = models.DateField(auto_now_add=True)
     publish = models.DateField(blank=True, null=True)
     status = models.IntegerField(choices=PUBLISH_CHOICES, default=2)
-    logo = ImageField(upload_to='post', null=True, blank=True)
+    logo = models.ImageField(upload_to='post', null=True, blank=True)
 
     author = models.ForeignKey(User)
     category = models.ForeignKey('Category', related_name='posts')
@@ -84,7 +82,7 @@ class Category(models.Model):
     title_en = models.CharField(max_length=64)
     title_fr = models.CharField(max_length=64)
     title = i18n_field('title')
-    logo = ImageField(upload_to='category', default='category/default.jpg')
+    logo = models.ImageField(upload_to='category', default='category/default.jpg')
 
     class Meta:
         db_table = 'blog_categories'
