@@ -238,12 +238,7 @@ LOGGING = {
         },
         'botocore': {
             'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': True,
-        },
-        'botocore.vendored': {
-            'handlers': ['console'],
-            'level': 'INFO',
+            'level': 'ERROR',
             'propagate': True,
         },
     }
