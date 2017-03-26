@@ -38,7 +38,9 @@ IMAGEKIT_CACHE_BACKEND = 'imagekit'
 
 CACHES = {
     'default': env.cache_url(default='dummycache://'),
-    'imagekit': 'dummycache://',
+    'imagekit': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    },
 }
 
 ADMINS = (
