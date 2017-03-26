@@ -2,6 +2,9 @@
 from __future__ import unicode_literals, absolute_import
 import os
 import logging
+import datetime
+
+import pytz
 
 from django import forms
 from django.utils.translation import gettext_lazy as _
@@ -95,9 +98,17 @@ def sponsorship(request):
                               context_instance=RequestContext(request))
 
 
+debug_startup_time = datetime.datetime.now(pytz.utc).isoformat()
+
+
 def debug(request):
-    if 'crash' in request.GET:
-        raise Exception("Crash requested by /debug")
-    log.info("Debug request\nscheme=%s\n env\n%s\n headers\n%s",
-        request.scheme, os.environ, request.META)
-    return JsonResponse({})
+    log.info(
+        "Debug request\nscheme=%s\n env\n%s\n headers\n%s",
+        request.scheme, os.environ, request.META,
+    )
+
+    response = {
+        'headers': {k: str(v) for k, v in request.META.items()},
+        'process': {'startup_time': debug_startup_time},
+    }
+    return JsonResponse(response)
