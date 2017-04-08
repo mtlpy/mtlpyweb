@@ -23,7 +23,9 @@ env.read_env('.env')
 WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
 if env('AWS_STORAGE_BUCKET_NAME', default=None):
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # Issue: https://github.com/boto/boto3/issues/929
+    DEFAULT_FILE_STORAGE = 'mtlpy.lib.storages.CustomS3Boto3Storage'
 
     AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
@@ -33,8 +35,6 @@ SITENAME = u"Montréal-Python"
 
 DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = DEBUG
-
-IMAGEKIT_DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 CACHES = {
     'default': env.cache_url(default='dummycache://'),
