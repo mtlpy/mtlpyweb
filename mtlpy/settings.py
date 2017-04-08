@@ -34,13 +34,9 @@ SITENAME = u"Montréal-Python"
 DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
-IMAGEKIT_CACHE_BACKEND = 'imagekit'
 
 CACHES = {
     'default': env.cache_url(default='dummycache://'),
-    'imagekit': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-    },
 }
 
 ADMINS = (
