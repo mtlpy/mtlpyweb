@@ -34,6 +34,7 @@ SITENAME = u"Montréal-Python"
 DEBUG = env('DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
+IMAGEKIT_DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 CACHES = {
     'default': env.cache_url(default='dummycache://'),
