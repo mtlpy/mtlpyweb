@@ -22,15 +22,6 @@ env.read_env('.env')
 
 WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
-if env('AWS_STORAGE_BUCKET_NAME', default=None):
-    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    # Issue: https://github.com/boto/boto3/issues/929
-    DEFAULT_FILE_STORAGE = 'mtlpy.lib.storages.CustomS3Boto3Storage'
-
-    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-
 SITENAME = u"Montréal-Python"
 
 DEBUG = env('DEBUG')
@@ -100,6 +91,13 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_LOCATION = env('ENV')
+
 MEDIA_ROOT = join(dirname(__file__), "media")
 MEDIA_URL = "/media/"
 STATIC_ROOT = join(dirname(__file__), "collected_static")
@@ -119,6 +117,9 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+# Issue: https://github.com/boto/boto3/issues/929
+IMAGEKIT_DEFAULT_FILE_STORAGE = 'mtlpy.lib.storages.CustomS3Boto3Storage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = env('SECRET_KEY')
