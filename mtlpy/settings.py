@@ -212,6 +212,11 @@ LOGGING = {
         },
     },
     'loggers': {
+        'django': {  # Disable this stupid default AdminEmail handler
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'django.request': {
             'handlers': ['console'],
             'level': 'ERROR',
