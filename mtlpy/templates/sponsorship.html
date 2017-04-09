@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load imagekit %}
+{% load thumbnail %}
 
 {% block title %}
   {% trans "Montreal Python Sponsorship" %}
@@ -16,17 +16,21 @@
 <div class="friends">
   {% for sponsor in sponsors %}
     <div class="friend">
+      {% thumbnail sponsor.logo "200x100" as im %}
+
       {% if sponsor.has_description %}
         <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
-          {% thumbnail '200x100' sponsor.logo crop=0 -- alt=sponsor.name %}
+          <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
         </a>
       {% elif sponsor.url %}
         <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
-          {% thumbnail '200x100' sponsor.logo crop=0 -- alt=sponsor.name %}
+          <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
         </a>
       {% else %}
-        {% thumbnail '200x100' sponsor.logo crop=0 -- alt=sponsor.name %}
+        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
       {% endif %}
+
+      {% endthumbnail %}
     </div>
     {% if forloop.counter|divisibleby:3 %}
       </div><div class="friends">

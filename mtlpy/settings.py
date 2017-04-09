@@ -91,12 +91,15 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_LOCATION = env('ENV')
+
+THUMBNAIL_DEBUG = DEBUG
+THUMBNAIL_FORMAT = 'PNG'
 
 MEDIA_ROOT = join(dirname(__file__), "media")
 MEDIA_URL = "/media/"
@@ -170,8 +173,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.flatpages',
     'django_extensions',
+    'sorl.thumbnail',
     'storages',
-    'imagekit',
     # local apps
     'mtlpy.blog',
     'mtlpy',

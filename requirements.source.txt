@@ -2,12 +2,11 @@
 # The frozen versions will be in requirements.txt
 
 arrow
-boto3
+boto
 bugsnag
 dj-static==0.0.6
 django-environ==0.4.0
 django-extensions==1.1.1
-django-imagekit
 django-localeurl==1.5
 django-pagination==1.0.7
 django-storages
@@ -21,3 +20,4 @@ requests
 oauth2client==3.0.0
 PyMySQL
 pytz
+sorl-thumbnail
