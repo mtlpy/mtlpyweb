@@ -232,16 +232,6 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
-        'boto3': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'botocore': {
-            'handlers': ['console'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
     }
 }
 
