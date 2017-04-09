@@ -93,14 +93,14 @@
 
                 {% if sponsor.has_description %}
                   <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
-                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" style="filter: grayscale(100%);" />
                   </a>
                 {% elif sponsor.url %}
                   <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
-                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" style="filter: grayscale(100%);" />
                   </a>
                 {% else %}
-                  <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+                  <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" style="filter: grayscale(100%);" />
                 {% endif %}
 
                 {% endthumbnail %}
@@ -129,10 +129,10 @@
 
             {% if partner.url %}
               <a href="{{ partner.url }}" class="friendLink" target="_blank">
-                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" />
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" style="filter: grayscale(100%);" />
               </a>
             {% else %}
-              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" />
+              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" style="filter: grayscale(100%);" />
             {% endif %}
 
             {% endthumbnail %}
