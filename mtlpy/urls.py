@@ -3,6 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from mtlpy.blog.feed import BlogEntriesFeed
+from mtlpy.files import media
 
 from django.contrib import admin
 admin.autodiscover()
@@ -31,7 +32,7 @@ urlpatterns = patterns(
     url(r'^debug$', 'mtlpy.views.debug', name='debug'),
 )
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += patterns('', media())
 
 urlpatterns += patterns(
     '',
