@@ -119,7 +119,7 @@ STATICFILES_FINDERS = (
 )
 
 # Issue: https://github.com/boto/boto3/issues/929
-IMAGEKIT_DEFAULT_FILE_STORAGE = 'mtlpy.lib.storages.CustomS3Boto3Storage'
+IMAGEKIT_DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = env('SECRET_KEY')
