@@ -98,6 +98,9 @@ AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
 AWS_LOCATION = env('ENV')
 
+THUMBNAIL_DEBUG = DEBUG
+THUMBNAIL_FORMAT = 'PNG'
+
 MEDIA_ROOT = join(dirname(__file__), "media")
 MEDIA_URL = "/media/"
 STATIC_ROOT = join(dirname(__file__), "collected_static")
@@ -170,8 +173,8 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.flatpages',
     'django_extensions',
+    'sorl.thumbnail',
     'storages',
-    'imagekit',
     # local apps
     'mtlpy.blog',
     'mtlpy',

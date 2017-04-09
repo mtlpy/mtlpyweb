@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-{% load imagekit %}
+{% load thumbnail %}
 {% load markup %}
 
 {% block main_title %}
@@ -13,7 +13,9 @@
 {% endblock %}
 
 {% block content %}
-  {% thumbnail '200x100' sponsor.logo crop=0 -- alt= sponsor.name %}
+  {% thumbnail sponsor.logo "200x100" as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
+  {% endthumbnail %}
 
   {{ sponsor.description|markdown }}
 

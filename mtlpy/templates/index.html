@@ -2,7 +2,7 @@
 
 {% load i18n %}
 {% load staticfiles %}
-{% load imagekit %}
+{% load thumbnail %}
 
 {% block body_class %}homepage{% endblock %}
 
@@ -56,7 +56,9 @@
                  <li class="span4">
                      <div class="thumbnail">
                         {% if article.logo %}
-                        {% thumbnail "279x156" article.logo crop=0 -- alt=article.slug %}
+                        {% thumbnail article.logo "279x156" as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ article.slug }}">
+                        {% endthumbnail %}
                         {% endif %}
                         <div class="caption">
                             <abbr class="published" title="{{ article.published }}">{{ article.published }}</abbr>
@@ -87,17 +89,21 @@
         <div class="friends">
             {% for sponsor in sponsors %}
               <div class="friend">
+                {% thumbnail sponsor.logo "200x100" as im %}
+
                 {% if sponsor.has_description %}
                   <a href="/sponsor/{{ sponsor.slug }}/" class="friendLink">
-                    {% thumbnail "200x100" sponsor.logo crop=0 -- alt=sponsor.name style='filter: grayscale(100%);' %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
                   </a>
                 {% elif sponsor.url %}
                   <a href="{{ sponsor.url }}" class="friendLink" target="_blank">
-                    {% thumbnail "200x100" sponsor.logo crop=0 -- alt=sponsor.name style='filter: grayscale(100%);' %}
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
                   </a>
                 {% else %}
-                  {% thumbnail "200x100" sponsor.logo crop=0 -- alt=sponsor.name style='filter: grayscale(100%);' %}
+                  <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ sponsor.name }}" />
                 {% endif %}
+
+                {% endthumbnail %}
               </div>
               {% if forloop.counter|divisibleby:3 %}
                 </div><div class="friends">
@@ -119,13 +125,17 @@
         <div class="friends">
         {% for partner in partners %}
           <div class="friend">
+            {% thumbnail partner.logo "200x100" as im %}
+
             {% if partner.url %}
               <a href="{{ partner.url }}" class="friendLink" target="_blank">
-                {% thumbnail "200x100" partner.logo crop=0 -- alt=partner.name style='filter: grayscale(100%);' %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" />
               </a>
             {% else %}
-              {% thumbnail "200x100" partner.logo crop=0 -- alt=partner.name style='filter: grayscale(100%);' %}
+              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ partner.name }}" />
             {% endif %}
+
+            {% endthumbnail %}
           </div>
           {% if forloop.counter|divisibleby:3 %}
             </div><div class="friends">
