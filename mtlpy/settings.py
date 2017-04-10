@@ -251,6 +251,6 @@ GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS')
 BUGSNAG = {
     # Those are almost the default behaviors of the lib. But with better errors.
     'api_key': env('BUGSNAG_API_KEY', default=None),
-    'release_stage': env('BUGSNAG_RELEASE_STAGE', default='development'),
+    'release_stage': env('ENV'),
     'notify_release_stages': ['production'],
 }
