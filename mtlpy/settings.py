@@ -253,4 +253,9 @@ BUGSNAG = {
     'api_key': env('BUGSNAG_API_KEY', default=None),
     'release_stage': env('ENV'),
     'notify_release_stages': ['production'],
+    'ignore_classes': [
+        'django.http.response.Http404',
+        'django.http.Http404',
+    ],
+
 }
