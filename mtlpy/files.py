@@ -17,10 +17,9 @@ def serve(prefix, document_root):
     pattern = r'^%s(?P<path>.*)$' % re.escape(prefix.lstrip('/'))
     kwargs = {'document_root': document_root}
 
-    if settings.DEBUG:
-        view = permanent_public_cache(static_view)
-    else:
-        view = static_view
+    view = static_view
+    if not settings.DEBUG:
+        view = permanent_public_cache(view)
 
     return url(pattern, view, kwargs=kwargs)
 
