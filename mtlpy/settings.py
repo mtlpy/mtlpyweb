@@ -30,12 +30,7 @@ CACHES = {
     'default': env.cache_url(default='dummycache://'),
 }
 
-ADMINS = (
-    ('Mtlpy Admin', 'mtlpyteam+website@googlegroups.com'),
-)
 CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
-
-MANAGERS = ADMINS
 
 if 'CLEARDB_DATABASE_URL' in os.environ:
     os.environ['DATABASE_URL'] = os.environ['CLEARDB_DATABASE_URL']
@@ -209,11 +204,6 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {  # Disable this stupid default AdminEmail handler
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
         'django.request': {
             'handlers': ['console'],
             'level': 'ERROR',
