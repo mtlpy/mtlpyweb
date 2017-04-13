@@ -13,8 +13,6 @@ pymysql.install_as_MySQLdb()
 
 
 env = environ.Env(
-    DEBUG=(bool, False),
-
     GOOGLE_ANALYTICS=(str, ''),
     YOUTUBE_API_KEY=(str, ''),
 )
@@ -24,7 +22,8 @@ WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
 SITENAME = u"Montréal-Python"
 
-DEBUG = env('DEBUG')
+DEBUG = env('DEBUG', cast=bool, default=False)
+SQL_DEBUG = env('SQL_DEBUG', cast=bool, default=False)
 TEMPLATE_DEBUG = DEBUG
 
 CACHES = {
@@ -222,7 +221,7 @@ LOGGING = {
         },
         'django.db.backends': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'DEBUG' if SQL_DEBUG else 'INFO',
             'propagate': True,
         },
         'mtlpy': {
