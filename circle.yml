@@ -1,0 +1,14 @@
+machine:
+  python:
+    version: 2.7.13
+  services:
+    - mysql
+
+dependencies:
+  pre:
+    - pip install -U pip
+    - pip install -r requirements-test.txt
+
+test:
+  pre:
+    - prospector mtlpy/
