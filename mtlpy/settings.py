@@ -174,22 +174,12 @@ INSTALLED_APPS = (
     'pagination',
 )
 
-# a sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
+LOG_LEVEL = env('LOG_LEVEL', default='INFO')
+DB_LOG_LEVEL = env('DB_LOG_LEVEL', default='INFO')
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        }
-    },
     'formatters': {
         'default': {
             'format': '%(asctime)s %(levelname)s %(name)s:%(funcName)s:%(lineno)s %(message)s'
@@ -207,22 +197,18 @@ LOGGING = {
         'django.request': {
             'handlers': ['console'],
             'level': 'ERROR',
-            'propagate': True,
         },
         'django.db.backends': {
             'handlers': ['console'],
-            'level': 'DEBUG' if SQL_DEBUG else 'INFO',
-            'propagate': True,
+            'level': DB_LOG_LEVEL,
         },
         'mtlpy': {
             'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
+            'level': LOG_LEVEL,
         },
         'sorl': {
             'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
+            'level': LOG_LEVEL,
         },
     }
 }
@@ -230,7 +216,6 @@ LOGGING = {
 YOUTUBE_API_KEY = env('YOUTUBE_API_KEY')
 
 DISQUS_SITENAME = "mtlpy"
-
 
 PAGINATION_INVALID_PAGE_RAISES_404 = True
 PAGINATION_DEFAULT_PAGINATION = 10
