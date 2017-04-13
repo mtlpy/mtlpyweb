@@ -40,7 +40,7 @@ class I18NPageNode(template.Node):
         language_code = language_code[:2]
 
         try:
-            page = I18NFlatPage.objects.get(url=self.url)
+            page = I18NFlatPage.objects.get(url=self.url, listed=True)
         except I18NFlatPage.DoesNotExist:
             return self.nodelist.render(context)
 

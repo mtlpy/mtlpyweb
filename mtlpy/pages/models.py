@@ -11,13 +11,19 @@ class I18NFlatPage(FlatPage):
     language = models.CharField(
         max_length=2,
         choices=settings.LANGUAGES,
-        default=settings.LANGUAGE_CODE[:2])
+        default=settings.LANGUAGE_CODE[:2],
+    )
 
     translation = models.OneToOneField(
         'self',
         null=True,
         blank=True,
         help_text='',
+    )
+
+    listed = models.BooleanField(
+        default=True,
+        help_text='Display a link for this page',
     )
 
     def get_absolute_url(self):
