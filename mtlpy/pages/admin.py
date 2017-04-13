@@ -13,10 +13,10 @@ class I18NFlatPageForm(FlatpageForm):
 
 class I18NFlatPageAdmin(FlatPageAdmin):
     form = I18NFlatPageForm
-    list_display = ('url', 'title', 'language')
+    list_display = ('url', 'title', 'language', 'listed')
     fieldsets = (
         (None, {'fields': ('url', 'language', 'title', 'content',
-                           'sites', 'translation')}),
+                           'sites', 'translation', 'listed')}),
         (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', 'registration_required', 'template_name')}),
     )
 
