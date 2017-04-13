@@ -3,6 +3,7 @@ from __future__ import unicode_literals, absolute_import
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from markdown import Markdown
 
 from mtlpy.lib.models import i18n_field
 from mtlpy.blog.models import Post
@@ -34,6 +35,11 @@ class Sponsor(models.Model):
     description_en = models.TextField(blank=True)
     description_fr = models.TextField(blank=True)
     description = i18n_field('description')
+
+    @property
+    def description_html(self):
+        md = Markdown(extensions=['meta'])
+        return md.convert(self.description)
 
     def __unicode__(self):
         return self.name
