@@ -15,8 +15,8 @@ from mtlpy.lib.models import i18n_field
 
 
 class PublishedManager(models.Manager):
-    def get_query_set(self):
-        return super(PublishedManager, self).get_query_set().filter(
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(
             status__gte=2, publish__lte=datetime.date.today())
 
 
