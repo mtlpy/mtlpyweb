@@ -9,6 +9,7 @@ from .models import I18NFlatPage
 class I18NFlatPageForm(FlatpageForm):
     class Meta:
         model = I18NFlatPage
+        exclude = []
 
 
 class I18NFlatPageAdmin(FlatPageAdmin):
