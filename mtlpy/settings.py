@@ -233,3 +233,7 @@ BUGSNAG = {
     ],
 
 }
+
+# 1_6.W001 is triggered if the settings module "seems" old.
+# Presence of TEST_RUNNER setting is a marker used by this warning. 🙄
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
