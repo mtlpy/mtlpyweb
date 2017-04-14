@@ -10,6 +10,7 @@ from .models import Post, Category, Video
 class VideoAdminForm(forms.ModelForm):
     class Meta:
         model = Video
+        exclude = []
 
     def __init__(self, *args, **kwds):
         super(VideoAdminForm, self).__init__(*args, **kwds)
