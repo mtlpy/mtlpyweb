@@ -3,6 +3,15 @@ machine:
     version: 2.7.13
   services:
     - mysql
+  environment:
+    AWS_ACCESS_KEY_ID: ''
+    AWS_SECRET_ACCESS_KEY: ''
+    AWS_STORAGE_BUCKET_NAME: ''
+    DATABASE_URL: 'mysql://root@127.0.0.1/test'
+    ENV: 'ci'
+    GOOGLE_ANALYTICS: ''
+    SECRET_KEY: 'secret'
+    YOUTUBE_API_KEY: ''
 
 dependencies:
   pre:
