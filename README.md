@@ -1,16 +1,12 @@
 # MontréalPython Website [🔗](https://montrealpython.org)
 
-## Deployment
-
-Deployments are triggered automatically when pushing to the *master* branch.
-
-## [Code of Conduct](https://github.com/mtlpy/code-of-conduct)
+## Code of Conduct
 
 Montréal-Python has adopted a Code of Conduct that we expect project
 participants to adhere to. If you need more informations please read
-[the full text](https://github.com/mtlpy/code-of-conduct) for an overview of the
-types of behaviours deemed inappropriate. Please read so that you can understand
-what actions will and will not be tolerated.
+[the full text](https://github.com/mtlpy/code-of-conduct) for an overview of the types of behaviours deemed inappropriate. Please read so that you can understand what actions will and will not be tolerated.
+
+[Code of conduct](https://github.com/mtlpy/code-of-conduct)
 
 ## Development
 
@@ -48,6 +44,10 @@ The locked versions for deployment are in `requirements.txt`.
 To update the locked versions:
 
     $ docker-compose run -T web pip freeze | sort > requirements.txt
+
+## Deployment
+
+Continuous deployments is enabled on the *master* branch.
 
 ## License
 
