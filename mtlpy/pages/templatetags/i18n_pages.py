@@ -1,6 +1,4 @@
 from django import template
-from django.template import Variable
-from django.conf import settings
 from django.utils.translation import get_language
 
 from mtlpy.pages.models import I18NFlatPage
