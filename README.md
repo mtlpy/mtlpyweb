@@ -1,4 +1,4 @@
-# MontréalPython Website
+# MontréalPython Website [🔗](https://montrealpython.org)
 
 ## Deployment
 
@@ -13,6 +13,8 @@ types of behaviours deemed inappropriate. Please read so that you can understand
 what actions will and will not be tolerated.
 
 ## Development
+
+[![CircleCI](https://circleci.com/gh/mtlpy/mtlpyweb.svg?style=svg)](https://circleci.com/gh/mtlpy/mtlpyweb)
 
 Configure your local env file:
 
