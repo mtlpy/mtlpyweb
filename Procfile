@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn mtlpy.wsgi:application --log-file -
+web: gunicorn --threads 4 mtlpy.wsgi --log-file -
