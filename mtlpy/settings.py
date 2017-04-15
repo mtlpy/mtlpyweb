@@ -49,6 +49,7 @@ ALLOWED_HOSTS = [
     'www.mtlpy.org',
     'montrealpython.com',
     'www.montrealpython.com',
+    '127.0.0.1',
 ]
 
 # Local time zone for this installation. Choices can be found here:
