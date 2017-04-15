@@ -139,7 +139,7 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     'bugsnag.django.middleware.BugsnagMiddleware',
-    'localeurl.middleware.LocaleURLMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -155,7 +155,6 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'localeurl',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

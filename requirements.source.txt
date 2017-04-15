@@ -7,7 +7,6 @@ bugsnag
 dj-static==0.0.6
 django-environ==0.4.0
 django-extensions==1.1.1
-django-localeurl==1.5
 django-pagination==1.0.7
 django-storages
 Django < 1.9

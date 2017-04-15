@@ -1,4 +1,5 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
+from django.conf.urls.i18n import i18n_patterns
 
 from mtlpy.blog.feed import BlogEntriesFeed
 from mtlpy.files import media
@@ -6,8 +7,7 @@ from mtlpy.files import media
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', 'mtlpy.views.home_page', name='home_page'),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<slug>[-\w]+)/$',
@@ -28,11 +28,10 @@ urlpatterns = patterns(
     url(r'^sponsorship/', 'mtlpy.views.sponsorship', name='sponsorship'),
     url(r'^feed/$', BlogEntriesFeed(), name="feed"),
     url(r'^debug$', 'mtlpy.views.debug', name='debug'),
-)
 
-urlpatterns += patterns('', media())
+    media(),
 
-urlpatterns += patterns(
-    '',
     url(r'^(?P<url>.*)$', 'mtlpy.pages.views.i18n_flatpage', name='flatpage'),
-)
+]
+
+urlpatterns = i18n_patterns(*urlpatterns)
