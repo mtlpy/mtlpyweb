@@ -60,7 +60,7 @@
         </span>
       </time>
       <h2 class="articlebox-body-title">
-        <a href="/{{ LANGUAGE_CODE }}{{ article.get_absolute_url }}" rel="bookmark" title="{% blocktrans %}Permalink to {{ article.title }}{% endblocktrans %}">{{ article.title }}</a>
+        <a href="{{ article.get_absolute_url }}" rel="bookmark" title="{% blocktrans %}Permalink to {{ article.title }}{% endblocktrans %}">{{ article.title }}</a>
       </h2>
       <p>{{ article.striped_content|truncatewords_html:50 }}</p>
 

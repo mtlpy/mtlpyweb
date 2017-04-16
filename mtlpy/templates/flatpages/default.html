@@ -1,42 +1,5 @@
 {% extends "base.html" %}
-{% load localeurl_tags %}
 {% load i18n %}
-
-{% block language_links_mobile %}
-{% for lang in LANGUAGES %}
-{% if lang.0 != LANGUAGE_CODE and flatpage.translation %}
-<li class="hidden-desktop">
-  <a href="{{ flatpage.translation.get_absolute_url|chlocale:lang.0 }}">{{ lang.1 }}</a>
-</li>
-{% endif %}
-{% if lang.0 == LANGUAGE_CODE %}
-<li class="hidden-desktop">
-  <a href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a>
-</li>
-{% endif %}
-{% endfor %}
-{% endblock %}
-
-
-{% block language_links %}
-{% for lang in LANGUAGES %}
-
-  {# comment #}
-  <!-- NOTE! The following will only work assuming we have ONLY 2 languages -->
-  {# endcomment #}
-
-  {% if lang.0 != LANGUAGE_CODE and flatpage.translation %}
-  <li>
-    <a tabindex="-1" href="{{ flatpage.translation.get_absolute_url|chlocale:lang.0 }}">{{ lang.1 }}</a>
-  </li>
-  {% endif %}
-  {% if lang.0 == LANGUAGE_CODE %}
-  <li>
-    <a tabindex="-1" href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a>
-  </li>
-  {% endif %}
-{% endfor %}
-{% endblock %}
 
 {% block title %}
 {{ flatpage.title }}

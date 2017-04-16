@@ -1,5 +1,5 @@
 {% load i18n %}
-{% load localeurl_tags %}
+{% load locale_helper %}
 
 <div id="mainmenu">
 
@@ -24,11 +24,11 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="mainmenu-settings-link"></a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-			      {% block language_links %}
+			                {% block language_links %}
                                 {% for lang in LANGUAGES %}
-                                    <li><a tabindex="-1" href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a></li>
+                                    <li><a tabindex="-1" href="{% change_lang lang.0 %}">{{ lang.1 }}</a></li>
                                 {% endfor %}
-		              {% endblock %}
+		                    {% endblock %}
                             </ul>
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load i18n_pages %}
 {% load staticfiles %}
-{% load localeurl_tags %}
+{% load locale_helper %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
@@ -45,7 +45,7 @@
                         <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu">
                           {% block language_links %}
                             {% for lang in LANGUAGES %}
-                              <li><a tabindex="-1" href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a></li>
+                                <li><a tabindex="-1" href="{% change_lang lang.0 %}">{{ lang.1 }}</a></li>
                             {% endfor %}
                           {% endblock %}
                         </ul>
@@ -80,9 +80,9 @@
                           <li><a href="/admin">{% trans "Admin" %}</a></li>
 
                           {% block language_links_mobile %}
-                          {% for lang in LANGUAGES %}
-  			    <li class="hidden-desktop"><a href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a></li>
-                          {% endfor %}
+                            {% for lang in LANGUAGES %}
+                                <li class="hidden-desktop"><a href="{% change_lang lang.0 %}">{{ lang.1 }}</a></li>
+                            {% endfor %}
                           {% endblock %}
                         </ul>
                       </nav>
