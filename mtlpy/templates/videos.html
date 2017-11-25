@@ -21,7 +21,7 @@
             <img src="{{ video.thumbnail_url }}" />
           </a>
 
-          <h5><a class="link" href="{{ video.video_url }}" >{{ video.title|truncatechars:45 }}</a></h5>
+          <h5><a class="link" href="{{ video.video_url }}" >{{ video.title|truncatechars:60 }}</a></h5>
 
           <time datetime="{{ video.published }}" title="{{ video.published }}">
             {{ video.published.year }}-{{ video.published.month }}-{{ video.published.day }}
