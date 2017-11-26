@@ -14,7 +14,6 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
         <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'  />
         <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Arvo:400,700' />
-        <!--[if lt IE9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -55,6 +54,7 @@
                         <ul class="nav">
                           <li><a href="{% url 'blog' %}">{% trans "Blog" %}</a></li>
 
+                          <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
                           {% i18npage /about/ %}
                           {% if found_page %}
                             <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
@@ -68,10 +68,6 @@
                             <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
                           {% endif %}
                           {% endi18npage %}
-
-                            <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
-
-                          <li><a href="/admin">{% trans "Admin" %}</a></li>
 
                           {% block language_links_mobile %}
                           {% for lang in LANGUAGES %}
