@@ -71,8 +71,6 @@
 
                             <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
 
-                          <li><a href="/admin">{% trans "Admin" %}</a></li>
-
                           {% block language_links_mobile %}
                           {% for lang in LANGUAGES %}
   			    <li class="hidden-desktop"><a href="{{ request.path|chlocale:lang.0 }}">{{ lang.1 }}</a></li>
