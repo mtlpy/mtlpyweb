@@ -9,12 +9,3 @@ services:
       - "3307:3306"
     expose:
       - "3307"
-
-  web:
-    build: .
-    volumes:
-      - .:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
