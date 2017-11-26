@@ -2,13 +2,12 @@ FROM python:2.7
 
 ENV PYTHONUNBUFFERED 1
 
-RUN pip install -U 'pip > 9'
+RUN pip install -U 'pip > 9' pipenv
 
-RUN mkdir /app
+ADD . /app
 WORKDIR /app
 
-ADD requirements.source.txt /tmp/
-RUN pip install --no-cache-dir -r /tmp/requirements.source.txt
+RUN pipenv install --deploy --system --verbose
 
 # CMD python manage.py runserver 0.0.0.0:8000
 CMD gunicorn mtlpy.wsgi:application --log-file - -b 0.0.0.0:8000
