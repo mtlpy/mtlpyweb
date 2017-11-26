@@ -1,5 +1,0 @@
-
-# linters
-prospector
-# pylint 1.7 crash with prospector
-pylint < 1.7
