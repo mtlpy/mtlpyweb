@@ -8,12 +8,6 @@
             <ul class="unstyled">
                 <li><a href="{% url 'blog' %}">{% trans "Blog" %}</a></li>
 
-                {% i18npage /calendar/ %}
-                {% if found_page %}
-                    <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
-                {% endif %}
-                {% endi18npage %}
-
                 {% i18npage /about/ %}
                 {% if found_page %}
                     <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>

@@ -5,7 +5,7 @@ from mtlpy.pages.models import I18NFlatPage
 
 
 # Exemple d'utilisation:
-# {% i18npage /calendar/ %}{% if found_page %}
+# {% i18npage /about/ %}{% if found_page %}
 # <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
 # {% endif %}{% endi18npage %}
 
