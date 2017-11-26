@@ -1,4 +1,4 @@
-# MontréalPython Website [🔗](https://montrealpython.org)
+# Montréal-Python Website [🔗](https://montrealpython.org)
 
 ## Code of Conduct
 
@@ -18,32 +18,50 @@ Configure your local env file:
 
 To get a complete setup you'll also need to obtain a valid YOUTUBE_API_KEY.
 
-Build your dev docker image:
-
-    $ docker-compose build
-
-Run initial DB setup:
-
-    $ docker-compose run web python manage.py syncdb --migrate
-    $ docker-compose run web python manage.py loaddata fixtures/*
-
-Run server:
+Start the services:
 
     $ docker-compose up
 
-Erase your instance:
+Run initial DB setup:
 
-    $ docker-compose kill
+    $ pipenv run python manage.py migrate
+    $ pipenv run python manage.py loaddata fixtures/00{1,2,3,4}_*.json
 
 ### Dependencies
 
-The list of dependencies is maintained in `requirements.source.txt`.
+We use [Pipenv](https://docs.pipenv.org/) to track the dependencies.
 
-The locked versions for deployment are in `requirements.txt`.
+Some useful commands:
 
-To update the locked versions:
+Setup the virtualenv and install the locked dependencies:
+```bash
+$ pipenv install
+```
 
-    $ docker-compose run -T web pip freeze | sort > requirements.txt
+Run a command in the virtualenv:
+```bash
+$ pipenv run python manage.py runserver
+```
+
+Install a new dependency:
+```bash
+$ pipenv install 'requests'
+```
+
+For development dependencies:
+```bash
+$ pipenv install --dev 'pytest'
+```
+
+Update the `Pipfile.lock` file:
+```bash
+$ pipenv lock
+```
+
+Display a graph of the installed packages and their dependency relationships:
+```bash
+$ pipenv graph # --reverse
+```
 
 ## Deployment
 
@@ -51,4 +69,4 @@ Continuous deployments is enabled on the *master* branch.
 
 ## License
 
-The The Montréal-Python website is Apache licensed.
+The Montréal-Python website is Apache licensed.
