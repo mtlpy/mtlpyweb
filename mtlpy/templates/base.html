@@ -54,6 +54,7 @@
                         <ul class="nav">
                           <li><a href="{% url 'blog' %}">{% trans "Blog" %}</a></li>
 
+                          <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
                           {% i18npage /about/ %}
                           {% if found_page %}
                             <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
@@ -67,8 +68,6 @@
                             <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
                           {% endif %}
                           {% endi18npage %}
-
-                            <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
 
                           {% block language_links_mobile %}
                           {% for lang in LANGUAGES %}
