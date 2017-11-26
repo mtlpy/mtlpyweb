@@ -6,9 +6,11 @@
 {% block content %}
   <h4>{% trans "Videos of our latest events." %}</h4>
   <p>
-    {% trans "To get a complete list of the videos of the presentation made during our events, please head your browser the following url: " %}
-    <a href="http://www.youtube.com/user/MontrealPython">http://www.youtube.com/user/MontrealPython</a>
-    {% trans "Thanks to <a href='http://blog.savoirfairelinux.com/p/christian-aubry/'>Christian Aubry</a> and <a href='https://www.savoirfairelinux.com/'>Savoir-Faire Linux</a> for their support and the hard work of making those videos available" %}
+    <a href="http://pyvideo.org/events/montreal-python.html">PyVideos.org</a>
+    - <a href="https://www.youtube.com/c/MontrealPython">Youtube</a>
+  </p>
+  <p>
+    {% trans "Thanks to <a href='http://blog.savoirfairelinux.com/p/christian-aubry/'>Christian Aubry</a> and <a href='https://www.savoirfairelinux.com/'>Savoir-Faire Linux</a> for their support and the hard work of making so many videos available" %}
   </p>
 <div id="contact" class="container text-center">
   <ul class="thumbnails">
@@ -19,7 +21,7 @@
             <img src="{{ video.thumbnail_url }}" />
           </a>
 
-          <h5><a class="link" href="{{ video.video_url }}" >{{ video.title|truncatechars:45 }}</a></h5>
+          <h5><a class="link" href="{{ video.video_url }}" >{{ video.title|truncatechars:60 }}</a></h5>
 
           <time datetime="{{ video.published }}" title="{{ video.published }}">
             {{ video.published.year }}-{{ video.published.month }}-{{ video.published.day }}
