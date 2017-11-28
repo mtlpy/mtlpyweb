@@ -6,8 +6,8 @@ from mtlpy.models import Sponsor
 
 class IntegrationTestCase(TestCase):
     def setUp(self):
-        self.sponsor = Sponsor.objects.create(name='test', slug='test',
-            url='http://testserver.com', logo=None)
+        self.sponsor = Sponsor.objects.create(
+            name='test', slug='test', url='http://testserver.com', logo=None)
 
     def test_home_page(self):
         resp = self.client.get('/')

@@ -21,8 +21,7 @@ def i18n_flatpage(request, url):
     except Http404:
         if not url.endswith('/') and settings.APPEND_SLASH:
             url += '/'
-            f = get_object_or_404(FlatPage,
-                url__exact=url, sites__id__exact=site_id)
+            f = get_object_or_404(FlatPage, url__exact=url, sites__id__exact=site_id)
             return HttpResponsePermanentRedirect('%s/' % request.path)
         else:
             raise

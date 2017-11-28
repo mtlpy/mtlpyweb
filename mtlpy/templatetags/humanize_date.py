@@ -15,7 +15,6 @@ def humanize_date(date):
     if isinstance(date, datetime.date):
         date = datetime.datetime(date.year, date.month, date.day)
 
-    locale = get_language().split('-')[0] # transforming 'en-us' into 'en'
+    locale = get_language().split('-')[0]  # transforming 'en-us' into 'en'
 
     return arrow.get(date).humanize(locale=locale)
-
