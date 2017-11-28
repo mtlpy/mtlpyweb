@@ -15,9 +15,9 @@ machine:
 
 dependencies:
   pre:
-    - pip install -U pip
-    - pip install -r requirements-test.txt
+    - pip install -U pipenv
+    - pipenv install --deploy
 
 test:
   pre:
-    - prospector mtlpy/
+    - pipenv run flake8

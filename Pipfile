@@ -32,5 +32,5 @@ futures = "*"
 
 [dev-packages]
 
-prospector = "*"
 pylint = "< 1.7"
+"flake8" = "*"
