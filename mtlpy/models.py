@@ -53,6 +53,7 @@ class EventSponsor(models.Model):
     post = models.ForeignKey(Post, null=True, related_name='event_sponsors')
     sponsor = models.ForeignKey(Sponsor)
     medal = models.CharField(max_length=8, choices=MEDAL_CHOICES)
+
     def __unicode__(self):
         return '%s sponsoring %s' % (
             self.sponsor.name,

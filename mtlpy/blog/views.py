@@ -9,7 +9,7 @@ from .forms import CatTransferForm
 def category(request, slug=None):
     if slug:
         category = get_object_or_404(Category, slug=slug)
-        all_posts =  Post.published_objects.filter(category=category)
+        all_posts = Post.published_objects.filter(category=category)
     else:
         category = None
         all_posts = Post.published_objects.all()

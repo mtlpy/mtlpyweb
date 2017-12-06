@@ -18,7 +18,9 @@ class I18NFlatPageAdmin(FlatPageAdmin):
     fieldsets = (
         (None, {'fields': ('url', 'language', 'title', 'content',
                            'sites', 'translation', 'listed')}),
-        (_('Advanced options'), {'classes': ('collapse',), 'fields': ('enable_comments', 'registration_required', 'template_name')}),
+        (_('Advanced options'), {'classes': ('collapse',),
+                                 'fields': ('enable_comments',
+                                            'registration_required', 'template_name')}),
     )
 
 

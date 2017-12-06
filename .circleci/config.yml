@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:2.7.14
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: build-{{ arch }}-{{ checksum "Pipfile" }}-{{ checksum "Pipfile.lock" }}
+
+      - run: |
+          virtualenv /tmp/venv
+          . /tmp/venv/bin/activate
+
+          pip install --upgrade setuptools
+          pip install pipenv
+          pipenv install --dev --system
+
+      - save_cache:
+          key: build-{{ arch }}-{{ checksum "Pipfile" }}-{{ checksum "Pipfile.lock" }}
+          paths:
+            - "/tmp/venv"
+
+      - run:
+          command: |
+            . /tmp/venv/bin/activate
+
+            flake8
