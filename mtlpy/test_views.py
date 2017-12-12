@@ -42,15 +42,17 @@ class IntegrationTestCase(TestCase):
     def test_change_locale(self):
         current_language = get_language()
 
-        resp = self.client.get('/en/change_locale/fr/')
-
         self.assertEqual(current_language, 'en')
-        self.assertEqual(resp.status_code, 302)
-        self.assertEqual(resp.url, '/')
 
-        resp = self.client.get('/')
-        current_language = get_language()
+        resp = self.client.get('/en/change_locale/fr/')
 
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(resp.url, '/fr/')
+
+        current_language = get_language()
         self.assertEqual(current_language, 'fr')
+
+        resp = self.client.get('/')
+
+        self.assertEqual(resp.status_code, 302)
+        self.assertEqual(resp.url, '/fr/')

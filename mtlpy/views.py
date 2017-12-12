@@ -10,9 +10,8 @@ import pytz
 from urllib.parse import urlparse
 
 from django import forms
-from django.utils.translation import gettext_lazy as _
-from django.shortcuts import (render, render_to_response,
-                              get_object_or_404)
+from django.utils.translation import get_language, gettext_lazy as _
+from django.shortcuts import (render, get_object_or_404)
 
 from django.urls import reverse
 from django.conf import settings
@@ -57,7 +56,8 @@ def change_locale(request, language, redirect_to=None):
     view_name = None
 
     if redirect_to is None:
-        redirect_to = request.META.get('HTTP_REFERER', '/')
+        current_language = get_language()
+        redirect_to = request.META.get('HTTP_REFERER', f"/{current_language}/")
         path = urlparse(redirect_to).path
         view_name = resolve(path).view_name
 
@@ -94,17 +94,17 @@ def contact(request):
 
 
 def styleguide(request):
-    return render_to_response('styleguide.html', {})
+    return render(request, 'styleguide.html', {})
 
 
 def videos(request):
     videos = get_all_videos(settings.YOUTUBE_API_KEY)
-    return render_to_response('videos.html', {"videos": videos})
+    return render(request, 'videos.html', {"videos": videos})
 
 
 def sponsor_details(request, slug):
     sponsor = get_object_or_404(Sponsor, slug=slug)
-    return render_to_response('sponsor_details.html', {"sponsor": sponsor})
+    return render(request, 'sponsor_details.html', {"sponsor": sponsor})
 
 
 def sponsorship(request):
@@ -112,7 +112,7 @@ def sponsorship(request):
                 .filter(frontpage=True)
                 .filter(~Q(partner=True))
                 .order_by('ordering'))
-    return render_to_response('sponsorship.html', {"sponsors": sponsors})
+    return render(request, 'sponsorship.html', {"sponsors": sponsors})
 
 
 debug_startup_time = datetime.datetime.now(pytz.utc).isoformat()
