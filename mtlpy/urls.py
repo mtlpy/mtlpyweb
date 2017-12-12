@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^blog/transfer_tool/$', mtlpy.blog.views.transfer_posts_tool,
         name='transfer_tool'),
-    url(r'^admin/?', include(admin.site.urls)),
     url(r'^debug$', mtlpy.views.debug, name='debug'),
     media(),
 ]
@@ -39,5 +38,6 @@ urlpatterns += i18n_patterns(
     url(r'^feed/$', BlogEntriesFeed(), name="feed"),
     url(r'^change_locale/(?P<language>\w{2})/$', mtlpy.views.change_locale,
         name='change_locale'),
+    url(r'^admin/?', include(admin.site.urls)),
     url(r'^(?P<url>.*)$', mtlpy.pages.views.i18n_flatpage, name='flatpage'),
 )
