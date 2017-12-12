@@ -7,19 +7,26 @@ import datetime
 
 import pytz
 
+from urllib.parse import urlparse
+
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import (render, render_to_response,
                               get_object_or_404)
+
+from django.urls import reverse
 from django.conf import settings
+
 from django.core.mail import send_mail
+from django.core.urlresolvers import resolve
+
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponseRedirect
 from django.utils import translation
 
 from mtlpy.blog.models import Post
 from mtlpy.api.videos import get_all_videos
-from .models import Sponsor
+from mtlpy.models import Sponsor
 
 log = logging.getLogger(__name__)
 
@@ -47,12 +54,18 @@ def home_page(request):
 
 
 def change_locale(request, language, redirect_to=None):
-    translation.activate(language)
-    request.session[translation.LANGUAGE_SESSION_KEY] = language
+    view_name = None
 
     if redirect_to is None:
         redirect_to = request.META.get('HTTP_REFERER', '/')
+        path = urlparse(redirect_to).path
+        view_name = resolve(path).view_name
 
+    translation.activate(language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = language
+
+    if view_name:
+        return HttpResponseRedirect(reverse(view_name))
     return HttpResponseRedirect(redirect_to)
 
 
