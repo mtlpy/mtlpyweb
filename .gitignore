@@ -24,3 +24,4 @@ mtlpy/collected_static/
 mtlpy/media/
 
 .mypy_cache/
+.cache/
