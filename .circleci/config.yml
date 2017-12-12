@@ -11,7 +11,7 @@ jobs:
           key: build-{{ arch }}-{{ checksum "Pipfile" }}-{{ checksum "Pipfile.lock" }}
 
       - run: |
-          virtualenv /tmp/venv
+          python3 -m venv /tmp/venv
           . /tmp/venv/bin/activate
 
           pip install --upgrade setuptools
