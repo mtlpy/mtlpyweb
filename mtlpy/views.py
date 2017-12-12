@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, absolute_import
+
 import os
 import logging
 import datetime
@@ -10,11 +11,11 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.shortcuts import (render, render_to_response,
                               get_object_or_404)
-from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+from django.utils import translation
 
 from mtlpy.blog.models import Post
 from mtlpy.api.videos import get_all_videos
@@ -42,10 +43,17 @@ def home_page(request):
         'sponsors': sponsors,
         'partners': partners,
         }
-    return render_to_response(
-        'index.html', ctx,
-        context_instance=RequestContext(request)
-        )
+    return render(request, 'index.html', ctx)
+
+
+def change_locale(request, language, redirect_to=None):
+    translation.activate(language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = language
+
+    if redirect_to is None:
+        redirect_to = request.META.get('HTTP_REFERER', '/')
+
+    return HttpResponseRedirect(redirect_to)
 
 
 def contact(request):
@@ -73,20 +81,17 @@ def contact(request):
 
 
 def styleguide(request):
-    return render_to_response('styleguide.html', {},
-                              context_instance=RequestContext(request))
+    return render_to_response('styleguide.html', {})
 
 
 def videos(request):
     videos = get_all_videos(settings.YOUTUBE_API_KEY)
-    return render_to_response('videos.html', {"videos": videos},
-                              context_instance=RequestContext(request))
+    return render_to_response('videos.html', {"videos": videos})
 
 
 def sponsor_details(request, slug):
     sponsor = get_object_or_404(Sponsor, slug=slug)
-    return render_to_response('sponsor_details.html', {"sponsor": sponsor},
-                              context_instance=RequestContext(request))
+    return render_to_response('sponsor_details.html', {"sponsor": sponsor})
 
 
 def sponsorship(request):
@@ -94,8 +99,7 @@ def sponsorship(request):
                 .filter(frontpage=True)
                 .filter(~Q(partner=True))
                 .order_by('ordering'))
-    return render_to_response('sponsorship.html', {"sponsors": sponsors},
-                              context_instance=RequestContext(request))
+    return render_to_response('sponsorship.html', {"sponsors": sponsors})
 
 
 debug_startup_time = datetime.datetime.now(pytz.utc).isoformat()
