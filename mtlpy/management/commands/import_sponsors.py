@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
-
 import ConfigParser
 
 from django.core.management.base import BaseCommand

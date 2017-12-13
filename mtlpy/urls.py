@@ -10,7 +10,6 @@ from mtlpy.files import media
 
 from django.contrib import admin
 
-admin.autodiscover()
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
