@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Django settings for MtlPy website
 #
 # Note: this django settings reads os.environ to get environment specific

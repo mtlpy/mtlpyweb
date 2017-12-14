@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from hashlib import md5
 
 from django.template import Library

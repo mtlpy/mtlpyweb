@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import ConfigParser
 
 from django.core.management.base import BaseCommand
