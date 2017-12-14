@@ -19,7 +19,7 @@ env.read_env('.env')
 
 WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
-SITENAME = u"Montréal-Python"
+SITENAME = "Montréal-Python"
 
 DEBUG = env('DEBUG', cast=bool, default=False)
 SQL_DEBUG = env('SQL_DEBUG', cast=bool, default=False)
