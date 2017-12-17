@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.6.3
+      - image: circleci/mysql:5.7.20-ram
 
     steps:
       - checkout
@@ -30,7 +31,13 @@ jobs:
             flake8
 
       - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run:
           command: |
             . /tmp/venv/bin/activate
 
             python manage.py test
+          environment:
+            DATABASE_URL: "mysql://root:@localhost:3306/circle_test"
