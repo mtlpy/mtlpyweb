@@ -33,4 +33,4 @@ jobs:
           command: |
             . /tmp/venv/bin/activate
 
-            pipenv run python manage.py test
+            python manage.py test
