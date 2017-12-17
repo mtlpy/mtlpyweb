@@ -40,4 +40,9 @@ jobs:
 
             python manage.py test
           environment:
-            DATABASE_URL: "mysql://root:@localhost:3306/circle_test"
+            ENV: TEST
+            DATABASE_URL: mysql://root:@localhost:3306/circle_test
+            SECRET_KEY: TEST_SECRET_KEY
+            AWS_ACCESS_KEY_ID: TEST_AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: TEST_AWS_SECRET_ACCESS_KEY
+            AWS_STORAGE_BUCKET_NAME: TEST_AWS_STORAGE_BUCKET_NAME
