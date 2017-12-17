@@ -11,10 +11,7 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 
-env = environ.Env(
-    GOOGLE_ANALYTICS=(str, ''),
-    YOUTUBE_API_KEY=(str, ''),
-)
+env = environ.Env()
 env.read_env('.env')
 
 WSGI_APPLICATION = 'mtlpy.wsgi.application'
@@ -211,14 +208,14 @@ LOGGING = {
     }
 }
 
-YOUTUBE_API_KEY = env('YOUTUBE_API_KEY')
+YOUTUBE_API_KEY = env('YOUTUBE_API_KEY', default='')
 
 DISQUS_SITENAME = "mtlpy"
 
 PAGINATION_INVALID_PAGE_RAISES_404 = True
 PAGINATION_DEFAULT_PAGINATION = 10
 
-GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS')
+GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS', default='')
 
 BUGSNAG = {
     # Those are almost the default behaviors of the lib. But with better errors.
