@@ -33,3 +33,6 @@ futures = "*"
 
 pylint = "< 1.7"
 "flake8" = "*"
+
+[requires]
+python_version = "3.6.3"
