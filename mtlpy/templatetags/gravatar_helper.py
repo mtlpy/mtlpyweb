@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from hashlib import md5
 
 from django.template import Library
@@ -10,4 +8,5 @@ register = Library()
 
 @register.filter
 def email_hash(user):
-    return md5(user.email).hexdigest()
+    if user.email:
+        return md5(user.email.encode('utf-8')).hexdigest()
