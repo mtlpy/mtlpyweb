@@ -1,11 +1,9 @@
 from django.contrib.flatpages.views import render_flatpage
-from django.contrib.sites.shortcuts import get_current_site
-
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+from django.contrib.sites.models import get_current_site
 from django.utils.translation import get_language
 from django.http import Http404, HttpResponsePermanentRedirect
-
 from .models import I18NFlatPage as FlatPage
 
 
