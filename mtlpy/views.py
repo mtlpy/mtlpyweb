@@ -50,6 +50,21 @@ def home_page(request):
 
 
 def change_locale(request, language, redirect_to=None):
+    """
+    Change the language of the current user to <language> and redirect
+    to <redirect_to> if present, if not, it will:
+
+    1) get the referrer
+    2) extract the path of this url
+    3) get the view corresponding to this path
+
+    Then the language is changed and we are redirecting to the resolved url.
+
+    :param request: The HttpRequest object of the view
+    :param language: the languge code to switch to
+    :param redirect_to: url the user is gonna be redirected (default None)
+    :return: HttpResponseRedirect
+    """
     view_name = None
 
     if redirect_to is None:
