@@ -2,7 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:2.7.14
+      - image: circleci/python:3.6.3
+      - image: circleci/mysql:5.7.20-ram
 
     steps:
       - checkout
@@ -11,7 +12,7 @@ jobs:
           key: build-{{ arch }}-{{ checksum "Pipfile" }}-{{ checksum "Pipfile.lock" }}
 
       - run: |
-          virtualenv /tmp/venv
+          python3 -m venv /tmp/venv
           . /tmp/venv/bin/activate
 
           pip install --upgrade setuptools
@@ -28,3 +29,20 @@ jobs:
             . /tmp/venv/bin/activate
 
             flake8
+
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+
+      - run:
+          command: |
+            . /tmp/venv/bin/activate
+
+            python manage.py test
+          environment:
+            ENV: TEST
+            DATABASE_URL: mysql://root:@localhost:3306/circle_test
+            SECRET_KEY: TEST_SECRET_KEY
+            AWS_ACCESS_KEY_ID: TEST_AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY: TEST_AWS_SECRET_ACCESS_KEY
+            AWS_STORAGE_BUCKET_NAME: TEST_AWS_STORAGE_BUCKET_NAME

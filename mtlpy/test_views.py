@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.utils.translation import get_language
 
 from mtlpy import views
 from mtlpy.models import Sponsor
@@ -11,8 +12,8 @@ class IntegrationTestCase(TestCase):
 
     def test_home_page(self):
         resp = self.client.get('/')
-        self.assertEqual(resp.status_code, 301)
-        self.assertEqual(resp.url, 'http://testserver/en/')
+        self.assertEqual(resp.status_code, 302)
+        self.assertEqual(resp.url, '/en/')
 
     def test_home_page_redirected(self):
         resp = self.client.get('/en/')
@@ -37,3 +38,21 @@ class IntegrationTestCase(TestCase):
     def test_sponsorship(self):
         resp = self.client.get('/en/sponsorship/')
         self.assertEqual(resp.status_code, 200)
+
+    def test_change_locale(self):
+        current_language = get_language()
+
+        self.assertEqual(current_language, 'en')
+
+        resp = self.client.get('/en/change_locale/fr/')
+
+        self.assertEqual(resp.status_code, 302)
+        self.assertEqual(resp.url, '/fr/')
+
+        current_language = get_language()
+        self.assertEqual(current_language, 'fr')
+
+        resp = self.client.get('/')
+
+        self.assertEqual(resp.status_code, 302)
+        self.assertEqual(resp.url, '/fr/')
