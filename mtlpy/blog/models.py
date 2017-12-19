@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals, absolute_import
+
 import datetime
 from markdown import Markdown
 
@@ -48,7 +51,7 @@ class Post(models.Model):
         get_latest_by = 'publish'
 
     def __unicode__(self):
-        return f"{self.slug}"
+        return u"{0}".format(self.slug)
 
     def get_absolute_url(self):
         return reverse_lazy('blog_detail', kwargs={
@@ -87,7 +90,7 @@ class Category(models.Model):
         verbose_name_plural = _('Categories')
 
     def __unicode__(self):
-        return f"{self.slug}"
+        return u"{0}".format(self.slug)
 
     def get_absolute_url(self):
         return reverse_lazy('blog_category', kwargs={'slug': self.slug})
@@ -110,7 +113,7 @@ class Video(models.Model):
         verbose_name_plural = _('Videos')
 
     def __unicode__(self):
-        return f"{self.title}"
+        return u"{0}".format(self.title)
 
     def get_absolute_url(self):
         return reverse_lazy('video', kwargs={"slug": self.slug})

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.utils.translation import get_language
 from django.conf import settings
 
