@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from datetime import datetime
 
 from django.contrib.syndication.views import Feed
@@ -9,9 +7,9 @@ from mtlpy.blog.models import Post
 
 
 class BlogEntriesFeed(Feed):
-    title = u"Montréal-Python"
+    title = "Montréal-Python"
     link = "/feed/"
-    description = u"News from the Montréal-Python community"
+    description = "News from the Montréal-Python community"
 
     def items(self):
         return Post.objects.order_by('-publish')[:5]
