@@ -1,30 +1,28 @@
-from django.shortcuts import render_to_response, get_object_or_404
-from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
+
 from .models import Post, Category
 from .forms import CatTransferForm
 
 
 def category(request, slug=None):
     if slug:
-        category = get_object_or_404(Category, slug=slug)
-        all_posts = Post.published_objects.filter(category=category)
+        instance = get_object_or_404(Category, slug=slug)
+        all_posts = Post.published_objects.filter(category=instance)
     else:
-        category = None
+        instance = None
         all_posts = Post.published_objects.all()
 
-    ctx = {'category': category, 'posts': all_posts}
-    return render_to_response('category.html', ctx,
-                              context_instance=RequestContext(request, {}))
+    ctx = {'category': instance, 'posts': all_posts}
+    return render(request, 'category.html', ctx)
 
 
 def post(request, year, month, slug):
     article = get_object_or_404(Post, publish__year=year,
                                 publish__month=month, slug=slug)
     ctx = {'article': article}
-    return render_to_response('article.html', ctx,
-                              context_instance=RequestContext(request, {}))
+    return render(request, 'article.html', ctx)
 
 
 def user_posts(request, userid):
@@ -32,8 +30,7 @@ def user_posts(request, userid):
     all_posts = Post.objects.filter(author=user, publish__isnull=False)
 
     ctx = {'author': user, 'posts': all_posts}
-    return render_to_response('category.html', ctx,
-                              context_instance=RequestContext(request, {}))
+    return render(request, 'category.html', ctx)
 
 
 @staff_member_required
@@ -50,6 +47,4 @@ def transfer_posts_tool(request):
     ctx = {
         'form': form,
     }
-    return render_to_response(
-        'transfer_tool.html', ctx,
-        context_instance=RequestContext(request))
+    return render(request, 'transfer_tool.html', ctx)

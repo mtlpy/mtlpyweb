@@ -1,24 +1,28 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
 import os
 import logging
 import datetime
 
 import pytz
 
+from urllib.parse import urlparse
+
 from django import forms
-from django.utils.translation import gettext_lazy as _
-from django.shortcuts import (render, render_to_response,
-                              get_object_or_404)
-from django.template import RequestContext
+from django.utils.translation import get_language, gettext_lazy as _
+from django.shortcuts import (render, get_object_or_404)
+
+from django.urls import reverse
 from django.conf import settings
+
 from django.core.mail import send_mail
+from django.core.urlresolvers import resolve
+
 from django.db.models import Q
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+from django.utils import translation
 
 from mtlpy.blog.models import Post
 from mtlpy.api.videos import get_all_videos
-from .models import Sponsor
+from mtlpy.models import Sponsor
 
 log = logging.getLogger(__name__)
 
@@ -42,10 +46,39 @@ def home_page(request):
         'sponsors': sponsors,
         'partners': partners,
         }
-    return render_to_response(
-        'index.html', ctx,
-        context_instance=RequestContext(request)
-        )
+    return render(request, 'index.html', ctx)
+
+
+def change_locale(request, language, redirect_to=None):
+    """
+    Change the language of the current user to <language> and redirect
+    to <redirect_to> if present, if not, it will:
+
+    1) get the referrer
+    2) extract the path of this url
+    3) get the view corresponding to this path
+
+    Then the language is changed and we are redirecting to the resolved url.
+
+    :param request: The HttpRequest object of the view
+    :param language: the languge code to switch to
+    :param redirect_to: url the user is gonna be redirected (default None)
+    :return: HttpResponseRedirect
+    """
+    view_name = None
+
+    if redirect_to is None:
+        current_language = get_language()
+        redirect_to = request.META.get('HTTP_REFERER', f"/{current_language}/")
+        path = urlparse(redirect_to).path
+        view_name = resolve(path).view_name
+
+    translation.activate(language)
+    request.session[translation.LANGUAGE_SESSION_KEY] = language
+
+    if view_name:
+        return HttpResponseRedirect(reverse(view_name))
+    return HttpResponseRedirect(redirect_to)
 
 
 def contact(request):
@@ -73,20 +106,17 @@ def contact(request):
 
 
 def styleguide(request):
-    return render_to_response('styleguide.html', {},
-                              context_instance=RequestContext(request))
+    return render(request, 'styleguide.html', {})
 
 
 def videos(request):
     videos = get_all_videos(settings.YOUTUBE_API_KEY)
-    return render_to_response('videos.html', {"videos": videos},
-                              context_instance=RequestContext(request))
+    return render(request, 'videos.html', {"videos": videos})
 
 
 def sponsor_details(request, slug):
     sponsor = get_object_or_404(Sponsor, slug=slug)
-    return render_to_response('sponsor_details.html', {"sponsor": sponsor},
-                              context_instance=RequestContext(request))
+    return render(request, 'sponsor_details.html', {"sponsor": sponsor})
 
 
 def sponsorship(request):
@@ -94,8 +124,7 @@ def sponsorship(request):
                 .filter(frontpage=True)
                 .filter(~Q(partner=True))
                 .order_by('ordering'))
-    return render_to_response('sponsorship.html', {"sponsors": sponsors},
-                              context_instance=RequestContext(request))
+    return render(request, 'sponsorship.html', {"sponsors": sponsors})
 
 
 debug_startup_time = datetime.datetime.now(pytz.utc).isoformat()
