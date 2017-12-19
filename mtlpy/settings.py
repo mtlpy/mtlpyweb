@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Django settings for MtlPy website
 #
 # Note: this django settings reads os.environ to get environment specific
@@ -11,15 +12,19 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 
-env = environ.Env()
+env = environ.Env(
+    GOOGLE_ANALYTICS=(str, ''),
+    YOUTUBE_API_KEY=(str, ''),
+)
 env.read_env('.env')
 
 WSGI_APPLICATION = 'mtlpy.wsgi.application'
 
-SITENAME = "Montréal-Python"
+SITENAME = u"Montréal-Python"
 
 DEBUG = env('DEBUG', cast=bool, default=False)
 SQL_DEBUG = env('SQL_DEBUG', cast=bool, default=False)
+TEMPLATE_DEBUG = DEBUG
 
 CACHES = {
     'default': env.cache_url(default='dummycache://'),
@@ -36,7 +41,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env('ALLOWED_HOSTS', cast=list, default=[
+ALLOWED_HOSTS = [
     'mtlpy-prod.herokuapp.com',
     'montrealpython.org',
     'www.montrealpython.org',
@@ -44,7 +49,7 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS', cast=list, default=[
     'www.mtlpy.org',
     'montrealpython.com',
     'www.montrealpython.com',
-])
+]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -59,16 +64,13 @@ TIME_ZONE = 'America/Montreal'
 # pages will not display, you need to change the "url" specified after
 # i18npage tags, in base.html, footer.html (and anywhere else i18npage
 # is used)
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en-ca'
 LANGUAGES = (
     ('fr', 'Français'),
     ('en', 'English'),
 )
-
-BASE_DIR = abspath(join(dirname(__file__), '..'))
-
 LOCALE_PATHS = (
-    abspath(join(BASE_DIR, 'locale/')),
+    abspath(join(dirname(__file__), '..', 'locale/')),
 )
 
 SITE_ID = 1
@@ -117,40 +119,42 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = env('SECRET_KEY')
 
-TEMPLATES = [{
-    'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'DIRS': [os.path.join(BASE_DIR, 'templates')],
-    'APP_DIRS': True,
-    'OPTIONS': {
-        'debug': DEBUG,
-        'context_processors': [
-            'django.contrib.auth.context_processors.auth',
-            'django.template.context_processors.debug',
-            'django.template.context_processors.request',
-            'django.template.context_processors.i18n',
-            'django.template.context_processors.media',
-            'django.template.context_processors.static',
-            'django.template.context_processors.tz',
-            'django.contrib.messages.context_processors.messages',
-            'mtlpy.context_processors.extra_context',
-        ],
-    },
-}]
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+                               "django.core.context_processors.debug",
+                               'django.core.context_processors.request',
+                               "django.core.context_processors.i18n",
+                               "django.core.context_processors.media",
+                               "django.core.context_processors.static",
+                               "django.core.context_processors.tz",
+                               "django.contrib.messages.context_processors.messages",
+                               "mtlpy.context_processors.extra_context")
+
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
 
 MIDDLEWARE_CLASSES = (
     'bugsnag.django.middleware.BugsnagMiddleware',
+    'localeurl.middleware.LocaleURLMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'pagination_bootstrap.middleware.PaginationMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'mtlpy.urls'
 
+TEMPLATE_DIRS = (
+    join(abspath(join(dirname(__file__), '..')), 'templates'),
+)
+
 INSTALLED_APPS = (
+    'localeurl',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -162,11 +166,11 @@ INSTALLED_APPS = (
     'django_extensions',
     'sorl.thumbnail',
     'storages',
-    'pagination_bootstrap',
     # local apps
     'mtlpy.blog',
     'mtlpy',
     'mtlpy.pages',
+    'pagination',
 )
 
 LOG_LEVEL = env('LOG_LEVEL', default='INFO')
@@ -208,14 +212,14 @@ LOGGING = {
     }
 }
 
-YOUTUBE_API_KEY = env('YOUTUBE_API_KEY', default='')
+YOUTUBE_API_KEY = env('YOUTUBE_API_KEY')
 
 DISQUS_SITENAME = "mtlpy"
 
 PAGINATION_INVALID_PAGE_RAISES_404 = True
 PAGINATION_DEFAULT_PAGINATION = 10
 
-GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS', default='')
+GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS')
 
 BUGSNAG = {
     # Those are almost the default behaviors of the lib. But with better errors.
