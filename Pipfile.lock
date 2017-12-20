@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a34dd797158720b2595725f7a1708a9e3064f06723ff90f0d5a5d5b4584d06bc"
+            "sha256": "a0cbe0d4cb4251f7cb48ebc52e40e12956f44cf9f35db774641797b4c48b1b0a"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -9,9 +9,9 @@
             "os_name": "posix",
             "platform_machine": "x86_64",
             "platform_python_implementation": "CPython",
-            "platform_release": "17.2.0",
+            "platform_release": "17.3.0",
             "platform_system": "Darwin",
-            "platform_version": "Darwin Kernel Version 17.2.0: Fri Sep 29 18:27:05 PDT 2017; root:xnu-4570.20.62~3/RELEASE_X86_64",
+            "platform_version": "Darwin Kernel Version 17.3.0: Thu Nov  9 18:09:22 PST 2017; root:xnu-4570.31.3~1/RELEASE_X86_64",
             "python_full_version": "3.6.3",
             "python_version": "3.6",
             "sys_platform": "darwin"
@@ -31,9 +31,9 @@
     "default": {
         "arrow": {
             "hashes": [
-                "sha256:805906f09445afc1f0fc80187db8fe07670e3b25cdafa09b8d8ac264a8c0c722"
+                "sha256:a15ecfddf334316e3ac8695e48c15d1be0d6038603b33043930dcf0e675c86ee"
             ],
-            "version": "==0.10.0"
+            "version": "==0.12.0"
         },
         "boto": {
             "hashes": [
@@ -44,11 +44,11 @@
         },
         "bugsnag": {
             "hashes": [
-                "sha256:baf85a4a704388fcdae35b2f829c5ff835f31b6f98476ba4726729539077e6e4",
-                "sha256:ff60372af30960a79ed400331671da455fae5c35aa93d88d829a65180c150011",
-                "sha256:c0e427db8817cb7d874083975e3271199717d8672b37ae228bd161d78d6e21de"
+                "sha256:fe48c1f94c4b115707c8a8425a224447737e94c261e8e5a0a73f4dd78a5d9954",
+                "sha256:c75313bd10a48979bad6287d45ee36fe060b9721df3aef94ab74161def81dd86",
+                "sha256:574c54ac334b5f59c0e3bf203579d3904c9c4dd819f2ac9a47c00076b8f0285e"
             ],
-            "version": "==3.1.0"
+            "version": "==3.3.0"
         },
         "certifi": {
             "hashes": [
@@ -243,18 +243,17 @@
         },
         "pymysql": {
             "hashes": [
-                "sha256:ac3dfb1f650582eca2e1e0701598bc04364ac464daa425cbbc26bb32ae54cdd5",
-                "sha256:56e3f5bcef6501012233620b54f6a7b8a34edc5751e85e4e3da9a0d808df5f68"
+                "sha256:04fa19fad017fdb21394fad2878c1d6bd346959d4fbfd1b66050a09fc636a321",
+                "sha256:32da4a66397077d42908e449688f2ec71c2b18892a6cd04f03ab2aa828a70f40"
             ],
-            "version": "==0.7.11"
+            "version": "==0.8.0"
         },
         "python-dateutil": {
             "hashes": [
-                "sha256:537bf2a8f8ce6f6862ad705cd68f9e405c0b5db014aa40fa29eab4335d4b1716",
-                "sha256:62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2",
-                "sha256:3acbef017340600e9ff8f2994d8f7afd6eacb295383f286466a6df3961e486f0"
+                "sha256:95511bae634d69bc7329ba55e646499a842bc4ec342ad54a8cdb65645a0aad3c",
+                "sha256:891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
             ],
-            "version": "==2.6.0"
+            "version": "==2.6.1"
         },
         "pytz": {
             "hashes": [
