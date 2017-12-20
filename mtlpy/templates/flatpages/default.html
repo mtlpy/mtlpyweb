@@ -6,12 +6,12 @@
 {% for lang in LANGUAGES %}
 {% if lang.0 != LANGUAGE_CODE and flatpage.translation %}
 <li class="hidden-desktop">
-  <a href="{{ flatpage.translation.get_absolute_url|change_locale:lang.0 }}">{{ lang.1 }}</a>
+  <a href="{% url 'change_locale' lang.0 redirect_to=flatpage.translation.get_absolute_url %}">{{ lang.1 }}</a>
 </li>
 {% endif %}
 {% if lang.0 == LANGUAGE_CODE %}
 <li class="hidden-desktop">
-  <a href="{{ request.path|change_locale:lang.0 }}">{{ lang.1 }}</a>
+  <a href="{% url 'change_locale' lang.0 %}">{{ lang.1 }}</a>
 </li>
 {% endif %}
 {% endfor %}
