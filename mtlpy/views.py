@@ -49,7 +49,7 @@ def home_page(request):
     return render(request, 'index.html', ctx)
 
 
-def change_locale(request, language, redirect_to=None):
+def change_locale(request, language):
     """
     Change the language of the current user to <language> and redirect
     to <redirect_to> if present, if not, it will:
@@ -66,6 +66,8 @@ def change_locale(request, language, redirect_to=None):
     :return: HttpResponseRedirect
     """
     view_name = None
+
+    redirect_to = request.GET.get('redirect_to')
 
     if redirect_to is None:
         current_language = get_language()
