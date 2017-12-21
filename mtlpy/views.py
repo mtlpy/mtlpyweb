@@ -65,7 +65,7 @@ def change_locale(request, language):
     :param redirect_to: url the user is gonna be redirected (default None)
     :return: HttpResponseRedirect
     """
-    view_name = None
+    resolved_path = None
 
     redirect_to = request.GET.get('redirect_to')
 
@@ -73,13 +73,18 @@ def change_locale(request, language):
         current_language = get_language()
         redirect_to = request.META.get('HTTP_REFERER', f"/{current_language}/")
         path = urlparse(redirect_to).path
-        view_name = resolve(path).view_name
+        resolved_path = resolve(path)
 
     translation.activate(language)
     request.session[translation.LANGUAGE_SESSION_KEY] = language
 
-    if view_name:
-        return HttpResponseRedirect(reverse(view_name))
+    if resolved_path:
+        redirect_to = reverse(
+            resolved_path.view_name,
+            args=resolved_path.args,
+            kwargs=resolved_path.kwargs,
+        )
+
     return HttpResponseRedirect(redirect_to)
 
 
