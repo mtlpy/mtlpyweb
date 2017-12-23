@@ -31,7 +31,6 @@ urlpatterns += i18n_patterns(
     url(r'^sponsor/(?P<slug>[-\w|\W]+)/$', mtlpy.views.sponsor_details,
         name='sponsor_details'),
     url(r'^styleguide', mtlpy.views.styleguide),
-    url(r'^contact/', mtlpy.views.contact, name='contact'),
     url(r'^videos/', mtlpy.views.videos, name='videos'),
     url(r'^sponsorship/', mtlpy.views.sponsorship, name='sponsorship'),
     url(r'^feed/$', BlogEntriesFeed(), name="feed"),
