@@ -47,8 +47,8 @@ class Post(models.Model):
         ordering = ('-publish', )
         get_latest_by = 'publish'
 
-    def __unicode__(self):
-        return f"{self.slug}"
+    def __str__(self):
+        return self.slug
 
     def get_absolute_url(self):
         return reverse_lazy('blog_detail', kwargs={
@@ -86,8 +86,8 @@ class Category(models.Model):
         ordering = ('slug', )
         verbose_name_plural = _('Categories')
 
-    def __unicode__(self):
-        return f"{self.slug}"
+    def __str__(self):
+        return self.slug
 
     def get_absolute_url(self):
         return reverse_lazy('blog_category', kwargs={'slug': self.slug})
@@ -109,8 +109,8 @@ class Video(models.Model):
         ordering = ('post', )
         verbose_name_plural = _('Videos')
 
-    def __unicode__(self):
-        return f"{self.title}"
+    def __str__(self):
+        return self.title
 
     def get_absolute_url(self):
         return reverse_lazy('video', kwargs={"slug": self.slug})
