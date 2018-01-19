@@ -35,7 +35,8 @@ class BlogIntegrationTestCase(TestCase):
         self.assertEqual(resp.status_code, 200)
 
     def test_post(self):
-        resp = self.client.get(f"/en/{self.now.year}/{self.now.month}/slug/")
+        month = self.now.strftime('%m')
+        resp = self.client.get(f"/en/{self.now.year}/{month}/slug/")
         self.assertEqual(resp.status_code, 200)
 
     def test_user_posts(self):
