@@ -38,7 +38,7 @@ class Sponsor(models.Model):
         md = Markdown(extensions=['meta'])
         return md.convert(self.description)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     @property
@@ -51,8 +51,5 @@ class EventSponsor(models.Model):
     sponsor = models.ForeignKey(Sponsor)
     medal = models.CharField(max_length=8, choices=MEDAL_CHOICES)
 
-    def __unicode__(self):
-        return '%s sponsoring %s' % (
-            self.sponsor.name,
-            self.post,
-            )
+    def __str__(self):
+        return f'{self.sponsor.name} sponsoring {self.post}'
