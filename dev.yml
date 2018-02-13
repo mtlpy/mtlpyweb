@@ -1,0 +1,10 @@
+up:
+  - python: 3.6.4
+  - pipfile
+  - docker-compose  # Not working yet
+
+commands:
+  test:
+    run: python manage.py test
+  lint:
+    run: flake8
