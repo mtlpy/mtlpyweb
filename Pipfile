@@ -28,6 +28,7 @@ sorl-thumbnail = "==12.3"
 python-dateutil = "*"
 futures = "*"
 "bfb3076" = {file = "https://github.com/mtlpy/django-slackin/archive/make-it-work.zip"}
+"7e3781e" = {file = "https://github.com/mtlpy/django-slackin/archive/caching.zip"}
 
 
 [dev-packages]

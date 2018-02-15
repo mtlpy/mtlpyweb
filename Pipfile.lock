@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8d4cf0726a7a159f3545c2e4ef44f851f2955247b5a758060c58034fbc6d17fa"
+            "sha256": "96201ed2c07f29644c7e2c58b269a92496bdcd7af90f7541312849314bf022bd"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -29,6 +29,9 @@
         ]
     },
     "default": {
+        "7e3781e": {
+            "file": "https://github.com/mtlpy/django-slackin/archive/caching.zip"
+        },
         "arrow": {
             "hashes": [
                 "sha256:a558d3b7b6ce7ffc74206a86c147052de23d3d4ef0e17c210dd478c53575c4cd"
