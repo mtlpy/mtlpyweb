@@ -38,4 +38,4 @@ pylint = "< 1.7"
 
 [requires]
 
-python_version = "3.6.3"
+python_version = "3.6.4"
