@@ -163,6 +163,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'storages',
     'pagination_bootstrap',
+    'slackin',
     # local apps
     'mtlpy.blog',
     'mtlpy',
@@ -232,3 +233,8 @@ BUGSNAG = {
 # 1_6.W001 is triggered if the settings module "seems" old.
 # Presence of TEST_RUNNER setting is a marker used by this warning. 🙄
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+SLACKIN_TOKEN = env('SLACKIN_TOKEN')
+SLACKIN_SUBDOMAIN = 'mtlpy'
+SLACKIN_LOGIN_REQUIRED = False
+SLACKIN_ULTRA_RESTRICTED_INVITES = False
