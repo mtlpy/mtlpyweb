@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "96201ed2c07f29644c7e2c58b269a92496bdcd7af90f7541312849314bf022bd"
+            "sha256": "df9e109bf31d2daed1e49a32901db1c8ee46084b4f34d517c88892db50a50397"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -37,9 +37,6 @@
                 "sha256:a558d3b7b6ce7ffc74206a86c147052de23d3d4ef0e17c210dd478c53575c4cd"
             ],
             "version": "==0.12.1"
-        },
-        "bfb3076": {
-            "file": "https://github.com/mtlpy/django-slackin/archive/make-it-work.zip"
         },
         "boto": {
             "hashes": [
