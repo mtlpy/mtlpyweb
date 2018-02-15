@@ -1,3 +1,5 @@
+# Config for Dad : https://github.com/pior/dad
+
 up:
   - python: 3.6.4
   - pipfile
@@ -8,3 +10,11 @@ commands:
     run: python manage.py test
   lint:
     run: flake8
+
+  server:
+    run: python manage.py runserver
+
+  db-migrate:
+    run: python manage.py migrate
+  db-seed:
+    run: python manage.py loaddata fixtures/00{1,2,3,4}_*.json
