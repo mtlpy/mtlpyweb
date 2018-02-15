@@ -27,6 +27,7 @@ requests = "==2.18.0"
 sorl-thumbnail = "==12.3"
 python-dateutil = "*"
 futures = "*"
+"bfb3076" = {file = "https://github.com/mtlpy/django-slackin/archive/make-it-work.zip"}
 
 
 [dev-packages]
@@ -34,5 +35,7 @@ futures = "*"
 pylint = "< 1.7"
 "flake8" = "*"
 
+
 [requires]
+
 python_version = "3.6.3"
