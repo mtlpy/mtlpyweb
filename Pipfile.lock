@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2d8e7109098f39adda2c1108cd9cffeb77b52ed0b2a67d0509375a1bf813202e"
+            "sha256": "532288d232c8519ea1950835ee0e2e1b78cbda12e1e592f5a1635323d8c8bc52"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -29,9 +29,6 @@
         ]
     },
     "default": {
-        "1baa1d1": {
-            "file": "https://github.com/mtlpy/django-slackin/archive/74b5201e85149deb28db300ecdd4d99e3c2af468.zip"
-        },
         "arrow": {
             "hashes": [
                 "sha256:a558d3b7b6ce7ffc74206a86c147052de23d3d4ef0e17c210dd478c53575c4cd"
@@ -98,6 +95,10 @@
                 "sha256:176a2f946119408fad0535aaf3932a7576c114a43153a6c43a0a8857856eaeba"
             ],
             "version": "==1.2.4"
+        },
+        "django-slackin": {
+            "git": "git://github.com/mtlpy/django-slackin",
+            "ref": "74b5201e85149deb28db300ecdd4d99e3c2af468"
         },
         "django-storages": {
             "hashes": [
