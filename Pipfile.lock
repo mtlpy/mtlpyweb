@@ -98,10 +98,10 @@
         },
         "django-slackin-public": {
             "hashes": [
-                "sha256:01548e046cfc8f2069c6bf57bfda324a9f5693d059ecff9bb857acacab114abb",
-                "sha256:5e120493e90bc74aa5bae6aa2f73f1c82c69e6cc2b36c13f2d4c5b1e87bdcd7e"
+                "sha256:e2cfca9177e6fb1465b906d60100a034c1c32fcfb77dc173a7d3b853d8651dca",
+                "sha256:d223d64bb1f7b8bc4625232c9d21a38f4f2c329fb8138a5c59141032d12eac79"
             ],
-            "version": "==0.0.2"
+            "version": "==0.0.3"
         },
         "django-storages": {
             "hashes": [
