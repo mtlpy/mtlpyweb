@@ -163,7 +163,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'storages',
     'pagination_bootstrap',
-    'slackin',
+    'django_slackin_public',
     # local apps
     'mtlpy.blog',
     'mtlpy',

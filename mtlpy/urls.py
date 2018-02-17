@@ -34,7 +34,7 @@ urlpatterns += i18n_patterns(
     url(r'^contact/', mtlpy.views.contact, name='contact'),
     url(r'^videos/', mtlpy.views.videos, name='videos'),
     url(r'^sponsorship/', mtlpy.views.sponsorship, name='sponsorship'),
-    url(r'^slackin', include('slackin.urls')),
+    url(r'^slackin', include('django_slackin_public.urls')),
 
     url(r'^feed/$', BlogEntriesFeed(), name="feed"),
     url(r'^change_locale/(?P<language>\w{2})/$', mtlpy.views.change_locale,
