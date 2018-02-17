@@ -27,7 +27,7 @@ requests = "==2.18.0"
 sorl-thumbnail = "==12.3"
 python-dateutil = "*"
 futures = "*"
-django-slackin = {git = "git://github.com/mtlpy/django-slackin", ref = "74b5201e85149deb28db300ecdd4d99e3c2af468"}
+django-slackin-public = "*"
 
 
 [dev-packages]
