@@ -19,6 +19,7 @@ WSGI_APPLICATION = 'mtlpy.wsgi.application'
 SITENAME = "Montréal-Python"
 
 DEBUG = env('DEBUG', cast=bool, default=False)
+TEMPLATE_DEBUG = DEBUG
 SQL_DEBUG = env('SQL_DEBUG', cast=bool, default=False)
 
 CACHES = {
