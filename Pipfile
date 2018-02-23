@@ -28,6 +28,7 @@ sorl-thumbnail = "==12.3"
 python-dateutil = "*"
 futures = "*"
 django-slackin-public = "*"
+django-redis = "*"
 
 
 [dev-packages]
