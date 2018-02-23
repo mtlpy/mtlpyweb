@@ -22,7 +22,7 @@ DEBUG = env('DEBUG', cast=bool, default=False)
 SQL_DEBUG = env('SQL_DEBUG', cast=bool, default=False)
 
 CACHES = {
-    'default': env.cache_url(default='locmemcache://default'),
+    'default': env.cache_url('REDIS_URL', default='locmemcache://default'),
 }
 
 CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
