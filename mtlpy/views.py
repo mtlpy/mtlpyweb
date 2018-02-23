@@ -6,14 +6,12 @@ import pytz
 
 from urllib.parse import urlparse
 
-from django import forms
-from django.utils.translation import get_language, gettext_lazy as _
+from django.utils.translation import get_language
 from django.shortcuts import (render, get_object_or_404)
 
 from django.urls import reverse
 from django.conf import settings
 
-from django.core.mail import send_mail
 from django.core.urlresolvers import resolve
 
 from django.db.models import Q
@@ -25,12 +23,6 @@ from mtlpy.api.videos import get_all_videos
 from mtlpy.models import Sponsor
 
 log = logging.getLogger(__name__)
-
-
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    message = forms.CharField()
-    email = forms.EmailField()
 
 
 def home_page(request):
@@ -86,30 +78,6 @@ def change_locale(request, language):
         )
 
     return HttpResponseRedirect(redirect_to)
-
-
-def contact(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            message = form.cleaned_data['message']
-            sender = form.cleaned_data['email']
-            recipients = settings.CONTACT_EMAILS
-            message = _('From: %(name)s\n\nMessage: %(message)s') % {
-                'name': name,
-                'message': message,
-            }
-            subject = _('Message from MontrealPython.org contact form')
-            send_mail(subject, message, sender, recipients)
-    else:
-        form = ContactForm()
-
-    return render(request, "contact.html", {
-        'form': form,
-        'contact_email': settings.CONTACT_EMAILS[0],
-    })
 
 
 def styleguide(request):
