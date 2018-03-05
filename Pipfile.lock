@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2ce2e32bee6d6cfed5739ebdd2f2c80728da34657725efe53622d0d9f5d29ef4"
+            "sha256": "55be3023a013ae41e6b5f0fbc728ed528b1dff42a15a6272d5183782992a45e2"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -93,16 +93,16 @@
         },
         "django-pagination-bootstrap": {
             "hashes": [
-                "sha256:176a2f946119408fad0535aaf3932a7576c114a43153a6c43a0a8857856eaeba"
+                "sha256:dccba60da2e19e441b32d8cd910c1e5d07f043a4fe9d6eb0eb79090e34b21262"
             ],
-            "version": "==1.2.4"
+            "version": "==1.0.9"
         },
         "django-redis": {
             "hashes": [
-                "sha256:9660332cf9de5689a7ebbe0c623c4a0de79e0916a6ae867b5d0b94759bba46c9",
-                "sha256:5229da5b07ccb8d3e3e9ee098c0b7c03e20eba48634bc456697dd73d62c68b19"
+                "sha256:a90343c33a816073b735f0bed878eaeec4f83b75fcc0dce2432189b8ea130424",
+                "sha256:15b47faef6aefaa3f47135a2aeb67372da300e4a4cf06809c66ab392686a2155"
             ],
-            "version": "==4.8.0"
+            "version": "==4.9.0"
         },
         "django-slackin-public": {
             "hashes": [
