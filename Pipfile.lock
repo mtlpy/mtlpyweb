@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "56993ce84048eff09d4dde97b44656a29d6fbb2383dc8f8d2344659a02f6775c"
+            "sha256": "f12d6137af6f622aa834ae5a428585295c57e09d318149bc587249c26b7ab722"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -44,11 +44,11 @@
         },
         "bugsnag": {
             "hashes": [
-                "sha256:6833dcd417b801dbf033daa0194d9a0837719c4e6849c4430fea107ab195a189",
-                "sha256:3b05d4550540df0a12ffc66a5a5f37e1d66c05e54e6f5a80b55d118d049eec24",
-                "sha256:a779adf856b9aef8eaac24e504bd0c4be019d9bdeed509250283086148a3607b"
+                "sha256:e65e5c5dd74d3d6a8d06ff4e7b056669a3f3dc84a5774e84d38e6544dd151a5f",
+                "sha256:da86b1bd3b7f26aeb371648a3d35bddffdb35631cc4b35138ae0c655b5ff0e9f",
+                "sha256:e08757e60c73fc1d126614d2823a9af22710c559dafdbc471715f1059d158dca"
             ],
-            "version": "==3.4.1"
+            "version": "==3.4.2"
         },
         "certifi": {
             "hashes": [
@@ -106,10 +106,10 @@
         },
         "django-slackin-public": {
             "hashes": [
-                "sha256:e2cfca9177e6fb1465b906d60100a034c1c32fcfb77dc173a7d3b853d8651dca",
-                "sha256:d223d64bb1f7b8bc4625232c9d21a38f4f2c329fb8138a5c59141032d12eac79"
+                "sha256:a37758fa80b0ade057e2f8ebe0f3ff98ecaebc6a39bff43e3479817b73c67932",
+                "sha256:910789784d7e4eef35840d62c83625da4541cbbb45693d964f07d6a30ffe6195"
             ],
-            "version": "==0.0.3"
+            "version": "==0.1.0"
         },
         "django-storages": {
             "hashes": [
@@ -117,13 +117,6 @@
                 "sha256:60fe20cbf31eeda4e6065039646b6abecc45d6cc41246dd198c477031d848ffa"
             ],
             "version": "==1.5.2"
-        },
-        "futures": {
-            "hashes": [
-                "sha256:c4884a65654a7c45435063e14ae85280eb1f111d94e542396717ba9828c4337f",
-                "sha256:51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"
-            ],
-            "version": "==3.1.1"
         },
         "google-api-python-client": {
             "hashes": [
@@ -313,6 +306,12 @@
             ],
             "version": "==1.11.0"
         },
+        "slackclient": {
+            "hashes": [
+                "sha256:146f5b1b7f4761fc8da8ac102c0f1fdc6f00a458c0b8349e156f93f7fef817f7"
+            ],
+            "version": "==1.1.3"
+        },
         "sorl-thumbnail": {
             "hashes": [
                 "sha256:bb277dc98daa07e892d429b73eed749411f7eff1ee6feef142a19e029582e8cd",
@@ -355,6 +354,13 @@
                 "sha256:8d10af182fda4b92193113ee1edeb687ab9dc44336b37d6804e413f0240d40d9"
             ],
             "version": "==1.7.4"
+        },
+        "websocket-client": {
+            "hashes": [
+                "sha256:188b68b14fdb2d8eb1a111f21b9ffd2dbf1dbc4e4c1d28cf2c37cdbf1dd1cae6",
+                "sha256:a453dc4dfa6e0db3d8fd7738a308a88effe6240c59f3226eb93e8f020c216149"
+            ],
+            "version": "==0.47.0"
         }
     },
     "develop": {
