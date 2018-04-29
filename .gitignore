@@ -11,6 +11,7 @@
 .ropeproject/
 .sass-cache/
 .vscode/
+.ruby-version
 
 bin/*
 data/
