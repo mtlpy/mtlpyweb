@@ -5,6 +5,24 @@ up:
   - pipfile
   - docker-compose  # Not working yet
 
+  # Dad doesn't support Ruby yet. The following tasks are a partial implementation of it:
+  - custom:
+      name: Install Ruby version
+      met?: rbenv versions | grep -q 2.2.10
+      meet: rbenv install 2.2.10
+  - custom:
+      name: Set local Ruby version
+      met?: rbenv version | grep -q 2.2.10
+      meet: rbenv local 2.2.10
+  - custom:
+      name: Install Bundler
+      met?: gem list bundler | grep -q bundler
+      meet: gem install bundler
+  - custom:
+      name: Install Ruby dependencies
+      met?:
+      meet: bundler install
+
 commands:
   test:
     run: python manage.py test
@@ -18,3 +36,6 @@ commands:
     run: python manage.py migrate
   db-seed:
     run: python manage.py loaddata fixtures/00{1,2,3,4}_*.json
+
+  css:
+    run: bin/compass compile
