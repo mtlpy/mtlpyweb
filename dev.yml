@@ -4,6 +4,10 @@ up:
   - python: 3.6.4
   - pipfile
   - docker-compose  # Not working yet
+  - custom:
+      name: Install SASSC
+      met?: which sassc
+      meet: brew install sassc
 
 commands:
   test:
@@ -18,3 +22,6 @@ commands:
     run: python manage.py migrate
   db-seed:
     run: python manage.py loaddata fixtures/00{1,2,3,4}_*.json
+
+  css:
+    run: sassc mtlpy/static/css/style.scss mtlpy/static/css/style.css --style compact
