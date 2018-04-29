@@ -6,10 +6,9 @@ import pytz
 
 from urllib.parse import urlparse
 
-from django.utils.translation import get_language
 from django.shortcuts import (render, get_object_or_404)
 
-from django.urls import reverse
+from django.urls import exceptions, reverse
 from django.conf import settings
 
 from django.core.urlresolvers import resolve
@@ -41,6 +40,15 @@ def home_page(request):
     return render(request, 'index.html', ctx)
 
 
+def get_resolved_path_from_referer(request):
+    referer = request.META.get('HTTP_REFERER')
+    if referer:
+        try:
+            return resolve(urlparse(referer).path)
+        except exceptions.Resolver404:
+            pass
+
+
 def change_locale(request, language):
     """
     Change the language of the current user to <language> and redirect
@@ -54,28 +62,22 @@ def change_locale(request, language):
 
     :param request: The HttpRequest object of the view
     :param language: the languge code to switch to
-    :param redirect_to: url the user is gonna be redirected (default None)
     :return: HttpResponseRedirect
     """
     resolved_path = None
 
     redirect_to = request.GET.get('redirect_to')
-
     if redirect_to is None:
-        current_language = get_language()
-        redirect_to = request.META.get('HTTP_REFERER', f"/{current_language}/")
-        path = urlparse(redirect_to).path
-        resolved_path = resolve(path)
+        resolved_path = get_resolved_path_from_referer(request)
 
     translation.activate(language)
     request.session[translation.LANGUAGE_SESSION_KEY] = language
 
     if resolved_path:
-        redirect_to = reverse(
-            resolved_path.view_name,
-            args=resolved_path.args,
-            kwargs=resolved_path.kwargs,
-        )
+        redirect_to = reverse(resolved_path.view_name, args=resolved_path.args, kwargs=resolved_path.kwargs)
+
+    if redirect_to is None:
+        redirect_to = f'/{language}/'
 
     return HttpResponseRedirect(redirect_to)
 
