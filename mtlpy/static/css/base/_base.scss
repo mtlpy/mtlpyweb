@@ -124,8 +124,8 @@ body {
     max-width: $articlebox-width;
     margin: 20px auto;
     text-align: right;
-    
+
     > ul {
-        @include box-shadow(1px 1px 1px gray);
+        box-shadow: 1px 1px 1px gray;
     }
 }
