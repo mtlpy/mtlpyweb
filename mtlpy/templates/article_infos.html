@@ -27,30 +27,26 @@
             {% endif %}
         </div>
 
-	{% if article.event_sponsors.count %}
+    {% if article.event_sponsors.count %}
         <div class="sidebar-body">
             <div class="sidebar-body-title">{% trans "Sponsors :" %}</div>
-	    {% for e_sponsor in article.event_sponsors.all %}
+        {% for e_sponsor in article.event_sponsors.all %}
             {% thumbnail e_sponsor.sponsor.logo "160x140" as im %}
             <a class="sidebar-sponsor" target="_blank" href="{{ e_sponsor.sponsor.url }}">
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ e_sponsor.sponsor.name }}" />
             </a>
             {% endthumbnail %}
-	    {% endfor %}
+        {% endfor %}
         </div>
-	{% endif %}
+    {% endif %}
 
         <div class="sidebar-social">
           <div class="sidebar-body-title">{% trans "Share :" %}</div><br />
+          <!-- Tweet button -->
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="mtlpy" data-lang="{% if LANGUAGE_CODE == 'fr' %}fr{% else %}en{% endif %}">Tweeter</a>
 
-	  <!-- Facebook like -->{# FIXME use build_absolute_uri or Site.domain #}
-	  <div class="fb-like" data-href="http://montrealpython.org{{ request.path }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-
-	  <!-- Tweet button -->
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-via="mtlpy" data-lang="{% if LANGUAGE_CODE == 'fr' %}fr{% else %}en{% endif %}">Tweeter</a>
-
-	  <!-- Tweet button -->
-	  <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="265"></div>
+          <!-- Tweet button -->
+          <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="265"></div>
         </div>
     </div>
 </div>
