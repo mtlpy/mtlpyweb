@@ -24,4 +24,4 @@ commands:
     run: python manage.py loaddata fixtures/00{1,2,3,4}_*.json
 
   css:
-    run: sassc mtlpy/static/css/style.scss mtlpy/static/css/style.css --style compact
+    run: sassc mtlpy/static/css/style.scss mtlpy/static/css/style.css --style expanded
