@@ -6,7 +6,7 @@
 
 
 .friend {
-    @include box-sizing( border-box );
+    box-sizing: border-box;
     display: table-cell;
     vertical-align: middle;
     height: 150px;
