@@ -1,6 +1,8 @@
 {% load i18n %}
 {% load thumbnail %}
 {% load gravatar_helper %}
+{% load staticfiles %}
+
 
 <div class="span4">
 
@@ -27,30 +29,59 @@
             {% endif %}
         </div>
 
-	{% if article.event_sponsors.count %}
+    {% if article.event_sponsors.count %}
         <div class="sidebar-body">
             <div class="sidebar-body-title">{% trans "Sponsors :" %}</div>
-	    {% for e_sponsor in article.event_sponsors.all %}
+        {% for e_sponsor in article.event_sponsors.all %}
             {% thumbnail e_sponsor.sponsor.logo "160x140" as im %}
             <a class="sidebar-sponsor" target="_blank" href="{{ e_sponsor.sponsor.url }}">
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt="{{ e_sponsor.sponsor.name }}" />
             </a>
             {% endthumbnail %}
-	    {% endfor %}
+        {% endfor %}
         </div>
-	{% endif %}
+    {% endif %}
 
-        <div class="sidebar-social">
+        <div class="sidebar-social"  >
           <div class="sidebar-body-title">{% trans "Share :" %}</div><br />
-
-	  <!-- Facebook like -->{# FIXME use build_absolute_uri or Site.domain #}
-	  <div class="fb-like" data-href="http://montrealpython.org{{ request.path }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-
-	  <!-- Tweet button -->
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-via="mtlpy" data-lang="{% if LANGUAGE_CODE == 'fr' %}fr{% else %}en{% endif %}">Tweeter</a>
-
-	  <!-- Tweet button -->
-	  <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="265"></div>
+          <ul class="share-buttons">
+            <li>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri | urlencode }}&quote={{ article.title|striptags|urlencode }}"
+                target="_blank" title="Share on Facebook">
+                <img alt="Share on Facebook" src="{% static 'img/share-buttons/inverted/Facebook.png' %}" />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/intent/tweet?source={{ request.build_absolute_uri | urlencode }}&text={{ article.title|striptags|urlencode }}%20{{ request.build_absolute_uri | urlencode }}&via=mtlpy"
+                target="_blank" title="Tweet">
+                <img alt="Tweet" src="{% static 'img/share-buttons/inverted/Twitter.png' %}" />
+              </a>
+            </li>
+            <li>
+              <a href="https://plus.google.com/share?url={{ request.build_absolute_uri | urlencode }}"
+                target="_blank" title="Share on Google+">
+                <img alt="Share on Google+" src="{% static 'img/share-buttons/inverted/Google+.png' %}" />
+              </a>
+            </li>
+            <li>
+              <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri | urlencode }}&title={{ article.title|striptags|urlencode }}"
+                target="_blank" title="Submit to Reddit">
+                <img alt="Submit to Reddit" src="{% static 'img/share-buttons/inverted/Reddit.png' %}" />
+              </a>
+            </li>
+            <li>
+              <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri | urlencode }}&title={{ article.title|striptags|urlencode }}&summary=&source={{ request.build_absolute_uri | urlencode }}"
+                target="_blank" title="Share on LinkedIn">
+                <img alt="Share on LinkedIn" src="{% static 'img/share-buttons/inverted/LinkedIn.png' %}" />
+              </a>
+            </li>
+            <li>
+              <a href="mailto:?subject={{ article.title|striptags|urlencode }}&body={{ article.title|striptags|urlencode }}%20{{ request.build_absolute_uri | urlencode }}"
+                target="_blank" title="Send email">
+                <img alt="Send email" src="{% static 'img/share-buttons/inverted/Email.png' %}" />
+              </a>
+            </li>
+          </ul>
         </div>
     </div>
 </div>
