@@ -46,13 +46,13 @@
           <div class="sidebar-body-title">{% trans "Share :" %}</div><br />
           <ul class="share-buttons">
             <li>
-              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri | urlencode }}&quote={{ article.title|striptags|urlencode }}"
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri | urlencode }}&amp;quote={{ article.title|striptags|urlencode }}"
                 target="_blank" title="Share on Facebook">
                 <img alt="Share on Facebook" src="{% static 'img/share-buttons/inverted/Facebook.png' %}" />
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/intent/tweet?source={{ request.build_absolute_uri | urlencode }}&text={{ article.title|striptags|urlencode }}%20{{ request.build_absolute_uri | urlencode }}&via=mtlpy"
+              <a href="https://twitter.com/intent/tweet?source={{ request.build_absolute_uri | urlencode }}&amp;text={{ article.title|striptags|urlencode }}%20{{ request.build_absolute_uri | urlencode }}&amp;via=mtlpy"
                 target="_blank" title="Tweet">
                 <img alt="Tweet" src="{% static 'img/share-buttons/inverted/Twitter.png' %}" />
               </a>
@@ -64,19 +64,19 @@
               </a>
             </li>
             <li>
-              <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri | urlencode }}&title={{ article.title|striptags|urlencode }}"
+              <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri | urlencode }}&amp;title={{ article.title|striptags|urlencode }}"
                 target="_blank" title="Submit to Reddit">
                 <img alt="Submit to Reddit" src="{% static 'img/share-buttons/inverted/Reddit.png' %}" />
               </a>
             </li>
             <li>
-              <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri | urlencode }}&title={{ article.title|striptags|urlencode }}&summary=&source={{ request.build_absolute_uri | urlencode }}"
+              <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ request.build_absolute_uri | urlencode }}&amp;title={{ article.title|striptags|urlencode }}&amp;summary=&amp;source={{ request.build_absolute_uri | urlencode }}"
                 target="_blank" title="Share on LinkedIn">
                 <img alt="Share on LinkedIn" src="{% static 'img/share-buttons/inverted/LinkedIn.png' %}" />
               </a>
             </li>
             <li>
-              <a href="mailto:?subject={{ article.title|striptags|urlencode }}&body={{ article.title|striptags|urlencode }}%20{{ request.build_absolute_uri | urlencode }}"
+              <a href="mailto:?subject={{ article.title|striptags|urlencode }}&amp;body={{ article.title|striptags|urlencode }}%20{{ request.build_absolute_uri | urlencode }}"
                 target="_blank" title="Send email">
                 <img alt="Send email" src="{% static 'img/share-buttons/inverted/Email.png' %}" />
               </a>
