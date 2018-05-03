@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^blog/transfer_tool/$', mtlpy.blog.views.transfer_posts_tool,
         name='transfer_tool'),
-    url(r'^debug$', mtlpy.views.debug, name='debug'),
+    # url(r'^debug$', mtlpy.views.debug, name='debug'),
     media(),
 ]
 
