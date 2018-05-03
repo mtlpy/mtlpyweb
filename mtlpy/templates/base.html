@@ -98,13 +98,8 @@
             {% endblock page %}
         </div>
 
-        {# jQuery #}
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write("<script src='{% static 'js/jquery-1.9.1.min.js' %}'><\/script>");</script>
-
-        {# Bootstrap #}
-        <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-        <script>jQuery.fn.scrollspy || document.write("<script src='{% static 'js/bootstrap.min.js' %}'><\/script>");</script>
+        <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap-2.3.2.min.js' %}"></script>
 
         {% block extra_script %}{% endblock %}
     </body>
