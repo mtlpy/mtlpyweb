@@ -17,7 +17,7 @@ $sidebar-socialbutton-height: $articlebox-object-avatar-size - 12px;
     @extend .articlebox-date;
     top: calc(72px / -2);
     left: 50%;
-    
+
     margin-left: calc(62px / -2);
 }
 
@@ -45,7 +45,7 @@ $sidebar-socialbutton-height: $articlebox-object-avatar-size - 12px;
 }
 
 .sidebar-social {
-    margin: 25px 0;
+    margin-top: 25px;
 }
 
 .sidebar-socialbutton {
@@ -55,7 +55,7 @@ $sidebar-socialbutton-height: $articlebox-object-avatar-size - 12px;
     display: inline-block;
     border-radius: 50%;
     text-align: center;
-    
+
     background-color: #1d1d1d;
     margin-right: 10px;
 
