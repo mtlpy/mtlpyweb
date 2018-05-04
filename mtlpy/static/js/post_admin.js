@@ -23,15 +23,14 @@ function ContentArea(area) {
     }
 
     this.updatePreview = function() {
-        console.log(this.toHTML());
-        $("#" + this.previewId()).html(this.toHTML());
+        var preview = document.getElementById(this.previewId());
+        preview.innerHTML(this.toHTML())
     }
 }
 
 
 django.jQuery(function() {
-    $ = django.jQuery;
-    content = $('.vLargeTextField[name^="content_"]');
+    var content = document.querySelector('.vLargeTextField[name^="content_"]');
 
     content.each(
         function(i, areaDom) {
