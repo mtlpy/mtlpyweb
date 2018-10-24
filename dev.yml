@@ -3,11 +3,7 @@
 up:
   - python: 3.6.4
   - pipfile
-  - docker-compose  # Not working yet
-  - custom:
-      name: Install SASSC
-      met?: which sassc > /dev/null
-      meet: brew install sassc
+  - homebrew: [sassc]
   - custom:
       name: Create the .env file
       met?: test -e .env
@@ -15,6 +11,7 @@ up:
 
 commands:
   test:
+    desc: Run the tests with Django runner
     run: python manage.py test
   lint:
     run: flake8
