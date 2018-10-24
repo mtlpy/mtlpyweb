@@ -1,18 +1,15 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 "oauth2client" = "==3.0.0"
 arrow = "*"
 boto = "==2.46.1"
 bugsnag = "*"
 dj-static = "==0.0.6"
-django = "==1.11.7"
+django = "==1.11.15"
 django-environ = "*"
 django-extensions = "==1.9.8"
 django-pagination-bootstrap = "~= 1.0.0"
@@ -29,13 +26,9 @@ python-dateutil = "*"
 django-slackin-public = "*"
 django-redis = "*"
 
-
 [dev-packages]
-
 pylint = "< 1.7"
 "flake8" = "*"
 
-
 [requires]
-
 python_version = "3.6.4"
