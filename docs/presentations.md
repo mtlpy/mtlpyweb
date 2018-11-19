@@ -37,7 +37,7 @@ Please message one of the organizers on [Meetup.com](https://www.meetup.com/Mont
 
 ## On the Night
 
-Before you present, please ensure you have completed the tasks in the [Presenters Checklist](../checklists/presenters.md). These tasks will ensure your presentation goes smoothly - and who doesn't want that!
+Before you present, please ensure you have completed the tasks in the [Presenters Checklist](checklists/presenters.md). These tasks will ensure your presentation goes smoothly - and who doesn't want that!
 
 ## Recording your presentation
 
