@@ -49,16 +49,26 @@ Would you like to present, but need a topic? Here are some suggestions:
 
 ### Python Language
 
-- [ ] New Python release.
+- [ ] New Python release
 - [ ] Latest proposed or approved PEP
 - [ ] Python typing and mypy
 - [ ] Performance and optimization
-- [ ] Python runtime and implementations (pypy, jython, ironpython, etc.)
+- [ ] Python runtime and implementation (pypy, jython, ironpython, etc.)
 - [ ] How to package your application?
 
 ### Python and Data Science
 
+- [ ] Python for Machine Learning
+- [ ] Jupyther Notebook plugins
+- [ ] Python Visualisation Library
+- [ ] Python for GIS analytics
+
 ### Python and web development
+
+- [ ] Python web framework
+- [ ] Asynchronous programming
+- [ ] Rest and GraphQL Api
+
 
 ## Presentation Support
 
