@@ -118,6 +118,8 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = env('SECRET_KEY')
 
+SECURE_SSL_REDIRECT = True
+
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
     'DIRS': [os.path.join(BASE_DIR, 'templates')],
@@ -140,6 +142,7 @@ TEMPLATES = [{
 
 MIDDLEWARE_CLASSES = (
     'bugsnag.django.middleware.BugsnagMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -165,6 +168,7 @@ INSTALLED_APPS = (
     'storages',
     'pagination_bootstrap',
     'django_slackin_public',
+
     # local apps
     'mtlpy.blog',
     'mtlpy',
