@@ -35,6 +35,9 @@ DATABASES = {
     'default': env.db(),
 }
 
+# Store sessions in cache (redis) rather than in DB
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = env('ALLOWED_HOSTS', cast=list, default=[
