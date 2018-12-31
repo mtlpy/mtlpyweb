@@ -80,3 +80,9 @@ We're here to help! Presenting in front of a group can be a nerve-racking experi
 * being available for dry-runs
 
 Just let us know!
+
+## License
+
+Based on a work at https://github.com/montrealelixir/playbook.
+
+Montreal Elixir Playbook by [Montreal Elixir](http://www.montrealelixir.ca) is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
