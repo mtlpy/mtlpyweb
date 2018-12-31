@@ -12,6 +12,8 @@ from django.contrib import admin
 
 
 urlpatterns = [
+    url(r'^robots\.txt$', mtlpy.views.robotstxt, name='robots.txt'),
+
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^blog/transfer_tool/$', mtlpy.blog.views.transfer_posts_tool,
         name='transfer_tool'),

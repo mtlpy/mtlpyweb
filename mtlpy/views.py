@@ -14,7 +14,7 @@ from django.conf import settings
 from django.core.urlresolvers import resolve
 
 from django.db.models import Q
-from django.http import JsonResponse, HttpResponseRedirect
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.utils import translation
 
 from mtlpy.blog.models import Post
@@ -118,3 +118,14 @@ def debug(request):
         'process': {'startup_time': debug_startup_time},
     }
     return JsonResponse(response)
+
+
+ROBOTS_TXT = """
+User-agent: AhrefsBot
+
+Disallow: /
+"""
+
+
+def robotstxt(request):
+    return HttpResponse(ROBOTS_TXT, content_type="text/plain")
