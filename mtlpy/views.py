@@ -122,7 +122,12 @@ def debug(request):
 
 ROBOTS_TXT = """
 User-agent: AhrefsBot
+Disallow: /
 
+User-agent: dotbot
+Disallow: /
+
+User-agent: SemrushBot
 Disallow: /
 """
 
