@@ -37,3 +37,8 @@ class IntegrationTestCase(TestCase):
     def test_sponsorship(self):
         resp = self.client.get('/en/sponsorship/')
         self.assertEqual(resp.status_code, 200)
+
+    def test_robotstxt(self):
+        resp = self.client.get('/robots.txt')
+        self.assertContains(resp, "User-agent: AhrefsBot")
+        self.assertContains(resp, "Disallow: /")
