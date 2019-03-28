@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load pagination_tags %}
 
 {% block main_title %}
   {% if category %}
@@ -20,9 +19,7 @@
 
 {% block content %}
 
-  {% autopaginate posts %}
-
   {% include "inc/article_list.html" %}
-  {% paginate_bs2 %}
+  {% include "partials/pagination.html" %}
 
 {% endblock %}
