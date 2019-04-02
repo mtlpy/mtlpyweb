@@ -1,21 +1,51 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
+from django.utils.functional import cached_property
+from django.views.generic import ListView
 
 from .models import Post, Category
 from .forms import CatTransferForm
 
 
-def category(request, slug=None):
-    if slug:
-        instance = get_object_or_404(Category, slug=slug)
-        all_posts = Post.published_objects.filter(category=instance)
-    else:
-        instance = None
-        all_posts = Post.published_objects.all()
+class PostListView(ListView):
+    context_object_name = 'posts'
+    paginate_by = 10
+    queryset = Post.published_objects.all()
+    template_name = 'category.html'
 
-    ctx = {'category': instance, 'posts': all_posts}
-    return render(request, 'category.html', ctx)
+    @cached_property
+    def category(self):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Category, slug=slug) if slug else None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.category
+        return context
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(category=self.category) if self.category else qs
+
+
+class UserPostListView(ListView):
+    context_object_name = 'posts'
+    paginate_by = 10
+    queryset = Post.published_objects.all()
+    template_name = 'category.html'
+
+    @cached_property
+    def user(self):
+        return get_object_or_404(User, id=self.kwargs['userid'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author'] = self.user
+        return context
+
+    def get_queryset(self):
+        return super().get_queryset().filter(author=self.user)
 
 
 def post(request, year, month, slug):
@@ -23,14 +53,6 @@ def post(request, year, month, slug):
                                 publish__month=month, slug=slug)
     ctx = {'article': article}
     return render(request, 'article.html', ctx)
-
-
-def user_posts(request, userid):
-    user = get_object_or_404(User, id=userid)
-    all_posts = Post.objects.filter(author=user, publish__isnull=False)
-
-    ctx = {'author': user, 'posts': all_posts}
-    return render(request, 'category.html', ctx)
 
 
 @staff_member_required

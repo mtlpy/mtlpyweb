@@ -152,7 +152,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'pagination_bootstrap.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'mtlpy.urls'
@@ -169,7 +168,6 @@ INSTALLED_APPS = (
     'django_extensions',
     'sorl.thumbnail',
     'storages',
-    'pagination_bootstrap',
     'django_slackin_public',
 
     # local apps
@@ -218,9 +216,6 @@ LOGGING = {
 }
 
 YOUTUBE_API_KEY = env('YOUTUBE_API_KEY', default='')
-
-PAGINATION_INVALID_PAGE_RAISES_404 = True
-PAGINATION_DEFAULT_PAGINATION = 10
 
 GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS', default='')
 
