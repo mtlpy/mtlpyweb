@@ -40,7 +40,7 @@ urlpatterns += i18n_patterns(
     url(r'^feed/$', BlogEntriesFeed(), name="feed"),
     url(r'^change_locale/(?P<language>\w{2})/$', mtlpy.views.change_locale,
         name='change_locale'),
-    url(r'^admin/?', include(admin.site.urls)),
+    url(r'^admin/?', admin.site.urls),
 
     # Flatpages must be evaluated after all others since 404 will be raised if not found
     url(r'^(?P<url>.*)$', mtlpy.pages.views.i18n_flatpage, name='flatpage'),

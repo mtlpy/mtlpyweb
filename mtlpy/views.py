@@ -8,10 +8,8 @@ from urllib.parse import urlparse
 
 from django.shortcuts import (render, get_object_or_404)
 
-from django.urls import exceptions, reverse
+from django.urls import exceptions, resolve, reverse
 from django.conf import settings
-
-from django.core.urlresolvers import resolve
 
 from django.db.models import Q
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse

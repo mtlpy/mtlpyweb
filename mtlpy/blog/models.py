@@ -2,9 +2,9 @@ import datetime
 from markdown import Markdown
 
 from django.core.exceptions import ValidationError
-from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse_lazy
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 
@@ -36,8 +36,8 @@ class Post(models.Model):
     status = models.IntegerField(choices=PUBLISH_CHOICES, default=2)
     logo = models.ImageField(upload_to='post', null=True, blank=True)
 
-    author = models.ForeignKey(User)
-    category = models.ForeignKey('Category', related_name='posts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', related_name='posts', on_delete=models.CASCADE)
 
     objects = models.Manager()
     published_objects = PublishedManager()
@@ -98,7 +98,7 @@ class Video(models.Model):
 
     code = models.CharField(max_length=15)
 
-    post = models.ForeignKey(Post, related_name="videos")
+    post = models.ForeignKey(Post, related_name="videos", on_delete=models.CASCADE)
 
     title_en = models.CharField(max_length=64)
     title_fr = models.CharField(max_length=64)

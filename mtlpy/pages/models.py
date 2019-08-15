@@ -18,6 +18,7 @@ class I18NFlatPage(FlatPage):
         null=True,
         blank=True,
         help_text='',
+        on_delete=models.CASCADE,
     )
 
     listed = models.BooleanField(
