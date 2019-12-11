@@ -1,12 +1,14 @@
-version: '2'
+version: "3.7"
+
 services:
   db:
-    image: mysql:5.7
+    image: postgres:9.4
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    restart: always
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: '1'
-      MYSQL_DATABASE: mtlpy
+      POSTGRES_DB: mtlpy
+      POSTGRES_USER: mtlpy
+      POSTGRES_PASSWORD: mtlpy
     ports:
-      - "3307:3306"
-    expose:
-      - "3307"
-    command: --default-authentication-plugin=mysql_native_password
+      - "5432:5432"
