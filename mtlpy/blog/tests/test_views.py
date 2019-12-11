@@ -125,3 +125,7 @@ class BlogIntegrationTestCase(TestCase):
     def test_user_posts(self):
         resp = self.client.get(f"/en/user/{self.user.id}/")
         self.assertEqual(resp.status_code, 200)
+
+    def test_feed(self):
+        resp = self.client.get(f"/en/feed/")
+        self.assertEqual(resp.status_code, 200)

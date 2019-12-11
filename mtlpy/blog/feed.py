@@ -27,6 +27,6 @@ class BlogEntriesFeed(Feed):
     # method.
     def item_link(self, item):
         return reverse_lazy('blog_detail', kwargs={
-            'year': item.publish.year,
+            'year': item.publish.strftime('%Y'),
             'month': item.publish.strftime('%m').lower(),
             'slug': item.slug})
