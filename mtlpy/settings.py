@@ -26,11 +26,8 @@ CACHES = {
 
 CONTACT_EMAILS = ['mtlpyteam@googlegroups.com']
 
-if 'CLEARDB_DATABASE_URL' in os.environ:
-    os.environ['DATABASE_URL'] = os.environ['CLEARDB_DATABASE_URL']
-
 DATABASES = {
-    'default': env.db(),
+    'default': env.db(default='postgres://mtlpy:mtlpy@127.0.0.1/mtlpy'),
 }
 
 # Store sessions in cache (redis) rather than in DB
