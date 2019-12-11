@@ -24,6 +24,7 @@ sorl-thumbnail = "==12.3"
 python-dateutil = "*"
 django-slackin-public = "*"
 django-redis = "*"
+slackclient = "<2.0"
 
 [dev-packages]
 pylint = "< 1.7"
