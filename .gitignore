@@ -14,6 +14,7 @@
 
 bin/*
 data/
+tmp/
 
 env.sh
 env/
