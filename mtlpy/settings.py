@@ -7,8 +7,6 @@ import os
 from os.path import join, dirname, abspath
 
 import environ
-import pymysql
-pymysql.install_as_MySQLdb()
 
 
 env = environ.Env()
@@ -143,7 +141,7 @@ TEMPLATES = [{
     },
 }]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'bugsnag.django.middleware.BugsnagMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',

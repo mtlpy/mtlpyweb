@@ -47,8 +47,8 @@ class Sponsor(models.Model):
 
 
 class EventSponsor(models.Model):
-    post = models.ForeignKey(Post, null=True, related_name='event_sponsors')
-    sponsor = models.ForeignKey(Sponsor)
+    post = models.ForeignKey(Post, null=True, related_name='event_sponsors', on_delete=models.CASCADE)
+    sponsor = models.ForeignKey(Sponsor, on_delete=models.CASCADE)
     medal = models.CharField(max_length=8, choices=MEDAL_CHOICES)
 
     def __str__(self):
