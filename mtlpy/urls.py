@@ -1,5 +1,6 @@
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
+from django.views.decorators.cache import cache_page
 
 import mtlpy.views
 import mtlpy.blog.views
@@ -33,7 +34,7 @@ urlpatterns += i18n_patterns(
     url(r'^sponsor/(?P<slug>[-\w|\W]+)/$', mtlpy.views.sponsor_details,
         name='sponsor_details'),
     url(r'^styleguide', mtlpy.views.styleguide),
-    url(r'^videos/', mtlpy.views.videos, name='videos'),
+    url(r'^videos/', cache_page(15 * 60)(mtlpy.views.videos), name='videos'),
     url(r'^sponsorship/', mtlpy.views.sponsorship, name='sponsorship'),
     url(r'^slackin', include('django_slackin_public.urls')),
 
