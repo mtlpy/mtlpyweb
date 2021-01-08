@@ -58,12 +58,6 @@
               </a>
             </li>
             <li>
-              <a href="https://plus.google.com/share?url={{ request.build_absolute_uri | urlencode }}"
-                target="_blank" title="Share on Google+">
-                <img alt="Share on Google+" src="{% static 'img/share-buttons/inverted/Google+.png' %}" />
-              </a>
-            </li>
-            <li>
               <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri | urlencode }}&amp;title={{ article.title|striptags|urlencode }}"
                 target="_blank" title="Submit to Reddit">
                 <img alt="Submit to Reddit" src="{% static 'img/share-buttons/inverted/Reddit.png' %}" />
