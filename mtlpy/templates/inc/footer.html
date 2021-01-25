@@ -28,6 +28,12 @@
 
                 <li><a href="{% url 'videos' %}">{% trans "Videos" %}</a></li>
 
+                {% i18npage /calendar-2021/ %}
+                {% if found_page %}
+                    <li><a href="{{ found_page.get_absolute_url }}">{{ found_page.title }}</a></li>
+                {% endif %}
+                {% endi18npage %}
+
                 <hr>
                 <li><a href="/admin">Admin</a></li>
             </ul>
