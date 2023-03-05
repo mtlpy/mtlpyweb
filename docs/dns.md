@@ -1,5 +1,7 @@
 # DNS
 
+As of 2023-03-05, this info is obsolete. See the mp-docs repo for more up to date information on the Montréal-Python infrastructure.
+
 ## Setup
 
 Domains:
