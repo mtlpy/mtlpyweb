@@ -2,7 +2,8 @@ FROM python:3.10
 
 ENV PYTHONUNBUFFERED 1
 
-RUN pip install -U 'pip > 9' pipenv
+RUN pip install -U 'pip >= 22.0'
+RUN pip install -U 'pipenv >= 2023.2.18'
 
 ADD . /app
 WORKDIR /app
