@@ -27,3 +27,4 @@ mtlpy/media/
 .mypy_cache/
 .cache/
 .envrc
+.venv
